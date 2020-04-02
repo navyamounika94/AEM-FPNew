@@ -3,6 +3,8 @@
     <filter root="/conf/lexusdrivers" mode="merge"/>
     <filter root="/content/lexusdrivers" mode="merge"/>
     <filter root="/content/dam/lexusdrivers" mode="merge"/>
+    <filter root="/content/dam/lexus-drivers-archive" mode="merge"/>
+    <filter root="/content/dam/lexus-drivers-code-red" mode="merge"/>
     <filter root="/content/experience-fragments/lexusdrivers" mode="merge"/>
     <filter root="/content/cq:tags/lexusdrivers"/>
 </workspaceFilter>
