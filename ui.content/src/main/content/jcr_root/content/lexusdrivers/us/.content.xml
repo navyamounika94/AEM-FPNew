@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2020-02-19T15:25:36.371-05:00"
+        cq:lastModifiedBy="admin"
+        cq:lastRolledout="{Date}2020-02-19T15:25:36.375-05:00"
+        cq:lastRolledoutBy="admin"
+        cq:redirectTarget="/content/lexusdrivers/us/en"
+        cq:siteOwner="tmna-toyota-admin"
+        cq:template="/conf/lexusdrivers/settings/wcm/templates/content-page-template"
+        jcr:mixinTypes="[cq:LiveSync]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="USA"
+        sling:resourceType="foundation/components/redirect"
+        hideInNav="{Boolean}true">
+        <cq:LiveSyncConfig
+            cq:isDeep="{Boolean}false"
+            cq:master="/content/lexusdrivers/language-masters"
+            cq:rolloutConfigs="[]"
+            jcr:primaryType="cq:LiveCopy"/>
+    </jcr:content>
+    <en/>
+    <es/>
+</jcr:root>
