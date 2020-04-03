@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:lastModified="{Date}2020-03-08T15:24:57.885-07:00"
+    jcr:lastModifiedBy="admin"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        cq:conf=""
+        cq:lastModified="{Date}2020-04-02T16:33:24.349-07:00"
+        cq:lastModifiedBy="admin"
+        dam:noThumbnail="{Boolean}true"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Vehicles"
+        sourcing="false">
+        <folderThumbnail/>
+    </jcr:content>
+    <_x0032_022/>
+    <_x0032_019/>
+    <_x0032_020/>
+    <_x0032_021/>
+    <_x0032_018/>
+</jcr:root>
