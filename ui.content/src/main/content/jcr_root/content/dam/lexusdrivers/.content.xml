@@ -6,10 +6,5 @@
         jcr:title="Lexus Drivers">
         <folderThumbnail/>
     </jcr:content>
-    <miscellaneous/>
-    <logos/>
-    <swatches/>
-    <stock-imagery/>
-    <original-art/>
-    <vehicles/>
+    <asset.jpg/>
 </jcr:root>

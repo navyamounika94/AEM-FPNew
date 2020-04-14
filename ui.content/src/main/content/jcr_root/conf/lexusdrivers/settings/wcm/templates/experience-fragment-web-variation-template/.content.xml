@@ -4,6 +4,6 @@
     <jcr:content
         cq:templateType="/conf/lexusdrivers/settings/wcm/template-types/empty-experience-fragment"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Lexus Drivers Experience Fragment Web Variation Template"
+        jcr:title="Experience Fragment Web Variation Template"
         status="enabled"/>
 </jcr:root>

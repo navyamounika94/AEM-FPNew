@@ -107,12 +107,7 @@
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.tmna.adobe</groupId>
-            <artifactId>lexusdrivers.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
+       
 
         <dependency>
             <groupId>com.adobe.cq</groupId>

@@ -25,7 +25,8 @@
     <modules>
         <module>all</module>
         <module>core</module>
-        <module>ui.frontend</module>
+    <!--    <module>ui.frontend</module>-->
+        <module>ui.frontend.react</module>
         <module>ui.apps</module>
         <module>ui.content</module>
         <module>it.tests</module>
@@ -243,6 +244,59 @@
                     <artifactId>filevault-package-maven-plugin</artifactId>
                     <version>1.0.4</version>
                     <configuration>
+                        <group>${groupId}</group>
+                        <embeddeds>
+                            <embedded>
+                                <groupId>lexusdrivers</groupId>
+                                <artifactId>lexusdrivers.ui.apps</artifactId>
+                                <type>zip</type>
+                                <target>/apps/lexusdrivers-packages/application/install</target>
+                            </embedded>
+                            <embedded>
+                                <groupId>${groupId}</groupId>
+                                <artifactId>lexusdrivers.ui.content</artifactId>
+                                <type>zip</type>
+                                <target>/apps/lexusdrivers-packages/content/install</target>
+                            </embedded>
+                            #if ( $isSpaProject )
+                            <embedded>
+                                <groupId>com.adobe.aem</groupId>
+                                <artifactId>spa.project.core.core</artifactId>
+                                <target>/apps/lexusdrivers-vendor-packages/install</target>
+                            </embedded>
+                            #end
+                            #if ( $aemVersion != "cloud" )
+                            <embedded>
+                                <groupId>com.adobe.cq</groupId>
+                                <artifactId>core.wcm.components.content</artifactId>
+                                <type>zip</type>
+                                <target>/apps/lexusdrivers-vendor-packages/application/install</target>
+                            </embedded>
+                            <embedded>
+                                <groupId>com.adobe.cq</groupId>
+                                <artifactId>core.wcm.components.config</artifactId>
+                                <type>zip</type>
+                                <target>/apps/lexusdrivers-vendor-packages/application/install</target>
+                            </embedded>
+                            #end
+                            #if ( $includeExamples == "y" )
+                            <embedded>
+                                <groupId>com.adobe.cq</groupId>
+                                <artifactId>core.wcm.components.examples</artifactId>
+                                <type>zip</type>
+                                <target>/apps/lexusdrivers-vendor-packages/content/install</target>
+                            </embedded>
+                            #end
+                        </embeddeds>
+                        <subPackages>
+                            #if ( $isSpaProject )
+                            <subPackage>
+                                <groupId>com.adobe.aem</groupId>
+                                <artifactId>spa.project.core.all</artifactId>
+                                <filter>true</filter>
+                            </subPackage>
+                            #end
+                        </subPackages>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                         <failOnDependencyErrors>false</failOnDependencyErrors>
                     </configuration>
@@ -627,6 +681,7 @@
             </build>
         </profile>
 
+
         <profile>
             <id>analysis</id>
             <build>
@@ -820,6 +875,17 @@
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
+            <!-- SPA Core Dependencies -->
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>spa.project.core.all</artifactId>
+                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>spa.project.core.core</artifactId>
+            </dependency>
+
             <dependency>
                 <groupId>com.adobe.cq</groupId>
                 <artifactId>core.wcm.components.core</artifactId>
