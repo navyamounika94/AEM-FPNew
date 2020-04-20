@@ -77,3 +77,8 @@ buildNumber.properties
 
 ### Mac ###
 .DS_Store
+
+### Frontend React ###
+node/
+node_modules/
+build/
