@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2020-04-18T12:09:32.355+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2020-04-15T14:05:42.057+05:30"
+        cq:lastReplicatedBy="chenna"
+        cq:lastReplicationAction="Activate"
+        cq:template="/conf/lexusdrivers/settings/wcm/templates/base-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:uuid="a66f03ba-f698-4fbc-8fc3-a90db1ab16a7"
+        sling:resourceType="lexusdrivers/components/structure/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tmna-commons/components/content/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/lexusdrivers/language-masters/en/site/header/master"/>
+            <responsivegrid
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true"/>
+            <experiencefragment-footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="tmna-commons/components/content/experiencefragment"
+                fragmentVariationPath="/content/experience-fragments/lexusdrivers/language-masters/en/site/footer/master"/>
+            <custom_heading
+                jcr:created="{Date}2020-04-17T00:02:12.168+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2020-04-17T00:09:28.009+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="lexusdrivers/components/content/custom-heading"
+                heading="oijiijj"
+                headingColor="red-color"
+                headingType="h1"/>
+            <globalfooter
+                jcr:created="{Date}2020-04-17T16:19:30.666+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2020-04-18T12:09:32.333+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="lexusdrivers/components/content/globalfooter"
+                copyRightDesc="&lt;p>© 2006-2019 Lexus, a Division of Toyota Motor Sales, U.S.A., Inc. All information contained herein applies to U.S. vehicles only.&lt;/p>&#xd;&#xa;"
+                copyRightLink="http://www.toyota.com/recall"
+                copyRightText="Safety Recalls &amp; Service Campaigns"
+                headline="DO NOT SELL MY PERSONAL INFORMATION"
+                headlinePath="https://privacy.toyota.com/"
+                messagecheckbox="true"
+                textIsRich="true">
+                <footercolumns jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        footerColumnHeadline="ABOUT LEXUS">
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/about"
+                                linktitle="About"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/contact"
+                                linktitle="contact us"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/"
+                                linktitle="lexus.com"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item3
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/offers"
+                                linktitle="Your Lexus Dealer"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item4
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/privacy"
+                                linktitle="privacy"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item5
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/privacy/legal-terms"
+                                linktitle="legal"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                        </footerlinks>
+                    </item0>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        footerColumnHeadline="Finance &amp;amp; Leasing">
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="https://www.lexusfinancial.com"
+                                linktitle="End of Lease Options"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="https://www.lexusfinancial.com"
+                                linktitle="Lexus Financial Services"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="https://www.lexusfinancial.com/us/en/planning_tools/ways_to_pay.html"
+                                linktitle="Pay My Bill"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                        </footerlinks>
+                    </item1>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        footerColumnHeadline="Brand &amp;amp; Lifestyle">
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="https://see.lexus.com"
+                                linktitle="See Lexus"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.thelexuscollection.com"
+                                linktitle="Lexus Merchandise"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/lcertified"
+                                linktitle="L/Certified"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item3
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus-int.com/"
+                                linktitle="Lexus International"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item4
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/lexusplus"
+                                linktitle="Lexus Plus"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                        </footerlinks>
+                    </item2>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        footerColumnHeadline="Service">
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexus.com/service"
+                                linktitle="Service By Lexus"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linktargeturl="http://www.lexustirecenter.com/?utm_source"
+                                linktitle="Lexus Tire Center"
+                                openinnew="no"
+                                thirdpartyicon="no"/>
+                        </footerlinks>
+                    </item3>
+                </footercolumns>
+                <footercolumnsTwo jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        linkstitle="FAQ"
+                        linksUrl="http://lexus2.custhelp.com/"
+                        openinnew="no"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        linkstitle="FIND A LEXUS DEALER"
+                        linksUrl="/lexusdrivers/service/dealers"
+                        openinnew="no"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        linkstitle="CONTACT US"
+                        linksUrl="http://www.lexus.com/contact"
+                        openinnew="no"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        linkstitle="ACCESSIBILITY"
+                        linksUrl="http://www.lexus.com/accessibility"
+                        openinnew="no"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        linkstitle="California Privacy"
+                        linksUrl="https://www.lexus.com/privacy/online-statement#california-privacy"
+                        openinnew="no"/>
+                    <item5
+                        jcr:primaryType="nt:unstructured"
+                        linkstitle="Cookie Consent Options"
+                        openinnew="no"/>
+                </footercolumnsTwo>
+            </globalfooter>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

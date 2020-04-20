@@ -25,7 +25,7 @@
     <modules>
         <module>all</module>
         <module>core</module>
-    <!--    <module>ui.frontend</module>-->
+   <!--  <module>ui.frontend</module>-->
         <module>ui.frontend.react</module>
         <module>ui.apps</module>
         <module>ui.content</module>
@@ -44,7 +44,10 @@
         <vault.password>admin</vault.password>
         <core.wcm.components.version>2.7.0</core.wcm.components.version>
         <acs.commons.version>4.3.4</acs.commons.version>
+        <node.version>v10.16.0</node.version>
+        <npm.version>6.11.3</npm.version>
         <bnd.version>4.2.0</bnd.version>
+        <spa.project.core.version>1.0.6</spa.project.core.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -83,7 +86,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>[3.3.9,)</version>
+                                    <version>[3.3.*,)</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <message>Project must be compiled
@@ -244,59 +247,6 @@
                     <artifactId>filevault-package-maven-plugin</artifactId>
                     <version>1.0.4</version>
                     <configuration>
-                        <group>${groupId}</group>
-                        <embeddeds>
-                            <embedded>
-                                <groupId>lexusdrivers</groupId>
-                                <artifactId>lexusdrivers.ui.apps</artifactId>
-                                <type>zip</type>
-                                <target>/apps/lexusdrivers-packages/application/install</target>
-                            </embedded>
-                            <embedded>
-                                <groupId>${groupId}</groupId>
-                                <artifactId>lexusdrivers.ui.content</artifactId>
-                                <type>zip</type>
-                                <target>/apps/lexusdrivers-packages/content/install</target>
-                            </embedded>
-                            #if ( $isSpaProject )
-                            <embedded>
-                                <groupId>com.adobe.aem</groupId>
-                                <artifactId>spa.project.core.core</artifactId>
-                                <target>/apps/lexusdrivers-vendor-packages/install</target>
-                            </embedded>
-                            #end
-                            #if ( $aemVersion != "cloud" )
-                            <embedded>
-                                <groupId>com.adobe.cq</groupId>
-                                <artifactId>core.wcm.components.content</artifactId>
-                                <type>zip</type>
-                                <target>/apps/lexusdrivers-vendor-packages/application/install</target>
-                            </embedded>
-                            <embedded>
-                                <groupId>com.adobe.cq</groupId>
-                                <artifactId>core.wcm.components.config</artifactId>
-                                <type>zip</type>
-                                <target>/apps/lexusdrivers-vendor-packages/application/install</target>
-                            </embedded>
-                            #end
-                            #if ( $includeExamples == "y" )
-                            <embedded>
-                                <groupId>com.adobe.cq</groupId>
-                                <artifactId>core.wcm.components.examples</artifactId>
-                                <type>zip</type>
-                                <target>/apps/lexusdrivers-vendor-packages/content/install</target>
-                            </embedded>
-                            #end
-                        </embeddeds>
-                        <subPackages>
-                            #if ( $isSpaProject )
-                            <subPackage>
-                                <groupId>com.adobe.aem</groupId>
-                                <artifactId>spa.project.core.all</artifactId>
-                                <filter>true</filter>
-                            </subPackage>
-                            #end
-                        </subPackages>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                         <failOnDependencyErrors>false</failOnDependencyErrors>
                     </configuration>
@@ -875,34 +825,13 @@
                 <classifier>apis</classifier>
                 <scope>provided</scope>
             </dependency>
-            <!-- SPA Core Dependencies -->
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>spa.project.core.all</artifactId>
-                <type>zip</type>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>spa.project.core.core</artifactId>
-            </dependency>
 
             <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.core</artifactId>
-                <version>${core.wcm.components.version}</version>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>3.0.0</version>
             </dependency>
-            <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.content</artifactId>
-                <type>zip</type>
-                <version>${core.wcm.components.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.config</artifactId>
-                <type>zip</type>
-                <version>${core.wcm.components.version}</version>
-            </dependency>
+
             <!-- Apache Sling Dependencies -->
             <dependency>
                 <groupId>org.apache.sling</groupId>
@@ -945,6 +874,43 @@
                 <scope>provided</scope>
             </dependency>
 
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.core</artifactId>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.content</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.config</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.cq</groupId>
+                <artifactId>core.wcm.components.examples</artifactId>
+                <type>zip</type>
+                <version>${core.wcm.components.version}</version>
+            </dependency>
+
+            <!-- SPA Core Dependencies -->
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>spa.project.core.all</artifactId>
+                <version>${spa.project.core.version}</version>
+                <type>zip</type>
+
+            </dependency>
+            <dependency>
+                <groupId>com.adobe.aem</groupId>
+                <artifactId>spa.project.core.core</artifactId>
+                <version>${spa.project.core.version}</version>
+            </dependency>
             <!-- Testing -->
             <dependency>
                 <groupId>org.junit</groupId>

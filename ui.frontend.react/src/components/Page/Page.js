@@ -35,6 +35,6 @@ class AppPage extends Page {
   }
 }
 
-export default MapTo('lexusdrivers/components/content/page')(
+export default MapTo('lexusdrivers/components/structure/page')(
   withComponentMappingContext(withRoute(AppPage))
 );

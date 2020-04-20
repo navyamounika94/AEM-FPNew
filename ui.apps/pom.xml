@@ -67,7 +67,18 @@
                             <artifactId>lexusdrivers.core</artifactId>
                             <target>/apps/lexusdrivers/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.core</artifactId>
+                            <target>/apps/lexusdrivers/install</target>
+                        </embedded>
                     </embeddeds>
+                    <subPackages>
+                        <subPackage>
+                            <groupId>com.adobe.aem</groupId>
+                            <artifactId>spa.project.core.all</artifactId>
+                        </subPackage>
+                    </subPackages>
                     <dependencies>
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
@@ -107,7 +118,31 @@
             <version>${project.version}</version>
         </dependency>
 
-       
+      <!--  <dependency>
+            <groupId>com.tmna.adobe</groupId>
+            <artifactId>lexusdrivers.ui.frontend</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.tmna.adobe</groupId>
+            <artifactId>lexusdrivers.ui.frontend.react</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+
+        <!-- SPA Project Core (includes hierarchy page) -->
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.all</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.core</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>com.adobe.cq</groupId>
@@ -144,6 +179,20 @@
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-taglib</artifactId>
+        </dependency>
+
+        <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.scripting.sightly.compiler</artifactId>
+            <version>1.2.4-1.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.scripting.sightly.runtime</artifactId>
+            <version>1.2.0-1.4.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
