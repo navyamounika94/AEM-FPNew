@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    cq:lastReplicated="{Date}2020-02-17T02:26:41.362-07:00"
+    cq:lastReplicatedBy="keshava"
+    cq:lastReplicationAction="Activate"
+    jcr:mixinTypes="[cq:ReplicationStatus]"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Global Footer"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="style-guide.html#compare-rows-services"
+    mode="edit">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tab
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <headline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Headline Text"
+                                name="./headline"/>
+                            <headlinePath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldLabel="Headline Path Field"
+                                name="./headlinePath"/>
+                            <headPathOpennewwindow
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                name="./headPathOpennewwindow"
+                                text="HeadLink Path Open In New Window ?"
+                                value="true"/>
+                            <footercolumns
+                                cq:lastReplicated="{Date}2019-10-15T05:20:47.836-06:00"
+                                cq:lastReplicatedBy="vbagga"
+                                cq:lastReplicationAction="Activate"
+                                jcr:mixinTypes="[cq:ReplicationStatus]"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                eaem-show-on-collapse="EAEM.showProductName"
+                                fieldLabel="Footer Columns">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./footercolumns">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <footerColumnHeadline
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Footer Column Heading"
+                                                    name="./footerColumnHeadline"/>
+                                                <footerlinks
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    eaem-show-on-collapse="EAEM.showProductName"
+                                                    fieldLabel="Footer links">
+                                                    <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                        name="./footerlinks">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <column
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <linktitle
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Link Title"
+                                                                        name="./linktitle"/>
+                                                                    <linktargeturl
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                                        fieldLabel="Link Target Url"
+                                                                        name="./linktargeturl"/>
+                                                                    <openinnew
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                        class="cq-dialog-dropdown-showhide"
+                                                                        cq-dialog-dropdown-showhide-target=".text-type-hide-show"
+                                                                        fieldLabel="Link Openinnew Icon ?"
+                                                                        name="./openinnew"
+                                                                        required="false">
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <no
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                text="No"
+                                                                                value="no"/>
+                                                                            <yes
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                text="Yes"
+                                                                                value="yes"/>
+                                                                        </items>
+                                                                    </openinnew>
+                                                                    <thirdpartyicon
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                        class="cq-dialog-dropdown-showhide"
+                                                                        cq-dialog-dropdown-showhide-target=".text-type-hide-show"
+                                                                        fieldLabel="Link thirdpartyicon Icon ?"
+                                                                        name="./thirdpartyicon"
+                                                                        required="false">
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <no
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                text="No"
+                                                                                value="no"/>
+                                                                            <yes
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                text="Yes"
+                                                                                value="yes"/>
+                                                                        </items>
+                                                                    </thirdpartyicon>
+                                                                </items>
+                                                            </column>
+                                                        </items>
+                                                    </field>
+                                                </footerlinks>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </footercolumns>
+                            <footercolumnsTwo
+                                cq:lastReplicated="{Date}2019-10-15T05:20:47.836-06:00"
+                                cq:lastReplicatedBy="vbagga"
+                                cq:lastReplicationAction="Activate"
+                                jcr:mixinTypes="[cq:ReplicationStatus]"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                eaem-show-on-collapse="EAEM.showProductName"
+                                fieldLabel="Footer Columns Two">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./footercolumnsTwo">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkstitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Footer LinkTitle"
+                                                    name="./linkstitle"/>
+                                                <linksUrl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                    fieldLabel="Footer LinksUrl"
+                                                    name="./linksUrl"/>
+                                                <openinnew
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    class="cq-dialog-dropdown-showhide"
+                                                    cq-dialog-dropdown-showhide-target=".text-type-hide-show"
+                                                    fieldLabel="Link Openinnew Icon ?"
+                                                    name="./openinnew"
+                                                    required="false">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <no
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="No"
+                                                            value="no"/>
+                                                        <yes
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Yes"
+                                                            value="yes"/>
+                                                    </items>
+                                                </openinnew>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </footercolumnsTwo>
+                            <copyRightText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Copy Right Text"
+                                name="./copyRightText"/>
+                            <copyRightLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldLabel="Copy Right Link"
+                                name="./copyRightLink"/>
+                            <copyopennewwindow
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                name="./copyopennewwindow"
+                                text="Copy Right Path Open In New Window ?"
+                                value="true"/>
+                            <copyRightDesc
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldLabel="Copy Right Desc"
+                                name="./copyRightDesc"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <links jcr:primaryType="nt:unstructured">
+                                        <linkDialogConfig
+                                            jcr:primaryType="nt:unstructured"
+                                            height="{Long}316">
+                                            <linkAttributes jcr:primaryType="cq:WidgetCollection"/>
+                                        </linkDialogConfig>
+                                    </links>
+                                    <format
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <lists
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <justify
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <keys
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <paraformat
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <misctools
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <fullscreen
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <findreplace
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <edit
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <table
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <spellcheck
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <undo
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <styles
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <styles jcr:primaryType="cq:WidgetCollection">
+                                            <employee
+                                                jcr:primaryType="nt:unstructured"
+                                                cssName="employee"
+                                                text="Employee Style"/>
+                                            <partner
+                                                jcr:primaryType="nt:unstructured"
+                                                cssName="partner"
+                                                text="Partner Style"/>
+                                            <customer
+                                                jcr:primaryType="nt:unstructured"
+                                                cssName="customer"
+                                                text="Customer Style"/>
+                                        </styles>
+                                    </styles>
+                                    <color-picker
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <highlight-color-picker
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[format#bold,format#italic,format#underline,subsuperscript#subscript,subsuperscript#superscript,edit#cut,edit#copy,edit#paste-default,edit#paste-plaintext,edit#paste-wordhtml,links#modifylink,links#unlink,findreplace#find,findreplace#replace,undo#undo,undo#redo,justify#justifyleft,justify#justifyright,justify#justifycenter,lists#unordered,lists#ordered,lists#outdent,table#createoredit,table#removetable,lists#indent,misctools#sourceedit,misctools#specialchars,#paraformat,#styles,fullscreen#finish,fontstyles#styles,color-picker#textColorPicker,highlight-color-picker#textHighlightColorPicker]">
+                                            <popovers jcr:primaryType="nt:unstructured">
+                                                <styles
+                                                    jcr:primaryType="nt:unstructured"
+                                                    items="styles:getStyles:styles-pulldown"
+                                                    ref="styles"/>
+                                                <paraformat
+                                                    jcr:primaryType="nt:unstructured"
+                                                    items="paraformat:getFormats:paraformat-pulldown"
+                                                    ref="paraformat"/>
+                                            </popovers>
+                                        </inline>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[format#bold,format#italic,format#underline,subsuperscript#subscript,subsuperscript#superscript,edit#cut,edit#copy,edit#paste-default,edit#paste-plaintext,edit#paste-wordhtml,links#modifylink,links#unlink,findreplace#find,findreplace#replace,undo#undo,undo#redo,justify#justifyleft,justify#justifyright,justify#justifycenter,lists#unordered,lists#ordered,lists#outdent,table#createoredit,table#removetable,lists#indent,misctools#sourceedit,misctools#specialchars,#paraformat,#styles,fullscreen#finish,fontstyles#styles,color-picker#textColorPicker,highlight-color-picker#textHighlightColorPicker]">
+                                            <popovers jcr:primaryType="nt:unstructured">
+                                                <styles
+                                                    jcr:primaryType="nt:unstructured"
+                                                    items="styles:getStyles:styles-pulldown"
+                                                    ref="styles"/>
+                                                <paraformat
+                                                    jcr:primaryType="nt:unstructured"
+                                                    items="paraformat:getFormats:paraformat-pulldown"
+                                                    ref="paraformat"/>
+                                            </popovers>
+                                        </dialogFullScreen>
+                                    </cui>
+                                </uiSettings>
+                            </copyRightDesc>
+                        </items>
+                    </column>
+                </items>
+            </tab>
+        </items>
+    </content>
+</jcr:root>

@@ -13,8 +13,12 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="cq:datatype" data-sly-test="${wcmmode.edit || wcmmode.preview}" content="JSON"/>
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.edit}" content="edit"/>
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.preview}" content="preview"/>
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientlib.css @ categories='lexusdrivers.base'}"/>
+     data-sly-call="${clientlib.css @ categories='lexusdrivers.base, lexusdrivers.react'}"/>
 
 <!--/* Include Context Hub */-->
 <sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
