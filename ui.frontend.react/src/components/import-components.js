@@ -19,3 +19,4 @@ import './Text/Text';
 import './GlobalFooter/GlobalFooter';
 import './Navigation';
 import './Image';
+import './DisplayMessage';
