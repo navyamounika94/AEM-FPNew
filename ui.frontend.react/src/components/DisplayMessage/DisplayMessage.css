@@ -1,0 +1,65 @@
+
+.dispMsgWrapper .card {
+    background-color: transparent
+}
+
+.dispMsgWrapper .card * {
+    font-family: nobel-regular
+}
+
+@media (max-width: 640px) {
+    .dispMsgWrapper .card .card-body {
+        padding-left:0;
+        padding-right: 0
+    }
+}
+
+.dispMsgWrapper .card .card-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 3rem;
+    text-transform: uppercase
+}
+
+.dispMsgWrapper .card .card-text {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    letter-spacing: .1em
+}
+
+.dispMsgWrapper .card .card-text a {
+    font-weight: 700
+}
+
+.dispMsgWrapper .card h5.card-text {
+    text-transform: uppercase
+}
+
+@media (max-width: 640px) {
+    .dispMsgWrapper .card h5.card-text {
+        display:13px
+    }
+}
+
+.dispMsgWrapper .card .card-link {
+    font-weight: 700
+}
+
+@media (max-width: 640px) {
+    .dispMsgWrapper .card .card-link {
+        display:block
+    }
+}
+
+.dispMsgWrapper .card .btn {
+    margin-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 220px;
+    height: 50px
+}
+
+.dispMsgWrapper .card [target=_blank]:after {
+    content: ""
+}
