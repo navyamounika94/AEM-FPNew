@@ -1,0 +1,29 @@
+.veh-error{
+    &.row.dispMsgWrapper{
+        .card{
+            .card-body{
+                .card-title {
+                    font-family: 'nobel-regular';
+                    letter-spacing: 0.02em  !important;
+                    line-height: 1.875rem  !important; 
+                    font-weight:normal !important;
+                    font-size:1.5rem !important;
+                }
+                .btn-black {
+                    margin-bottom: 0px;
+                }
+
+            }
+            
+        }
+    }
+
+    &.pg-box {
+        min-height: 40vh;
+
+        @include ld-mobile {
+            min-height: 25vh;
+        }
+        
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "response":{
+       "item":{
+          "children":[
+             {
+                "__typename":"GlobalSearch",
+                "placeholderText":{
+                   "jss":{
+                      "value":"SEARCH"
+                   }
+                },
+                "searchUrlRelativePath":{
+                   "jss":{
+                      "value":"/lexusdrivers/search?searchKey="
+                   }
+                }
+             }
+          ]
+       }
+    },
+    "status": "SUCCESS"
+  }
