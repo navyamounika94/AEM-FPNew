@@ -9,7 +9,7 @@ import LdNavCenter from './LdNavCenter';
 import LdNavProfile from './LdNavProfile';
 import LdNavSearch from './LdNavSearch';
 import LdVehicleSelector from './LdVehicleSelector';
-
+import { getViewport } from './components/Viewport/index';
 
 class GlobalNavigation extends Component {
 
@@ -23,6 +23,7 @@ class GlobalNavigation extends Component {
             isOpen: false,
             isSearchOpen: false,
             openIndex: null,
+            viewport: 'DESKTOP'
         };
 
         this.experienceEditorActive = false;
@@ -40,10 +41,29 @@ class GlobalNavigation extends Component {
 
         this.graphQLResult = []; 
         this.currentView = 'DESKTOP';
+        this.previousView = '';
         this.lockItem = false; 
     }
 
     componentDidMount() {
+        const currentView = getViewport();
+        this.setState({
+            viewport: currentView
+        });
+        this.currentView = currentView;
+        this.previousView = currentView;
+        console.log(this.state.viewport+'<previous>'+this.previousView);
+        window.addEventListener('resize', () => {
+            const viewport = getViewport();
+
+            if (viewport !== this.state.viewport) {
+                this.previousView = this.state.viewport;
+                this.setState({
+                    viewport: viewport
+                });
+            }
+            console.log(this.state.viewport+'<previous>'+this.previousView);
+        });
         if (this.experienceEditorActive) {
             document.body.className = 'exp-editor-body';
         }
@@ -66,6 +86,9 @@ class GlobalNavigation extends Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (this.state.viewport !== this.previousView) {
+            this.graphQLResult.isTablet = this.state.viewport === Viewport.TABLET;
+        }
         /*if (this.navigationItems !== prevProps.navigationItems && this.navigationItems && this.navigationItems.fields) {
             this.setState({
                 headerLogo: this.navigationItems.fields.HeaderLogo.children[0].image,
@@ -592,7 +615,7 @@ class GlobalNavigation extends Component {
 
     // tslint:disable-next-line: cognitive-complexity
     render() {
-        const isDesktop = (this.props.viewport === Viewport.DESKTOP || this.props.viewport === Viewport.EXTRA_LARGE);
+        const isDesktop = (this.state.viewport === Viewport.DESKTOP || this.state.viewport === Viewport.EXTRA_LARGE);
         return (
             <>
                 <Helmet
@@ -603,8 +626,8 @@ class GlobalNavigation extends Component {
                 />
                 <div id="ld-navwrapper" className={this.state.isOpen ? 'open' : 'closed'}>
                     {(() => {
-                        if (this.props.viewport !== this.currentView) {
-                            this.currentView = this.props.viewport;
+                        if (this.state.viewport !== this.currentView) {
+                            this.currentView = this.state.viewport;
                             if (this.state.isOpen) {
                                 this.setState({
                                     isOpen: false,
@@ -616,7 +639,7 @@ class GlobalNavigation extends Component {
                                 this.toggleSearchbar();
                             }
                         }
-                        switch (this.props.viewport) {
+                        switch (this.state.viewport) {
                             case Viewport.TABLET:
                                 return <this.TabletView />;
                             case Viewport.MOBILE:
