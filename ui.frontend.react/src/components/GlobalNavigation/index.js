@@ -312,7 +312,7 @@ class GlobalNavigation extends Component {
                         </NavLink>
                     </NavItem>
 
-                    {/*<Collapse isOpen={this.state.isSearchOpen}>
+                    <Collapse className="search-bar" isOpen={this.state.isSearchOpen}>
                         <div>
                         <LdNavSearch
                             isDesktop={true}
@@ -322,7 +322,7 @@ class GlobalNavigation extends Component {
                             toggleSearchbar={this.toggleSearchbar}
                         />
                         </div>
-                    </Collapse> */}
+                    </Collapse>
                 </div>
             </Navbar >
         );
