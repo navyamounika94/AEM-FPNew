@@ -13,7 +13,7 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:uuid="a66f03ba-f698-4fbc-8fc3-a90db1ab16a7"
-        sling:resourceType="lexusdrivers/components/structure/page">
+        sling:resourceType="lexusdrivers/components/structure/spa-page">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
