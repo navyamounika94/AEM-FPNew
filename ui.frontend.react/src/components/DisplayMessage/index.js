@@ -26,25 +26,26 @@ const displayMessageEditConfig = {
     emptyLabel: 'DisplayMessage',
 
     isEmpty: function (props) {
+        console.log(props);
         return true;
     }
 };
 
 class DisplayMessage extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
-    static defaultProps = {
-        description: "We sent password reset instructions to <strong>hussaindotnet@gmail.com</strong>. If you didn't receive the email, please check your spam folder",//RichText
-        primaryButtonLink: "/lexusdrivers/account/login",
-        primaryButtonText: "OK",
-        supportContent: "RESEND PASSWORD RESET EMAIL",
-        title: "Success",
-        verticalCenterAlign: true,
-        name: "DisplayMessage"   
-    }
+    // static defaultProps = {
+    //     description: "We sent password reset instructions to <strong>hussaindotnet@gmail.com</strong>. If you didn't receive the email, please check your spam folder",//RichText
+    //     primaryButtonLink: "/lexusdrivers/account/login",
+    //     primaryButtonText: "OK",
+    //     supportContent: "RESEND PASSWORD RESET EMAIL",
+    //     title: "Success",
+    //     verticalCenterAlign: true,
+    //     name: "DisplayMessage"
+    // }
     render() {
         let boxClass = 'pg-box';
         if (this.props.verticalCenterAlign === false) {
@@ -63,12 +64,12 @@ class DisplayMessage extends Component {
                             </CardText>}
                             {this.props.primaryButtonLink && this.props.primaryButtonText &&
                                 <CardText tag="h5">
-                                    <a href={this.props.primaryButtonLink} class="btn-black  btn btn-secondary" target="">{this.props.primaryButtonText}</a>
+                                    <a href={this.props.primaryButtonLink} className="btn-black  btn btn-secondary" target="">{this.props.primaryButtonText}</a>
                                 </CardText>
                             }
                             {this.props.supportContent &&
                                 <CardText tag="h5">
-                                    <a class="rich-text-anchor active" aria-current="page" href="/lexusdrivers/account/forgot-password"> {this.props.supportContent}</a>
+                                    <a className="rich-text-anchor active" aria-current="page" href="/lexusdrivers/account/forgot-password"> {this.props.supportContent}</a>
                                 </CardText>
                             }
                         </CardBody>
