@@ -2,45 +2,6 @@
 	padding:0;
 	margin:0;
 }
-@font-face {
-    font-family: 'nobel-bold';
-    src: url('fonts/nobel-bold.eot');
-    src: url('fonts/nobel-bold.woff') format('woff'),
-        url('fonts/nobel-bold.ttf') format('truetype');
-    font-style: normal;
-}
-@font-face {
-    font-family: 'nobel-regular';
-    src: url('fonts/nobel-regular.eot');
-    src: url('fonts/nobel-regular.woff') format('woff'),
-        url('fonts/nobel-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'nobel-book';
-    src: url('fonts/nobel-book.eot');
-    src: url('fonts/nobel-book.woff') format('woff'),
-        url('fonts/nobel-book.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'nobel-light';
-    src: url('fonts/nobel-light.eot');
-    src: url('fonts/nobel-light.woff') format('woff'),
-        url('fonts/nobel-light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'pakt';
-    src: url('fonts/pakt.eot');
-    src: url('fonts/pakt.woff') format('woff'),
-        url('fonts/pakt.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 .ld-footer .footer {
     background: #000;
     width: 100%;

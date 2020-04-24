@@ -26,29 +26,29 @@ const displayMessageEditConfig = {
     emptyLabel: 'DisplayMessage',
 
     isEmpty: function (props) {
-        console.log(props);
         return true;
     }
 };
 
 class DisplayMessage extends Component {
 
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
-    // static defaultProps = {
-    //     description: "We sent password reset instructions to <strong>hussaindotnet@gmail.com</strong>. If you didn't receive the email, please check your spam folder",//RichText
-    //     primaryButtonLink: "/lexusdrivers/account/login",
-    //     primaryButtonText: "OK",
-    //     supportContent: "RESEND PASSWORD RESET EMAIL",
-    //     title: "Success",
-    //     verticalCenterAlign: true,
-    //     name: "DisplayMessage"
-    // }
+    static defaultProps = {
+        displaydescription: "We sent password reset instructions to",//RichText
+		displaydescription2:"If you didn't receive the email, please check your spam folder",
+        displayprimaryButtonLink: "/lexusdrivers/account/login",
+        displayprimaryButtonText: "OK",
+        displaysupportContent: "RESEND PASSWORD RESET EMAIL",
+        diplaytitle: "Success",
+        displayverticalCenterAlign: true,
+        name: "DisplayMessage"   
+    }
     render() {
         let boxClass = 'pg-box';
-        if (this.props.verticalCenterAlign === false) {
+        if (this.props.displayverticalCenterAlign === false) {
             boxClass = '';
         }
         return (
@@ -56,20 +56,21 @@ class DisplayMessage extends Component {
                 <div className="col">
                     <Card className="text-center">
                         <CardBody>
-                            {this.props.title && <CardTitle>
-                                {this.props.title}
+                            {this.props.diplaytitle && <CardTitle>
+                                {this.props.diplaytitle}
                             </CardTitle>}
-                            {this.props.description && <CardText className="col-8 m-auto" tag="div">
-                                {this.props.description}
+                            {this.props.displaydescription && <CardText className="col-8 m-auto" tag="div">
+                                {/*this.props.description*/}
+									{this.props.displaydescription} <strong>{this.props.email}</strong>. {this.props.displaydescription2}
                             </CardText>}
-                            {this.props.primaryButtonLink && this.props.primaryButtonText &&
+                            {this.props.displayprimaryButtonLink && this.props.displayprimaryButtonText &&
                                 <CardText tag="h5">
-                                    <a href={this.props.primaryButtonLink} className="btn-black  btn btn-secondary" target="">{this.props.primaryButtonText}</a>
+                                    <a href={this.props.displayprimaryButtonLink} class="btn-black  btn btn-secondary" target="">{this.props.displayprimaryButtonText}</a>
                                 </CardText>
                             }
-                            {this.props.supportContent &&
+                            {this.props.displaysupportContent &&
                                 <CardText tag="h5">
-                                    <a className="rich-text-anchor active" aria-current="page" href="/lexusdrivers/account/forgot-password"> {this.props.supportContent}</a>
+                                    <a class="rich-text-anchor active" aria-current="page" href="/lexusdrivers/account/forgot-password"> {this.props.displaysupportContent}</a>
                                 </CardText>
                             }
                         </CardBody>
@@ -81,4 +82,4 @@ class DisplayMessage extends Component {
 
     }
 }
-MapTo('lexusdrivers/components/content/displayMessage')(DisplayMessage, displayMessageEditConfig);
+export default MapTo('lexusdrivers/components/content/forgotPassword')(DisplayMessage, displayMessageEditConfig);
