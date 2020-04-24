@@ -52,7 +52,6 @@ class GlobalNavigation extends Component {
         });
         this.currentView = currentView;
         this.previousView = currentView;
-        console.log(this.state.viewport+'<previous>'+this.previousView);
         window.addEventListener('resize', () => {
             const viewport = getViewport();
 
@@ -62,7 +61,6 @@ class GlobalNavigation extends Component {
                     viewport: viewport
                 });
             }
-            console.log(this.state.viewport+'<previous>'+this.previousView);
         });
         if (this.experienceEditorActive) {
             document.body.className = 'exp-editor-body';

@@ -1,6 +1,7 @@
 import { Text } from '@sitecore-jss/sitecore-jss-react';
 import classnames from 'classnames';
 import get from 'lodash.get';
+import isEmpty from 'lodash.isempty';
 import sortBy from 'lodash.sortby';
 import toPairs from 'lodash.topairs';
 import React, {Component} from 'react';
@@ -45,6 +46,7 @@ class LdVehicleSelector extends Component {
             isVehicleDetailsLoading: false,
             isVehicleLoadingError: false,
             modelYearData: {},
+            modelYearDataAPI: {},
             moduleLabel: defaultVehicleLabel,
             selectedModel: defaultModelLabel,
             selectedYear: defaultYearLabel,
@@ -61,9 +63,31 @@ class LdVehicleSelector extends Component {
             variableWidth: true,
         };
     }
-
+    getModelYearDataAPI = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Access-Control-Request-Method", "GET");
+        myHeaders.append("x-api-key","CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1");
+        myHeaders.append("X-BRAND","L");
+        myHeaders.append('Content-Type','application/json');
+        myHeaders.append('Accept','application/json');
+        fetch("https://region1.test.eos.toyota.com/v1/vehicle/model-year-list?format=model-year", {
+            headers: myHeaders
+        }).then((response) => {
+            return response.json();
+        }).then((json) => {
+            const modelYearDataAPI = json;
+            this.setState({
+                modelYearDataAPI
+            });
+        });
+    }
     getModelYearData = () => {
-        return ModelYearJson.vehicleModelYearList;
+        const dataLoaded = (!isEmpty(this.state.modelYearDataAPI));
+        if(dataLoaded){
+            return this.state.modelYearDataAPI.data.vehicleModelYearList;
+        }else{ 
+            return ModelYearJson.vehicleModelYearList;
+        }
     }
 
     /**
@@ -299,6 +323,7 @@ class LdVehicleSelector extends Component {
     }
 
     componentDidMount() {
+        this.getModelYearDataAPI();
         const modelYearData = this.getModelYearData();
         this.setState({
             isDefaultView: this.state.isModelSelected,
