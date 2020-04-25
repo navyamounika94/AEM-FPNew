@@ -41,7 +41,7 @@ class ForgotPassword extends Component {
             userEmail: '',
             isValidEmail: false,
             isLoading: false,
-			loginStatus: false
+            loginStatus: false
         }
     }
 
@@ -84,15 +84,20 @@ class ForgotPassword extends Component {
             myHeaders.append("x-version", "1.0");
             fetch("https://api.siint.deops.toyota.com/admin/customer/password/" + this.state.userEmail, {
                 method: 'POST', headers: myHeaders
-            }).then(function (response) {
+            }).then((response) => {
                 return response.json();
-            }).then(function (json) {
-				console.log('error');
+            }).then((json) => {
+                const success = (!!json && json.status.code === '200' && !!json.status.messages && json.status.messages[0].code === 'M00000');
+                if (success) {
+                    this.setState({ loginStatus: true });
+                }
                 console.log(json);
+
             }).catch((error) => {
-				console.log(error);
-				this.setState({ loginStatus: true });
-			});
+                console.log('error', error);
+                this.setState({ loginStatus: false });
+            });
+
         }
     }
 
@@ -110,85 +115,85 @@ class ForgotPassword extends Component {
         } = this.props
         return (
             <>
-				{                    
-                    this.state.loginStatus == true ? <DisplayMessage 
-                                    diplaytitle={this.props.diplaytitle} 
-                                    displaydescription={this.props.displaydescription} 
-                                    displaydescription2={this.props.displaydescription2} 
-                                    displayprimaryButtonLink={this.props.displayprimaryButtonLink} 
-                                    displayprimaryButtonText={this.props.displayprimaryButtonText} 
-                                    displaysupportContent={this.props.displaysupportContent} 
-                                    displayverticalCenterAlign={this.props.displayverticalCenterAlign} 
-                                    email={this.state.userEmail}>                                    
-                                </DisplayMessage>:  
-					<div className="container-fluid acc-bg" id="forgot-password">
-						<div className="row justify-content-center " id="titlePanel">
-							<div className="col-12 col-md-11">
-								<h1>{title}</h1>
-								<div className="subtitle">
-									<div className="m-auto">{description}</div>
-								</div>
-							</div>
-						</div>
-						<div className="row justify-content-center" id="content-panel">
-							<div className="col-12 align-self-center">
-								<div className="row justify-content-center" id="formPanel">
-									<div className="regisForm">
-										<div className="col-12 col-md-11">
-											<div className="text-center custom-errmsg">{this.state.errorDtl}</div>
-										</div>
-										<div className="form-group">
-											<FormWithConstraints
-												autoComplete="off"
-												ref={(formWithConstraints) => {
-													if (formWithConstraints) {
-														this.form = formWithConstraints;
-													}
-												}}
-												onSubmit={this.handleSubmit}
-												noValidate={true}
-												name="accIndvidualname"
-												className="accForm forgot-password-form"
-											>
+                {
+                    this.state.loginStatus == true ? <DisplayMessage
+                        diplaytitle={this.props.diplaytitle}
+                        displaydescription={this.props.displaydescription}
+                        displaydescription2={this.props.displaydescription2}
+                        displayprimaryButtonLink={this.props.displayprimaryButtonLink}
+                        displayprimaryButtonText={this.props.displayprimaryButtonText}
+                        displaysupportContent={this.props.displaysupportContent}
+                        displayverticalCenterAlign={this.props.displayverticalCenterAlign}
+                        email={this.state.userEmail}>
+                    </DisplayMessage> :
+                        <div className="container-fluid acc-bg" id="forgot-password">
+                            <div className="row justify-content-center " id="titlePanel">
+                                <div className="col-12 col-md-11">
+                                    <h1>{title}</h1>
+                                    <div className="subtitle">
+                                        <div className="m-auto">{description}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center" id="content-panel">
+                                <div className="col-12 align-self-center">
+                                    <div className="row justify-content-center" id="formPanel">
+                                        <div className="regisForm">
+                                            <div className="col-12 col-md-11">
+                                                <div className="text-center custom-errmsg">{this.state.errorDtl}</div>
+                                            </div>
+                                            <div className="form-group">
+                                                <FormWithConstraints
+                                                    autoComplete="off"
+                                                    ref={(formWithConstraints) => {
+                                                        if (formWithConstraints) {
+                                                            this.form = formWithConstraints;
+                                                        }
+                                                    }}
+                                                    onSubmit={this.handleSubmit}
+                                                    noValidate={true}
+                                                    name="accIndvidualname"
+                                                    className="accForm forgot-password-form"
+                                                >
 
-												<input
-													id="userEmail"
-													name="userEmail"
-													value={this.state.userEmail}
-													placeholder={emailField}// aem
-													onChange={this.handleChange}
-													ref={this.textRef}
-													className={`form-control icase-field ${this.state.isValidEmail ? 'is-valid' : 'is-invalid'}`
-													}
+                                                    <input
+                                                        id="userEmail"
+                                                        name="userEmail"
+                                                        value={this.state.userEmail}
+                                                        placeholder={emailField}// aem
+                                                        onChange={this.handleChange}
+                                                        ref={this.textRef}
+                                                        className={`form-control icase-field ${this.state.isValidEmail ? 'is-valid' : 'is-invalid'}`
+                                                        }
 
-												/>
-												<div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
-												<div className="text-center">
-													<button
+                                                    />
+                                                    <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
+                                                    <div className="text-center">
+                                                        <button
 
-														type="submit"
-														className="btn btn-black "
-													>
-														{sendEmailLabel}
-													</button>
+                                                            type="submit"
+                                                            className="btn btn-black "
+                                                        >
+                                                            {sendEmailLabel}
+                                                        </button>
 
-												</div>
-											</FormWithConstraints>
-										</div>
-									</div>
-								</div>
-								<div className="row justify-content-center " id="captionPanel">
-									<div className="col-12 col-md-3 need-help-div">
-										<span>
-											<h3 className="caption-link"> {needMoreHelp} <a className="rich-text-anchor" href="">Contact Us</a></h3>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                                                    </div>
+                                                </FormWithConstraints>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row justify-content-center " id="captionPanel">
+                                        <div className="col-12 col-md-3 need-help-div">
+                                            <span>
+                                                <h3 className="caption-link"> {needMoreHelp} <a className="rich-text-anchor" href="">Contact Us</a></h3>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 }
-                
+
             </>
 
         );
