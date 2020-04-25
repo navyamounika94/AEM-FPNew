@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import * as SocialMedia from './SocialMedia/icons';
 import {MapTo} from '@adobe/cq-react-editable-components';
-require('./main.css');
+require('../Common/Main.css');
 require('./footer.css');
 
 

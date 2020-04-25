@@ -67,13 +67,7 @@
     float: initial;
 }
 
-.nav-item {
-    display: block;
-    color: white;
-    text-align: left;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+
 
 .nav-item:hover {
     background-color: #444;
