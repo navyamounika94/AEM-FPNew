@@ -91,6 +91,9 @@ class ForgotPassword extends Component {
                 if (success) {
                     this.setState({ loginStatus: true });
                 }
+                else {
+                    this.setState({ errorDtl: `<div>Your account hasn't been activated yet, would you like us to&nbsp;<a class="rich-text-anchor" data-metrics-field="{&quot;value&quot;:{&quot;href&quot;:&quot;/lexusdrivers/account/resend-activation-email&quot;,&quot;linktype&quot;:&quot;internal&quot;}}" aria-label="&quot;/lexusdrivers/account/resend-activation-email&quot;" href="/lexusdrivers/account/resend-activation-email">resend your activation email</a>? Please note that activation emails may take several minutes to send.</div>` });
+                }
                 console.log(json);
 
             }).catch((error) => {
@@ -140,7 +143,7 @@ class ForgotPassword extends Component {
                                     <div className="row justify-content-center" id="formPanel">
                                         <div className="regisForm">
                                             <div className="col-12 col-md-11">
-                                                <div className="text-center custom-errmsg">{this.state.errorDtl}</div>
+                                                <div className="text-center custom-errmsg" dangerouslySetInnerHTML={{ __html: this.state.errorDtl }}></div>
                                             </div>
                                             <div className="form-group">
                                                 <FormWithConstraints
