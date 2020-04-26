@@ -29,16 +29,6 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="tmna-commons/components/content/experiencefragment"
                 fragmentVariationPath="/content/experience-fragments/lexusdrivers/language-masters/en/site/footer/master"/>
-            <custom_heading
-                jcr:created="{Date}2020-04-17T00:02:12.168+05:30"
-                jcr:createdBy="admin"
-                jcr:lastModified="{Date}2020-04-17T00:09:28.009+05:30"
-                jcr:lastModifiedBy="admin"
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="lexusdrivers/components/content/custom-heading"
-                heading="oijiijj"
-                headingColor="red-color"
-                headingType="h1"/>
             <globalfooter
                 jcr:created="{Date}2020-04-17T16:19:30.666+05:30"
                 jcr:createdBy="admin"
@@ -207,6 +197,463 @@
                         openinnew="no"/>
                 </footercolumnsTwo>
             </globalfooter>
+            <globalnav
+                jcr:created="{Date}2020-04-24T10:51:30.140+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2020-04-26T17:19:50.061+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="lexusdrivers/components/content/globalNav"
+                body="&lt;ul>&#xd;&#xa;&lt;li>&lt;a>Vehicle Health Reports&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a>Service History&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a>Maintenance Schedule&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a>Vehicle Specs, Maintenance and Warranty Information&lt;/a>&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>\\n&lt;/p>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;"
+                bottomText="Add this vehicle to your account by &lt;a href=\\&quot;/lexusdrivers/account/login\\&quot; target=\\&quot;_self\\&quot;>SIGNING IN&lt;/a> or &lt;a href=\\&quot;/lexusdrivers/account/register\\&quot;>CREATING AN ACCOUNT&lt;/a>."
+                buttonLabel="SUBMIT"
+                carousellinkoutUrl="/lexusdrivers/account/register"
+                carousellinktype="external"
+                carouselMediaId="\{222CED62-10C3-4E9A-BFB5-7BB97EFE8B86}"
+                carouselThumbnail="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Global-Nav/Side/2019/LexusDrivers-GlobalNav-SelectAVehicle-CreateAccount-750x460-LEX-ESG-MY18-0031_M85.jpg?h=460&amp;la=en&amp;w=750&amp;rev=8edaa9ca32ad4e42aa65697c0861a6fc&amp;hash=6EBA82C4963F9E59C83DB6C1160CECB0"
+                logoimage="https://drivers.lexus.com/lexusdrivers/-/jssmedia/TMNA.LDNG/Project/LexusDrivers/Global-Nav/LD-Logo-2X-01.png?h=60&amp;la=en&amp;w=410&amp;rev=e39b4b05b3ee4595ac641469405daeb4&amp;hash=8C9183536759773D69116302EAE28165"
+                logomediaId="\{0C838CF3-5EA0-4D57-843A-F5ACAFD082C8}"
+                manageGarageLink="/lexusdrivers/vehicleSettings"
+                manageGarageText="Manage Garage"
+                manageLinkType="external"
+                manageName="Manage Garage"
+                manageText="Manage Garage Link"
+                manageValue="My Garage"
+                name="Select Vehicle"
+                navLabel="Select A Vehicle"
+                quickLabel="View All Resouces"
+                quicklinkURL="/lexusdrivers/resources"
+                quicknavLabel="Quick Links"
+                quickvalue="&lt;link linktype=\\&quot;external\\&quot; url=\\&quot;/lexusdrivers/resources\\&quot; anchor=\\&quot;\\&quot; target=\\&quot;\\&quot; />"
+                selectcarouselTitle="CREATE YOUR LEXUS DRIVERS ACCOUNT"
+                subTitle="clear"
+                textIsRich="[true,true]"
+                titleaccoutnt="CREATE YOUR ACCOUNT TODAY FOR ACCESS TO THESE SERVICES AND MORE"
+                titleSelection="Make a selection for a more customized experience."
+                vehicleSelectorDefaultText="SELECT A MODEL"
+                videoslide="false"
+                vINLabel="VIN:"
+                yearSelectorDefaultText="SELECT A YEAR">
+                <quicklinks jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="OWNERS MANUAL"
+                        navLink="/lexusdrivers/resources/owners-manuals?type=om"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="VEHICLE WARRANTY &amp; SERVICES"
+                        navLink="/lexusdrivers/resources/owners-manuals?type=omms"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="LEXUS WARRANTY INFORMATION"
+                        navLink="/lexusdrivers/service/warranty"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="NAVIGATION &amp; MULTIMEDIA SYSTEMS"
+                        navLink="/lexusdrivers/resources/owners-manuals?type=omnav"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="Maintenance Schedule"
+                        navLink="/lexusdrivers/service/maintenance-schedules"/>
+                    <item5
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="LEXUS ENFORM"
+                        navLink="/lexusdrivers/lexusenform"/>
+                </quicklinks>
+                <manageGarage jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        description="Add a vehicle for easy access to your Manual &amp;amp; Warranties&amp;nbsp;"
+                        findDealerLabel="FIND A DEALER"
+                        title="THERE ARE NO VEHICLES IN YOUR GARAGE"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        description="Check back soon and we should have it all"
+                        title="WE ARE SORRY .THERE SEEMS TO HAVE BEEN AN ERROR"/>
+                </manageGarage>
+                <navigationMessages jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        body="Please check back soon. If you need further assistance, please contact your dealer or call 1-800-255-3987."
+                        buttonLabel="Find a Dealer"
+                        name="Navigation Error"
+                        successPageUrl="https://drivers.lexus.com/lexusdrivers/service/dealers"
+                        title="Our Apologies. We're unable to retrieve your vehicle(s) at this time."/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        body="Add a Vehicle for easy access to your Manuals &amp;amp; Warranties, Scheduling Service and Service History."
+                        buttonLabel="Find A Dealer"
+                        name="No Vehicle Error"
+                        successPageUrl="https://drivers.lexus.com/lexusdrivers/service/dealers"
+                        title="There are no vehicles in your garage"/>
+                </navigationMessages>
+                <navigationLinks jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        carouselTitle="Explore Service Connect"
+                        label="Service by Lexus"
+                        linkoutUrl="/lexusdrivers/technology/enform/service-connect"
+                        linktype="external"
+                        mediaId="2D873BE6-3B98-4FDE-A4DD-800BE2AD69FB"
+                        name="Service"
+                        thumbnail="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Global-Nav/Side/2020/LexusDrivers-GlobalNav-Service-ServiceConnect-750x460-190724-Lexus-3481_M85.jpg?h=460&amp;la=en&amp;w=750&amp;rev=0238d604dc684e07bdf3c684d260ae40&amp;hash=8EC88A092C64E40DC7DB6DCAD68DA817"
+                        videoslide="false">
+                        <children jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Vehicle Information"
+                                navlabel="SERVICE INFORMATION"
+                                url="/lexusdrivers/service">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="VEHICLE HEALTH REPORT"
+                                        url="/lexusdrivers/VehicleHealthReportLandingPage"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="SERVICE HISTORY"
+                                        url="/lexusdrivers/history"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="MAINTENANCE SCHEDULE"
+                                        url="/lexusdrivers/service/maintenance-schedules"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="SAFETY RECALLS &amp; SERVICE CAMPAIGNS"
+                                        url="/lexusdrivers/service/safety-recalls"/>
+                                </children>
+                            </item0>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="DEALER SERVICES"
+                                navlabel="DEALER SERVICES"
+                                url="/lexusdrivers/service/dealers">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="FIND A LEXUS SERVICE CENTER"
+                                        url="/lexusdrivers/service/dealers"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="LEXUS WARRANTY INFORMATION"
+                                        url="/lexusdrivers/service/warranty"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        mediaid="EF9765BC-5510-45EC-AA9A-A795BB89F902"
+                                        navIcon="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Public/01_Navigation/Assets/Icon-LinkOut.svg?la=en&amp;rev=cbbde728f47d484a86a46ac691c2915d&amp;hash=AB35FCE71DE8C34CC8B73D96E0931328"
+                                        navLabel="ACCESSORIES"
+                                        url="https://parts.lexus.com/accessories/Lexus.html"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="Guest Experience"
+                                        url="/lexusdrivers/service/guest-experience"/>
+                                    <item4
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        mediaid="EF9765BC-5510-45EC-AA9A-A795BB89F902"
+                                        navIcon="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Public/01_Navigation/Assets/Icon-LinkOut.svg?la=en&amp;rev=cbbde728f47d484a86a46ac691c2915d&amp;hash=AB35FCE71DE8C34CC8B73D96E0931328"
+                                        navLabel="CERTIFIED COLLISION CENTER"
+                                        url="https://www.lexusccc.com"/>
+                                </children>
+                            </item1>
+                        </children>
+                    </item0>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        carouselTitle="Manuals and Warranty"
+                        label="Resources"
+                        linkoutUrl="/lexusdrivers/resources/manuals-warranty"
+                        linktype="external"
+                        mediaId="0D9DE5B6-411B-46F8-B62B-4EC929668D74"
+                        name="Resources"
+                        thumbnail="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Global-Nav/Side/2020/LexusDrivers-GlobalNav-Resources-ManualsWarranty-750x460-190723-Lexus-1884_M85.jpg?h=460&amp;la=en&amp;w=750&amp;rev=e2c1dc9de5df4e5e97ef307722440c55&amp;hash=A1F7EC1278D6C2E5189829C4B67F38D9"
+                        videoslide="false">
+                        <children jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Vehicle Resources"
+                                navlabel="Vehicle Resources"
+                                url="/lexusdrivers/resources">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="MANUALS &amp; GUIDES"
+                                        url="/lexusdrivers/resources/manuals-warranty"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="LEXUS FINANCIAL SERVICES"
+                                        url="https://www.lexusfinancial.com/us/en.html"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="VEHICLE SPECIFICATIONS"
+                                        url="/lexusdrivers/resources/vehicle-specs"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="VEHICLE SPECIFICATIONS"
+                                        url="/lexusdrivers/resources/vehicle-specs"/>
+                                    <item4
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="Warning Lights"
+                                        url="/lexusdrivers/warning-lights"/>
+                                    <item5
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="Personalized Settings"
+                                        url="/lexusdrivers/resources/manuals-warranty#lexuspersonalizedsettings"/>
+                                    <item6
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        mediaid="EF9765BC-5510-45EC-AA9A-A795BB89F902"
+                                        navIcon="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Public/01_Navigation/Assets/Icon-LinkOut.svg?la=en&amp;rev=cbbde728f47d484a86a46ac691c2915d&amp;hash=AB35FCE71DE8C34CC8B73D96E0931328"
+                                        navLabel="FAQ"
+                                        url="https://lexus2.custhelp.com/"/>
+                                </children>
+                            </item0>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Videos"
+                                navlabel="VIEW ALL VIDEOS"
+                                url="/lexusdrivers/videos">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="HOW-TO"
+                                        url="/lexusdrivers/videos/how-to"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="OWNER BENEFITS"
+                                        url="/lexusdrivers/videos/owner-benefits"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="HOW IT WORKS"
+                                        url="/lexusdrivers/videos/how-it-works"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="REVEALS"
+                                        url="/lexusdrivers/videos/reveals"/>
+                                    <item4
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="WALKAROUNDS"
+                                        url="/lexusdrivers/videos/walkarounds"/>
+                                </children>
+                            </item1>
+                        </children>
+                    </item1>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        carouselTitle="LEARN MORE ABOUT LEXUS ENFORM"
+                        label="Technology"
+                        linkoutUrl="/lexusdrivers/lexusenform"
+                        linktype="external"
+                        mediaId="E388A919-E133-43C9-A151-FA5BA172C2F1"
+                        name="Technology"
+                        thumbnail="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Global-Nav/Side/2019/LexusDrivers-GlobalNav-Technology-Enform-750x460-LEX-MIS-CY19-0060_M85.jpg?h=460&amp;la=en&amp;w=750&amp;rev=c11dc9954ee54a369a68971f6a84add8&amp;hash=B8936CBBD280AD2009DAC13FF7C7831F"
+                        videoslide="false">
+                        <children jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Connected Technology"
+                                navlabel="CONNECTED TECHNOLOGY"
+                                url="/lexusdrivers/technology">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="LEXUS ENFORM"
+                                        url="/lexusdrivers/lexusenform"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="LEXUS APP"
+                                        url="/lexusdrivers/technology/lexusapp"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="IN-DASH TECHNOLOGY"
+                                        url="/lexusdrivers/technology/in-dash-technology"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        mediaid="EF9765BC-5510-45EC-AA9A-A795BB89F902"
+                                        navIcon="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Public/01_Navigation/Assets/Icon-LinkOut.svg?la=en&amp;rev=cbbde728f47d484a86a46ac691c2915d&amp;hash=AB35FCE71DE8C34CC8B73D96E0931328"
+                                        navLabel="MULTIMEDIA SYSTEM UPDATES"
+                                        url="https://securedp.lexus.com/download-app/downloads"/>
+                                </children>
+                            </item0>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Safety and Specialists"
+                                navlabel="SAFETY &amp; SPECIALISTS"
+                                url="/lexusdrivers/technology/lexus-technology-specialists">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="LEXUS TECHNOLOGY SPECIALISTS"
+                                        url="/lexusdrivers/technology/lexus-technology-specialists"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="LEXUS SAFETY SYSTEM+"
+                                        url="/lexusdrivers/technology/safety"/>
+                                </children>
+                            </item1>
+                        </children>
+                    </item2>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        carouselTitle="THE LEXUS COLLECTION: AN EXCLUSIVE DISCOUNT"
+                        label="BENEFITS"
+                        linkoutUrl="/lexusdrivers/rewards-events/reward-details/lexus-collection"
+                        linktype="external"
+                        mediaId="9AFAEE3B-6607-46AD-A92B-C615840A2920"
+                        name="Benefits"
+                        thumbnail="https://drivers.lexus.com/lexusdrivers/-/media/TMNA.LDNG/Project/LexusDrivers/Global-Nav/Side/2019/LexusDrivers-GlobalNav-Benefits-LexusCollection-750x460-LEX-MIS-CY18-0076_M85.jpg?h=460&amp;la=en&amp;w=750&amp;rev=5cc2564a6bd5480885d67f2386e3d0ff&amp;hash=0B96EF9CDBC0CAD2974978D8953293A6"
+                        videoslide="false">
+                        <children jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Rewards and Events"
+                                navlabel="REWARDS &amp; EVENTS"
+                                url="/lexusdrivers/rewards-and-events/">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="ENTERTAINMENT"
+                                        url="/lexusdrivers/rewards-and-events/entertainment"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="RETAILERS"
+                                        url="/lexusdrivers/rewards-and-events/retailers"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="HOTELS"
+                                        url="/lexusdrivers/rewards-and-events/hotels"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="CULINARY"
+                                        url="/lexusdrivers/rewards-and-events/culinary"/>
+                                    <item4
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="Wineries"
+                                        url="/lexusdrivers/rewards-and-events/wineries"/>
+                                    <item5
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="Sports"
+                                        url="/lexusdrivers/rewards-and-events/sports"/>
+                                    <item6
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="EVENTS"
+                                        url="/lexusdrivers/rewards-and-events/events"/>
+                                </children>
+                            </item0>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                linkType="external"
+                                name="Stories"
+                                navlabel="STORIES"
+                                url="/lexusdrivers/experiences/All Stories">
+                                <children jcr:primaryType="nt:unstructured">
+                                    <item0
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="INSIDE LEXUS"
+                                        url="/lexusdrivers/experiences/Inside%20Lexus"/>
+                                    <item1
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="NEW MODELS"
+                                        url="/lexusdrivers/experiences/New%20Models"/>
+                                    <item2
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="AUTO SHOWS"
+                                        url="/lexusdrivers/experiences/Auto%20Shows"/>
+                                    <item3
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="TRAVEL"
+                                        url="/lexusdrivers/experiences/Travel"/>
+                                    <item4
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="FOOD &amp; WINE"
+                                        url="/lexusdrivers/experiences/Food%20-%20Wine"/>
+                                    <item5
+                                        jcr:primaryType="nt:unstructured"
+                                        linktype="external"
+                                        navLabel="SPORTS &amp; LEISURE"
+                                        url="/lexusdrivers/experiences/Sports%20-%20Leisure"/>
+                                </children>
+                            </item1>
+                        </children>
+                    </item3>
+                </navigationLinks>
+                <loggedOut jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="Sign In"
+                        navLink="&lt;link linktype=\\&quot;external\\&quot; url=\\&quot;/lexusdrivers/account/login\\&quot; anchor=\\&quot;\\&quot; target=\\&quot;\\&quot; />"
+                        url="/lexusdrivers/account/login"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        linktype="external"
+                        navLabel="Create Account"
+                        navLink="&lt;link text=\\&quot;/lexusdrivers/account/register\\&quot; linktype=\\&quot;external\\&quot; url=\\&quot;/lexusdrivers/account/register\\&quot; anchor=\\&quot;\\&quot; target=\\&quot;\\&quot; />"
+                        url="/lexusdrivers/account/register"/>
+                </loggedOut>
+                <loggedIn jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        deviceStyles="ld-hidden-lg"
+                        enableExperience="true"
+                        navLabel="WELCOME EXPERIENCE"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        enableExperience="false"
+                        navLabel="MANAGE GARAGE"
+                        navLink="/lexusdrivers/vehicleSettings"/>
+                </loggedIn>
+            </globalnav>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">

@@ -1,0 +1,117 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+/*Grid specs to override bootstrap*/
+$grid-breakpoints: ( xs: 0, sm: 640px, md: 960px, lg: 1201px, xl: 1800px );
+
+$container-max-widths: ( sm: 640px, md: 960px, lg: 1201px, xl: 1800px );
+
+/*Font size*/
+$base-font-sizepx: 16px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+
+
+
+/*Colour Pallete*/
+//Background stylings
+/// Lexus black
+$lexus-primary: #000000 !default;
+/// Lexus white
+$lexus-secondary: #ffffff !default;
+/// Lexus gold
+$lexus-gold: #B9A074 !default;
+/// Medium grey
+$lexus-grey: #F5F5F5 !default;
+/// Medium grey
+$lexus-lightgrey: #D3D3D3 !default;
+/// Dark grey
+$lexus-dgrey: #EAEAEA !default;
+$lexus-linegrey: #cccccc;
+//black with 8 % opacity
+$border-black: #EBEBEB;
+//black with 8 % opacity
+$border-black1: rgba(0,0,0,0.08);
+//black with 0.3 opacity
+$border-black2: #F7F7F7;
+//black with 0.15 opacity
+$border-black3: rgba(0, 0, 0, 0.15);
+///Button color scheme
+$btn-dark: $lexus-primary;
+$btn-light: $lexus-secondary;
+/// Copy text color
+$text-color: $lexus-primary ;
+$text-color-al: $lexus-secondary;
+$text-color-grey:#666666;
+$text-error: #FB0D1B;
+$text-valid: #28a745;
+$text-mb: #1A1A1A;
+$overlay-bg: #010100;
+$placeholder-copy:#636363;
+///ZeroDefaults
+$df-zero:0;
+//Fuel Level color codes
+$fuelVeryLow:#CF250A;
+$fuelLow:#ff950aea;
+$fuelMedium:#04871E;
+$fuelFull:#04871E;
+
+$search-grey: #868686;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+
+///Selectors
+$btn-selectors: ".btn,a.btn,button, html [type='button'], [type='reset'], [type='submit']";
+$a-selectors: "a, a:active, a:hover, a:visited";
+$a-hover: " a:active, a:hover,";
+
+///Component styles
+$nav-ht:60px;
+$navItem-ht:70px;
+$navIcon-wt:70px;
+
+/// Breakpoints 
+$ld-xs:0px;
+$ld-sm:640px;
+$ld-md:960px;
+$ld-lg:1200;
+$ld-xlg:1800;
+
+//Panel tile sizes
+//Mobile
+$tile-smallxs-width: 175px;
+$tile-smallxs-height: 175px;
+$tile-xs-width: 355px;
+$tile-xs-height: 355px;
+
+//Tablet
+$tile-smallsm-width: 172px;
+$tile-smallsm-height: 172px;
+$tile-sm-width: 351px;
+$tile-sm-height: 351px;
+
+//Desktop
+$tile-small-width: 222px;
+$tile-small-height: 222px;
+$tile-md-width: 450px;
+$tile-md-height:450px;
+//Large desktop
+$tile-smallxl-width: 277px;
+$tile-smallxl-height: 277px;
+$tile-xl-width: 560px;
+$tile-xl-height: 560px;
+
+//VIN Image width constant
+$vin-img-wt : 355px;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+///$base-url: '/assets/' !default;
+
+$base-url: '../../assets/' 
+

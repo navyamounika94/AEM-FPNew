@@ -1,0 +1,181 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+///Breakpoints
+///breakpoints for each resolution pulled from variables ld-xs,ld-sm,ld-md and ld-lg
+///media queries named as ld-{device}
+///Below 640
+@mixin ld-mobile {
+    @media (max-width: #{$ld-sm }) {
+        @content;
+    }
+}
+///between 640 and 959
+@mixin ld-tablet {
+    @media (min-width: #{$ld-sm + 1px}) and (max-width: #{$ld-md}) {
+        @content;
+    }
+}
+///between 641 and 1200
+@mixin ld-ltablet {
+    @media (min-width: #{$ld-sm + 1px}) and (max-width: 1200px) {
+        @content;
+    }
+}
+///641 and above
+@mixin no-mobile {
+    @media (min-width: #{$ld-sm + 1px}) {
+        @content;
+    }
+}
+///between 960 and 1200
+@mixin ld-desktop {
+    @media (min-width: #{$ld-md + 1px}) and (max-width: #{$ld-lg }px) {
+        @content;
+    }
+}
+///between 960 and 1800
+@mixin ld-alldesktop {
+    @media (min-width: #{$ld-md + 1px}) and (max-width: #{$ld-xlg}px) {
+        @content;
+    }
+}
+///above 960
+@mixin no-tablet {
+    @media (min-width: #{$ld-md + 1px}) {
+        @content;
+    }
+}
+
+///upto 960
+@mixin no-desktop {
+  @media (max-width: #{$ld-md}){
+    @content;
+  }
+}
+///upto 1200
+@mixin no-ldesktop {
+    @media (max-width: 1200px){
+        @content;
+      }
+}
+///1200 and above
+@mixin ld-ldesktop {
+    @media (min-width : 1201px) {
+        @content;
+    }
+}
+///between 1200 and 1800
+@mixin ld-largerdesktop {
+    @media (min-width: #{$ld-lg}px) and (max-width: #{$ld-xlg}px) {
+        @content;
+    }
+}
+///1800 and above
+@mixin ld-xldesktop {
+    @media (min-width : 1801px) {
+        @content;
+    }
+}
+
+@mixin ld-mquery($range,$point){
+    @media ($range: $point){
+      @content;
+    }
+  } 
+
+  @mixin ld-breakpoints($minpoint,$maxpoint){
+    @media (min-width: $minpoint) and (max-width: $maxpoint) {
+      @content;
+    }
+  } 
+
+/****************************
+NAV SPECIFIC MIXINS
+*****************************/
+//1200 and above
+@mixin ld-xlnav {
+    @media (min-width : 1201px) {
+        @content;
+    }
+}
+//navtablet
+@mixin ld-navTablet {
+    @media (min-width : #{$ld-sm + 1px}) and (max-width : #{$ld-lg }) {
+        @content;
+    }
+}
+//upto nav
+@mixin no-xlnavTablet {
+    @media (min-width : #{$ld-md + 1px}) and (max-width : #{$ld-lg }) {
+        @content;
+    }
+}
+//upto nav
+@mixin no-xlnav {
+    @media (max-width : 1200px) {
+        @content;
+    }
+}
+/****************************
+End of NAV SPECIFIC MIXINS
+*****************************/
+
+/***************************
+IE Specific mixin
+***************************/
+@mixin iedesktop{
+@media screen and (-ms-high-contrast: active), 
+screen and (-ms-high-contrast: none),
+screen and (min-width : 1201px) {  
+    /* IE10+ specific styles go here */  
+    @content;
+ }
+}
+///CTA Stylings
+@mixin button-bg($bg, $fg) {
+    background: $bg;
+    color: $fg;
+    border: 2px solid $lexus-primary;
+
+    &:hover {
+        background: $fg;
+        color: $bg;
+        transition: all 0.3s ease;
+        border: 2px solid $lexus-primary;
+    }
+
+    &:active {
+        background: $fg;
+        color: $bg;
+        transition: all 0.3s ease;
+        border: 2px solid $lexus-primary;
+    }
+}
+
+///LD horizontal rule
+/// Pass width and color
+@mixin ld-hr($wt,$clr) {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: $clr;
+    border-style: solid none;
+    border-width: $wt 0 0;
+    margin: 18px 0;
+} 
+
+/***Video min and max queries**/
+@mixin videoMin{
+    @media (min-width: 1075px) {
+        @content;
+     }
+}
+@mixin videoMax {
+    @media (max-width: 1074px) {
+        @content;
+    }  
+}

@@ -1,0 +1,1776 @@
+@import './variables', './mixins';
+$selectVehicleWidth: 216px;
+$f10: pxtorem(10px);
+$f11: pxtorem(11px);
+$f12: pxtorem(12px);
+$f13: pxtorem(13px);
+$f14: pxtorem(14px);
+$f15: pxtorem(15px);
+$f16: pxtorem(16px);
+$f18: pxtorem(18px);
+$f20: pxtorem(20px);
+$f24: pxtorem(24px);
+$f30: pxtorem(30px);
+$f36: pxtorem(36px);
+$f40: pxtorem(40px);
+$f50: pxtorem(50px);
+body.exp-editor-body {
+  margin-top: -70px;
+}
+
+#ld-navwrapper {
+  //wrapper styles
+  background-color: #fff;
+  line-height: 1em;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+
+  .exp-editor-nav {
+    z-index:8999 !important;
+    &:hover {
+      z-index: 8999 !important;
+    }
+  }
+
+  %closeIcon{
+    background: url("images/common/Icon-Close.svg") center no-repeat;
+    transform: rotate(0deg);
+    top:14px;
+    right:30px;
+    position:absolute;
+    margin:0;
+    width:40px;
+    height:40px;
+  }
+
+  //layout ui
+  .hideView {
+    display: none;
+  }
+
+  .col-panel h4 {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px;
+  }
+
+  .displayVin {
+    font-size: $f13;
+    font-family: "nobel-regular";
+    font-weight: bold;
+    line-height: normal;
+  }
+
+  // to adjust the arrow in select vehicle
+  .vehicle-dpd {
+    min-width: $selectVehicleWidth;
+    a::after {
+      float: right;
+      margin-top: 9px;
+      &:hover {
+        margin-top: 9px;
+      }
+      
+    }
+
+    @include ld-mobile {
+      #nav-bar-selectVehicle-tab {
+        width: 100%;
+        background-color: $lexus-grey;
+      }
+      
+      &.show {
+        #nav-bar-selectVehicle-tab {
+          background-color: white;
+        }
+        
+        .selectVehicle-nav-unauth {
+          background-color: $lexus-grey;
+        }
+      }
+      
+      &.garage-auth {
+        .ld-submenu
+        {
+            &.show {
+              background-color: $lexus-secondary !important;
+
+              .col-panel:nth-of-type(1) {
+                background-color: $lexus-grey !important;
+              }
+            }
+        }
+      }
+    }
+  }
+
+  .showView {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    .vehicle-dpd,
+    .ld-navright.nav-item {
+      height: 60px !important;
+    }
+  }
+
+  .hideElemView.navbar-collapse {
+    .vehicle-dpd,
+    .ld-navright.nav-item {
+      @include no-ldesktop {
+        display: none !important;
+      }
+    }
+  }
+
+  .showElemView.navbar-collapse {
+    @include no-ldesktop {
+      padding-bottom:3rem;
+    }
+
+    .vehicle-dpd,
+    .ld-megamenu {
+      display: flex;
+    }
+
+    @include ld-mobile {
+      .ld-megamenu {
+        .ld-submenu {
+          &.show {            
+            .col-panel {
+              padding-left: 20px;
+              padding-right: 20px;
+              margin-bottom: 43px;
+              &:last-of-type {
+                margin-top: 15px;
+                margin-bottom: 5px;
+              }
+
+              .link-btm {
+                margin-top: 10px;
+              }
+
+              .ld-hrule {
+                margin-bottom: 15px;
+              }
+
+              .nav-carousel {
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //common styles extenders
+  ///copy for submenu list , title and caption
+  %list-copy {
+    font-size: $f13;
+    letter-spacing: 0.0125rem;
+    line-height: 1.125rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .navbar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 11000;
+    list-style-type: none;
+    padding-bottom: 0rem;
+    padding-top: 0rem;
+    justify-content: left;
+    -webkit-box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.75);
+
+    .link-btm {
+      @include ld-ldesktop {
+        margin-top: 50px;
+        // padding: 1.125rem 0.25rem	1.1875rem;
+      }
+      @include no-ldesktop {
+        margin-top: 25px;
+      }
+    }
+
+    @include no-xlnav {
+      height: $nav-ht;
+    }
+
+    .container {
+      max-width: 1200px;
+      min-height: 30px;
+      margin: 0px auto;
+      padding: 0px;
+      z-index: 300;
+
+      @include no-xlnav {
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
+      }
+
+      @include ld-ldesktop {
+        max-width: 100%;
+      }
+    }
+
+    .nm-view-nav {
+      margin-right: auto;
+
+      &.vehicle-panelShown{
+        opacity:0;
+        z-index: -1;
+        display:none !important;
+      }
+    }
+
+    .nm-view-nav ~ .nm-view-nav {
+      margin-left: auto;
+      margin-right: 0;
+      display: flex;
+      @include ld-mobile {
+        #check {
+          width: 100%;
+        }
+      }
+    }
+    //brand logo
+    a.navbar-brand {
+      margin: 0 0 0 20px;
+      padding: 0rem;
+      @include ld-ltablet {
+        margin: 0 40px 0 30px;
+      }
+      @include ld-ldesktop {
+        margin: 0 44px 0 40px;
+      }
+      @include ld-breakpoints('1200px','1400px'){
+        margin:0 15px;
+      }
+      @include ld-breakpoints('641px','800px'){
+        margin:0 15px;
+      }
+
+      img {
+        height: auto;
+        width: 200px;
+
+        @include ld-ltablet {
+          width: 200px;
+          margin-left:-5px;
+        }
+        @include ld-ldesktop {
+          width: 250px;
+          
+        }
+        @include ld-breakpoints('1200px','1450px'){
+          width: 200px;
+        }
+      }
+    }
+    ///Mobile Hamburger Menu
+    .navbar-toggler {
+      padding: 13px 10px !important;
+      margin: 0;
+      margin-left: auto !important;
+      width: 65px;
+      height: $nav-ht;
+      border-left: 1px solid $border-black;
+      cursor: pointer;
+      display: inline-block;
+      float: none;
+      z-index: 10000;
+
+      @include ld-ltablet {
+        padding: 12px 8px 12px 6px !important;
+        width: 58px;
+        border-left: 0;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(51,51,51, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        width: 35px !important;
+        height: 35px !important;
+      }
+      @include ld-mobile {
+        margin-left: 0 !important;
+      }
+      @include ld-xlnav {
+        display: none;
+      }
+      @include ld-mquery('max-width','700px'){
+        width: 45px;
+      }
+    }
+
+    .navbar-collapse {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: absolute;
+      top: $nav-ht;
+      left:0;
+      padding: 0px;
+      width: 100%;
+      z-index: 10000;
+      background-color: $lexus-secondary;
+
+      @include no-xlnav {
+        min-height: 125%;
+        padding-bottom: 1.25rem;
+      }
+
+      @include ld-xlnav {
+        width: auto;
+        position: static;
+        top: 0;
+      }
+    }
+
+    .search-bar {
+      box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.14);
+      position: absolute;
+      width: 100%;
+      height: $nav-ht;
+      padding: 0;
+      background-color: $lexus-secondary;
+      top: 0;
+      left: 0;
+      z-index: 15000;
+
+      @include ld-ldesktop {
+        margin-left: -15px;
+      }
+
+      .viewResults {
+        display: block;
+      }
+
+      .hideResults {
+        display: none;
+      }
+
+      .form-inline {
+        .form-control {
+          border: 0;
+          padding: 0;
+          width: calc(100% - 135px);
+          height: auto;
+          background: transparent url("images/gnav/ld-navsearch.png") scroll no-repeat left center;
+          font-family: nobel-regular;
+          text-transform: uppercase;
+          font-weight: normal;
+          border: 0;
+          color: $lexus-primary;
+          display: block;
+          font-size: $f16;
+          letter-spacing: 0.15em;
+          outline: 0;
+          padding: 15px 10px 15px 50px;
+          box-sizing: content-box;
+          height: auto;
+          float: left;
+
+          @include ld-xlnav {
+            flex: 1;
+          }
+        }
+
+        img {
+          background: none;
+          border: 0;
+          margin: 0;
+          @include no-xlnav {
+            width: $nav-ht;
+            height: $nav-ht;
+          }
+          width: $nav-ht + 10;
+          height: $nav-ht + 10;
+          border-left: 1px solid $border-black;
+        }
+
+        @include no-xlnavTablet {
+          border-bottom: 1px solid $border-black;
+        }
+      }
+
+      @include ld-xlnav {
+        height: $nav-ht + 10;
+
+        img {
+          width: $nav-ht + 10;
+          height: $nav-ht + 10;
+        }
+      }
+
+      @include ld-navTablet {
+        border-bottom: 1px solid $border-black1;
+      }
+
+      &.vehicle-panelShown{
+        @include ld-mobile{
+          opacity: 0;
+          z-index: -1;
+        }
+      }
+    }
+
+    .showView {
+      .show {
+        @include ld-ltablet {
+          background-color: $lexus-grey !important;
+        }
+      }
+
+      .show .selectVehicle-nav:after {
+        @include ld-ltablet {
+          background: url("images/gnav/ld-drparrow.png") -28px -26px no-repeat !important;
+          transform: rotate(-180deg);
+          margin-top: 13px;
+        }
+      }
+      .nav-link {
+        padding: 13px 10px !important;
+        @include ld-breakpoints('641px','800px'){
+          padding: 13px 5px !important;
+        }
+      }
+
+      .show .ld-caret.auth-profile:after {
+        @include ld-ltablet {
+          background: url("images/gnav/ld-drparrow.png") -28px -26px no-repeat !important;
+          transform: rotate(-180deg);
+          position: relative !important;
+          top: 5px !important;
+        }
+      }
+    }
+    
+    @include ld-ldesktop{
+    .nm-view-nav.nm-view-unauth{
+      .dropdown{
+        a.nav-link{
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+    ///Dropdown Menu items styling
+    .dropdown {
+      position: static;
+      @include ld-mobile{
+        margin: 0 1px;
+       #loginNav.nav-link{
+          padding-left:30px;
+          padding-right:30px;
+        }
+      }
+      &:not(.ld-navright) {
+        border-bottom: 1px solid $border-black1;
+        @include ld-mobile{
+          a.nav-link, #loginNav.nav-link{
+            padding-left:30px;
+            padding-right:30px;
+          }
+        }
+        @include ld-ltablet{
+          padding:0 30px;
+          margin-left: 1px;
+        }
+        @include ld-xlnav {
+          border-bottom: 0;
+          height: $nav-ht + 10;
+        }
+      }
+
+      a.vehicleTab {
+        width: 216px;
+        margin-left: 5px;
+        float: left;
+      }
+      // extra space between select vehicle and arrow
+      a.vehicleTab.ld-caret:after {
+        margin-left: 15px !important;
+        float: right;
+        margin-top: 13px;
+      }
+
+      a.selectVehicle-nav-unauth.nav-link {
+        text-transform: none;
+        @include ld-ldesktop{
+        padding-right: 15px;
+        }
+      }
+      a.nav-link {  
+        padding: 17px 10px 17px 15px;
+        font-family: nobel-bold;
+        color: $lexus-primary;
+        display: block;
+        font-size: $f13;
+        line-height: 2.1875rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+        position: relative;
+        @include ld-breakpoints('1200px','1300px'){
+          padding: 17px 5px;
+        }
+        @include ld-breakpoints('1300px','1400px'){
+          padding: 17px 10px;
+        }
+        @include ld-xlnav {
+          letter-spacing: 0;
+          position: static;
+        }
+
+        @include ld-ldesktop {
+          letter-spacing: 0.02em;
+        }
+      }
+
+      .auth-profile:after {
+        @include ld-ltablet {
+          background: url("images/gnav/ld-drparrow.png") -28px -26px no-repeat !important;
+          position: relative !important;
+          top: 0px !important;
+          right: 0px !important;
+        }
+      }
+
+      .ld-caret:after {
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background: url("images/gnav/ld-plusicon.png") 0 0 no-repeat;
+        @include no-mobile{
+        right: 22px;
+        top: 26px;
+        position: absolute;
+      }
+      @include ld-mobile{
+        float:right;
+        margin-right:0.9375rem;
+        margin-top:13px;
+      }
+        @include no-tablet {
+          margin-left: 7px;
+        }
+
+        @include ld-xlnav {
+          background: url("images/gnav/ld-drparrow.png") -22px -27px no-repeat;
+          position: static;
+          padding-right: 20px;
+          margin-left: 15px;
+        }
+      }
+
+      &:hover {
+        background-color: $lexus-grey;
+
+        a.nav-link {
+          color: $text-color-grey;
+        }
+      }
+      ///submenu common styling
+      .dropdown-menu.ld-submenu {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        // min-width: auto;
+        padding: 0.9375rem;
+        background-color: $lexus-grey;
+        border: 0;
+        margin-top: 0;
+        width: 100%;
+        @include no-ldesktop{          
+          &.show{          
+            display: block;            
+          }
+        }        
+        @include ld-mobile {
+          background-color: $lexus-grey;
+          padding: 0.9375rem;
+          width: 91%;
+          margin: 0 auto;
+        }
+
+        @include ld-xlnav {
+          padding: 1.875rem 4.375rem;
+        }
+
+        .ld-tile {
+          &>a{
+            flex-shrink: 0;
+          }
+          @include ld-xlnav {
+          .nav-img-wrapper{
+            padding-top: 0;    
+          }
+        }
+          .img-wrapper {
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            
+
+            &:hover {
+                .card-img-top {
+                  transform: scale(1.08);
+              }
+            }            
+            
+            img {
+              width: 100%;
+              height: auto;
+              // margin-bottom: 15px;
+              transition: all 250ms cubic-bezier(.335,.015,.46,.995);
+            }
+          } 
+
+          .card-body {
+            .card-subtitle {
+              font-family: nobel-bold;
+              font-size: $f13;
+              line-height: 1.125rem;
+              margin-top: 15px;
+              
+              @include ld-xlnav {
+                margin-top: 0;
+              }
+  
+              @include ld-ltablet {
+                margin-top: 5px;
+              }
+            }
+            @include ld-ltablet {
+              margin-top: 0;
+              margin-bottom: 15px;
+            }
+            @include ld-mobile{
+              margin-top:0;
+            }
+          }
+        }
+
+        .list-group {
+          .list-group-item {
+            padding: 0.25rem 0;
+            border: 0;
+            background: transparent;
+            margin: 0.625rem 0;
+            flex: 100%;
+
+            a {
+              @extend %list-copy;
+              font-family: nobel-bold;
+              color: $text-color;
+              letter-spacing: 0.1em;
+              text-decoration: none;
+              &:hover{
+                text-decoration: underline;
+              }
+            }
+
+            // TODO: Rupa to add actual icon stylings here
+            .navlink-icon {
+              height: 8px;
+              width: 8px;
+              margin-left: 6px;
+              margin-bottom: 2px;
+            }
+          }
+
+          &.multiColList {
+            @include ld-xlnav {
+              -webkit-column-count: 2; /* Chrome, Safari, Opera */
+              -moz-column-count: 2; /* Firefox */
+              column-count: 2;     
+
+              .list-group-item {
+                flex: 50%;
+              }
+            }
+          }
+        }
+
+        h4 {
+          @extend %list-copy;
+          color: $text-color-grey;
+          font-family: nobel-bold;
+          @include ld-xlnav{
+          line-height: 16px;
+          }
+          line-height: 1.75rem;
+        }
+
+        select {
+          background-image: url("images/gnav/ld-drparrow.png");
+          background-position: 102.5% center;
+          background-repeat: no-repeat;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          border-radius: 0;
+          min-height: 50px;
+          @extend %list-copy;
+          text-transform: none;
+          font-family: nobel-bold;
+        }
+        .link-btm {
+          display: inline-block;
+          a {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-family: nobel-bold;
+            display: block;
+            text-decoration: none !important;
+            border-bottom: 1px solid $lexus-lightgrey;
+            letter-spacing: 1px;
+            height: 15px;
+
+            @include ld-xlnav {
+              position: absolute;
+              bottom: -2px;
+            }
+          }
+        }
+
+        .col-panel {
+          margin-bottom: 15px;
+
+          &:last-of-type {
+            margin-top: 14px;
+            @include ld-xlnav {
+              margin-top: 0;
+            }
+          }
+          
+          @include ld-xlnav {
+            margin-bottom: 0;
+          }
+          @include ld-ltablet{
+            padding: 0 1.875rem;
+          }
+          .imagecolumn{
+            @include ld-ldesktop{
+              padding-left:0;
+            }
+            .ld-tile{
+              @include ld-ldesktop{
+                padding-bottom: 10px;
+                .card-body{
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                margin-top: 15px;
+              }
+            }
+              .card-subtitle{
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              .card-body{
+                padding:0.9375rem 0;                
+              }
+            }
+          }
+        }
+
+        .card {
+          background: transparent;
+
+          .card-body {
+            padding: 0.625rem 0;
+          }
+
+          .card-title {
+            @extend %list-copy;
+          }
+
+          .card-subtitle {
+            @extend %list-copy;
+            letter-spacing: 0.02em;
+          }
+        }
+
+        .ld-hrule {
+          @include ld-hr(1px, $text-color-grey);
+          margin: 0 0 20px;
+        }
+
+        @include ld-ltablet {
+          &.show {
+            .imgNavCenterTabletView {
+              .ld-carousel {
+                .ld-tile {
+                  .card-body {
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.vehicle-dpd {
+        border-top: 1px solid $border-black1;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        @include ld-ltablet{
+          padding:0;
+        }
+        @include no-ldesktop{
+          min-width: 200px;
+        }
+
+        a.nav-link {
+          font-size: $f24;
+          text-transform: capitalize;
+          font-family: "nobel-book";
+          font-weight: 300;
+          @include ld-breakpoints('1200px','1300px'){
+            padding: 17px 10px;
+          }
+        }
+        .veh-selector {
+          .un-authPanel{
+            .ld-carousel{
+              .slick-slider{
+                .slick-track{
+                  width: 100% !important;
+                }
+              }
+            }
+          }
+          @include ld-ldesktop{
+            margin: 0;
+          }
+          .vehiclepanel{
+            @include ld-mobile{
+              padding: 1.25rem;
+            }
+          }
+          .veh-error{
+            @include ld-mobile{
+              min-height: 40vh;
+              .card-body{
+                padding:0.625rem 0.9375rem;
+              }
+            }
+          }
+          .clearLink{
+            position:absolute;
+            top:-22px;
+            right:20px;
+            a{
+              font-family:'nobel-bold';
+              font-size:$f11;
+              color: $text-mb;
+              letter-spacing: 1px;
+              text-decoration: underline;
+              line-height: $f20;
+              text-transform: uppercase;
+              cursor:pointer;
+              @include no-ldesktop{
+                margin-right:15px;
+              }
+            }
+          }
+          .veh-copy {
+            @include ld-ldesktop{
+              margin-top: 0;
+            }
+            @include ld-ltablet {
+              margin-top: 1.6875rem;
+            }
+          }
+          .veh-submit {
+            @include ld-ltablet {
+              margin-top: 14px;
+            }
+          }
+          .col-panel {
+            p {
+              padding-right: 0;
+            }
+           
+          }
+
+          .select-vehicle-div {
+            .select-model {
+              margin-bottom: 10px;
+            }
+
+            .select-year {
+              margin-bottom: 4px;
+            }
+
+            .veh-submit-div {
+              .veh-submit {
+                margin-bottom: 0;
+                @include ld-ldesktop{
+                margin-top: 25px;
+                }
+              }
+            }
+            
+            .vehiclepanel{
+                @include ld-ldesktop{
+                  padding-right: 0;
+                }
+              }
+          }
+
+          .nav-quick-links {
+            @include ld-ltablet {
+              padding-right: 55px;
+            }
+          }
+        }
+        .veh-caption{
+          width:100%;
+          padding-left:0.9375rem;
+          #{$a-selectors}{
+            text-decoration:underline;
+            color:$lexus-primary;
+            text-decoration-color: rgba(0,0,0,0.3);
+            line-height: 25px;
+          }
+          @include no-ldesktop {
+            margin-bottom: 25px;
+          }      
+        }
+
+
+        @include ld-ldesktop {
+            .slick-slide.slick-active.slick-current {
+            // After transitioning to 'hide the nav instead of removing it', the slick-slider's 
+            transition: none !important;
+          }
+      }
+
+        .dropdown-menu.ld-submenu {
+          position: static;
+          background-color: $lexus-grey;
+          &.auth {
+            background-color: $lexus-secondary;
+          }
+
+          .col-panel {
+            color: $lexus-primary;
+            padding-top: 0;
+
+            @include ld-mobile {
+              background-color: $lexus-grey;
+              padding-top: 1.25rem;
+            }
+          
+
+            p {
+              color: $text-mb;
+              font-size: $f14;
+              letter-spacing: 0.1em;
+              margin-bottom: 27px;
+
+              &.formCaption {
+                text-align: left;
+                font-size: $f10;
+                margin-bottom: 0;
+                a {
+                  font-size: $f12;
+                  font-weight: bold;
+                }
+              }
+            }
+
+            select:hover {
+              background-color: $lexus-secondary !important;
+            }
+
+            &.defaultView {
+              .ld-hrule {
+                display: none;
+              }
+
+              h4 {
+                font-size: $f20;
+                font-weight: normal;
+                font-family: nobel-book;
+                @include ld-ldesktop{
+                line-height: 1.75rem;
+                }
+              }
+
+              ul {
+                list-style-type: disc !important;
+                list-style-position: inside;
+                padding-left:0.2rem;
+
+                li {
+                  display: list-item;
+                  font-size: $f14;
+                  font-family: nobel-regular;
+                  line-height: 20px;
+                  margin: 20px 0;
+                  letter-spacing: 0.02em;
+
+                  #{$a-selectors} {
+                    font-family: nobel-regular;
+                    text-transform: none;
+                    text-decoration:none;
+                    color:$lexus-primary;
+                  }
+                    a.rich-text-anchor{
+                      &:hover{
+                        text-decoration: underline;
+                      }
+                    }
+                }
+              }
+            }
+          }
+
+          .col-panel:nth-of-type(1) {
+            background-color: transparent;
+            margin-top: 0;
+
+            @include ld-mobile {
+              background-color: $lexus-secondary;
+              margin-top: -15px;
+              padding-left: 0;
+              padding-right: 0;
+            }
+
+            @include ld-xlnav {
+              padding-left: 0;
+            }
+
+            &.col-md-5 {
+              ~.col-md-7 {
+                @include ld-breakpoints('960px', '1004px') {
+                  margin-top: 20px;
+                }
+              }
+            }
+          }
+          
+          .col-panel:last-of-type {
+            margin-top: 0;
+            @include ld-xlnav {
+              padding-right: 0;
+            }
+            &.un-authPanel{
+              @include ld-ltablet {
+                padding-left:0;
+                  flex: 0 0 66.66667%;
+                  max-width: 66.66667%;
+                  margin:0 auto;
+                .slick-slider{
+                  justify-content: center;
+                }
+              }  
+            }
+
+            @include ld-mobile {
+              background-color: #ffffff;
+            }
+          }
+
+          .ld-carousel {
+            padding-top: 0;
+          }
+
+          @include no-mobile {
+            background-color: $lexus-grey;
+            position: absolute;
+          }
+        }
+
+        @include ld-mobile {
+          .ld-caret:after {
+            background: url("images/gnav/ld-drparrow.png") center no-repeat;
+            transform: rotate(-90deg);
+            content: "";
+            right: 31px;
+            top: 14px;
+            position: absolute;
+          }
+
+          &.show {
+            .ld-caret:after {
+              background: url("images/common/Icon-Close.svg") center no-repeat;
+              transform: rotate(0deg);
+              top:14px;
+              right:31px !important;
+              position:absolute;
+              margin:0;
+              width:40px;
+              height:40px;
+            }
+          }
+        
+          border-bottom: 1px solid $border-black3;
+        }
+        @include no-mobile {
+          border: 1px solid $border-black1;
+          border-top: 0;
+          border-bottom: 0;
+          position: static;
+          margin-right: auto;
+
+          a {
+            position: relative;
+          }
+
+          .ld-caret:after {
+            background: url("images/gnav/ld-drparrow.png") -28px -26px no-repeat;
+            position: static;
+          }
+          &.show {
+            .ld-caret:after {
+              transform:rotate(180deg);
+              @include ld-ltablet{
+                margin-top:0.9375rem;
+              }              
+            }
+          }
+        }
+
+        @include no-tablet {
+          margin-right: 0;
+
+          .ld-carousel .slick-slider {
+            padding: 0;
+          }
+        }
+        @include ld-ldesktop{
+          .ld-caret:after {
+            background: url("images/gnav/ld-drparrow.png") -23px -26px no-repeat;
+            position: static;
+          }
+        } 
+        &.show {
+          @include ld-xlnav {
+            background-color: $lexus-grey;
+
+            .dropdown-menu.ld-submenu {
+              @include ld-ldesktop {
+                padding-top: 1.875rem;
+                padding-bottom: 1.875rem;
+              }
+            }
+          }
+
+
+          .selectVehicle-nav {
+            ~.ld-submenu {
+              &.show {
+                @include ld-mobile {
+                  background-color: $lexus-secondary;
+                  width: 100%;
+                  padding: 0.9375rem 1.5625rem;
+                }
+              }
+            }
+          }
+        }
+
+        @include ld-navTablet {
+          &.show {
+            background-color: $lexus-grey;
+          }
+        }
+        &.show{
+          @include ld-mobile{
+            #nav-bar-selectVehicle-tab{
+              position:fixed;
+              top:0;
+              z-index: 20000;
+              width:100%;
+              left:0;
+              right:0;
+              box-shadow: 0 1px 8px 3px rgba(0,0,0,.14);
+              text-transform: uppercase;
+              font-size:1rem;
+              letter-spacing:2px;
+              color:$lexus-primary;
+              font-family:'nobel-regular';
+            &.ld-caret:after{
+              background: none;
+            }
+            .closeMenu{
+              width: 60px;
+              height: 70px;
+              right: 0 !important;
+              top: 0;
+              border-left: 1px solid $border-black;
+              background: url("images/gnav/icon-Close-60x60.png") no-repeat;
+              position: absolute;
+              background-position:center;
+            }
+            .closePanel{
+              background:url("images/gnav/ld-drparrow.png") no-repeat;
+              width:1.5625rem;
+              height:1.5625rem;
+              float:left;
+              background-size:221%;
+              background-position: -9px -10px;
+              transform:rotate(90deg);
+              content:'';
+            }
+          }
+            .dropdown-menu.ld-submenu{
+              position:static !important;
+              transform:none !important;
+              max-height: 100vh;
+              width:100%;
+              padding: 5px 26px 0 30px;  
+              
+              .select-vehicle-div{
+                padding-top: 2.5rem;
+                p.veh-copy{
+                  margin-bottom: 0.625rem;
+                  margin-left: 0.3125rem;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ///Expanded styles
+      &.show,
+      &:hover {
+        background-color: $lexus-secondary;
+
+        .dropdown-menu.ld-submenu {
+          @include no-xlnavTablet {
+            .col-panel {
+              width: 50%;
+              max-width: 50%;
+              flex-basis: 50%;
+            }
+            
+            .col-panel{
+              &.imgNavCenterTabletView {
+                width: 100%;
+                max-width: 100%;
+                flex-basis: 100%;
+
+                .col {
+                  max-width: 50%;
+                  margin: 0 auto;
+                }
+              }
+            }
+          }
+
+          @include ld-xlnav {
+            .col-panel:last-of-type {
+              padding-right: 0;
+            }
+
+            .col-panel:nth-of-type(1) {
+              padding-left: 0;
+              padding-right: 33px;
+            }
+
+            .col-panel:nth-of-type(2) {
+              padding-left: 33px;
+              padding-right: 33px;
+            }
+
+            .col-panel:last-of-type {
+              padding-left: 33px;
+            }
+          }
+        }
+
+        // this for the other four nav elements
+        @include ld-xlnav {
+          .ld-caret:after {
+            transform: rotate(180deg);
+            background: url("images/gnav/ld-drparrow.png") -29px -31px no-repeat;
+            content: "";
+            margin-left: 15px;
+          }
+          background-color: $lexus-grey;
+        }
+      }
+
+      @include ld-xlnav {
+        // &:hover > .dropdown-menu {
+        //   display: block;
+        // }
+      }
+
+      @include ld-mobile {
+        &.show .ld-caret:after {
+          background: url("images/common/Icon-Close.svg") center no-repeat;
+          transform: rotate(0deg);
+          top:14px;
+          right:31px;
+          position:absolute;
+          margin:0;
+          width:40px;
+          height:40px;
+        }
+      }
+
+      @include ld-ltablet {
+        &.show .nav-centerItem:after {
+          background: url("images/common/Icon-Close.svg") center no-repeat;
+          transform: rotate(0deg);
+          top:14px;
+          right:8px;
+          position:absolute;
+          margin:0;
+          width:40px;
+          height:40px;
+        }
+      }
+    }
+    //RightNav
+    .ld-navright {
+      position: relative;
+
+      .notificationNum {
+        height: 9px;
+        width: 12px;
+        color: #ffffff;
+        font-family: Nobel;
+        font-size: 11px;
+        font-weight: bold;
+        font-size: 11px;
+        background-color: black;
+        border-radius: 15px;
+        padding: 3px;
+        margin-right: -18px;
+        margin-left: 10px;
+      }
+
+      .notificationLink {
+        cursor: pointer;
+      }
+
+      .dropdown-menu.ld-submenu {
+        width: auto;
+        height: auto;
+        padding: 0.937rem;
+        min-height: 0;
+        min-width: 266px !important;
+
+        &.auth-sumenu {
+          padding: 1rem 2.3125rem;
+          min-width:276px;
+          li {
+            margin: 0.875rem 0;
+            a {
+              font-family: "nobel-bold";
+              text-transform: uppercase;
+              letter-spacing: 1px;
+
+              &:hover {
+                text-decoration: none;
+                color: $lexus-primary;
+              }
+            }
+            @include ld-mobile {
+              margin: 0;
+              padding: 1.875rem;
+              border-bottom: 1px solid $border-black1;
+            }
+          }
+          @include ld-mobile {
+            background-color: $lexus-dgrey;
+            padding: 0;
+            width: 100%;
+            margin: 0 auto;
+            position: static;
+            float: none;
+          }
+        }
+
+        &.unauth-sumenu {
+          @include ld-mobile {
+            display: none;
+            width: 91%;
+            background: transparent;
+          }
+        }
+
+        .btn {
+          display: block;
+          width: 100%;
+          white-space: nowrap;
+
+          @include ld-mobile {
+            width: 42%;
+            margin: 0.625rem;
+            display: inline-block;
+            padding:15px 6px;
+          }
+        }
+
+        .dropdown-item {
+          @extend %list-copy;
+          margin: 0.875rem 0;
+          text-align: left;
+
+          &:hover {
+            background-color: $lexus-grey;
+          }
+        }
+      }
+      // Placeholder for nav icon styling
+      %nav-icon {
+        display: inline-block;
+        width: inherit;
+        height: inherit;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      &.nav-item {
+        &.unauth-dpd {
+          width: 70px;
+          height: 70px;
+          padding: 0;
+        }
+      }
+
+      &#ld-navProfile {
+        &.dropdown {
+          border: 1px solid $border-black1;
+          -webkit-background-clip: padding-box; /* for Safari */
+          background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+          border-top: 0;
+          border-bottom: 0;
+          @include ld-mobile {
+            border:0;
+            border-bottom:1px solid rgba(0,0,0,0.1);
+            
+          }
+        }
+        @include ld-mobile {
+          #loginNav {
+            width: 100%;
+            border: none;
+            background-color: $lexus-grey;
+          }
+        }
+        &.show {
+          @include ld-mobile {
+            #loginNav {
+              background-color: $lexus-dgrey;
+              width: 100%;
+            }
+          }
+        }
+        &.auth-dpd {
+          .userName {
+            color: $lexus-primary;
+            font-family: "nobel-bold";
+            @extend %list-copy;
+            letter-spacing: 0.02em;
+            text-transform: none;
+            cursor: pointer;
+            display: inline-block;
+            padding: 0.5625rem;
+            margin-right: 20px;
+            @include ld-mobile {
+              margin-right: 20px;
+              color: $lexus-primary;
+              text-transform: none;
+              padding: 0.5625rem 0.5625rem 0.5625rem 0rem;
+            }
+
+            @include ld-ldesktop {
+              padding-left: 0.125rem;
+            }
+            @include ld-breakpoints('1200px','1450px'){
+              margin-right:0;
+            }
+            @include ld-breakpoints('641px','800px'){
+              margin-right:0;
+              padding-left:0;
+            }
+          }
+        }
+        &.unauth-dpd {
+          .nav-link {
+            @extend %nav-icon;
+            background-image: url("images/gnav/ld-navprofile.png");
+
+            @include ld-mobile {
+              display: none;
+            }
+          }          
+          @include ld-ltablet {
+            width: 60px;
+          }
+        }
+
+        &:not(.auth-dpd) {
+          @include ld-mobile {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0 !important;
+            height: auto;
+            min-height: 190px;
+            position: relative;
+            .ld-submenu {
+              top: 0;
+              padding: 30px 0 30px;
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+      }
+
+      #ld-navSearch {
+        cursor: pointer;
+        width: $navIcon-wt;
+        height: $navItem-ht;
+        padding: 0;
+
+        &:hover {
+          background-color: $lexus-grey;
+        }
+
+        i {
+          @extend %nav-icon;
+          background-image: url("images/gnav/ld-navsearch.png");
+        }
+
+        @include no-xlnav {
+          display: none;
+        }
+        @include ld-breakpoints('1200px','1300px'){
+          width: 50px;
+        }
+      }
+
+      &.show-welExp {
+        display: flex;
+        width: $navIcon-wt;
+        height: $navItem-ht;
+        align-items: center;
+        justify-content: center;
+        border-left: 1px solid $border-black1;
+        .nav-link {
+          background: transparent url("images/gnav/help-icon.png") scroll no-repeat left center;
+          display: flex;
+          padding: 20px;
+          background-position: center;
+
+          @include ld-ltablet {
+            background-size: 100%;
+            padding: 13px !important;
+          }
+        }
+        @include ld-breakpoints('1300px','1400px'){
+          width:50px;
+        }
+        @include ld-breakpoints('1200px','1300px'){
+          width:40px;
+        }
+        
+        @include ld-mobile {
+          display: none;
+          &.welexp {
+            display: flex;
+            width: 60px;
+          }
+        }
+        @include ld-mquery("max-width", "738px") {
+          width: 40px;
+          height: 60px;
+        }
+        @include ld-mquery("max-width", "689px") {
+          display: none;
+        }
+        @include no-desktop {
+          display:none !important;
+        }
+      }
+    }
+  }
+  .imgNavCenterTabletView {
+    margin: 0 auto;
+  }
+  & ~.nav-overlay{
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    content:'';
+    background: $lexus-primary;
+    opacity:0.8;
+    height:100vh;
+    width:100vw;
+    z-index:10000;
+  }
+}
+
+#ld-navProfile {
+  &.show {
+    @include ld-mobile {
+      #loginNav {
+        background-color: $lexus-dgrey;
+      }
+    }
+  }
+  
+}
+
+[data-nav-state="open"] {
+  @include no-ldesktop{
+    #ld-navwrapper{
+      &~.container{
+          overflow: hidden;
+      }
+      .navbar-collapse{
+        max-height: calc(100vh - 60px);
+        min-height: calc(100vh - 60px);
+        overflow-y:auto !important;
+        overflow-x:hidden;
+        align-items: start;
+      }
+    }
+    .ld-footer{
+      display: none;
+    }
+  }
+   @include ld-mobile{
+    #ld-navwrapper{
+      .navbar-collapse{
+        &.vehicle-panelShown{
+          top:0px !important;
+          .veh-selector{
+            padding-top:5rem !important;
+            .select-vehicle-div {
+              p.veh-copy{
+                margin-bottom:0.9375rem !important;
+              }
+            }
+          }
+        }
+      }
+   } 
+  }  
+  @include ld-ltablet{
+    #ld-navwrapper{
+      .vehicle-dpd{
+        .dropdown-menu{
+          &.show{
+            max-height: 100vh;
+            height:auto;
+            z-index: 9999;
+            overflow-y: auto;
+            padding-bottom: 2.5rem;
+          }
+        }
+      }
+    }
+  }  
+}
+  //Animation on desktop
+@include ld-ldesktop{
+  .closed{
+    .dropdown-menu.ld-submenu[aria-hidden=true]:not(.profile-menu){
+      display:unset;              
+      visibility: hidden;           
+      max-height: 0px;
+      padding: 0 0.9375rem;
+      overflow:hidden;
+      & > .row{
+        width:100%;
+        -webkit-transition: opacity 0.9s ease-out;
+      -moz-transition: opacity 0.9s ease-out;
+    -ms-transition: opacity 0.9s ease-out;
+     -o-transition: opacity 0.9s ease-out;
+      transition: opacity 0.9s ease-out;
+        opacity: 0;
+      }
+      -webkit-transition: all 500ms ease-out;
+      -moz-transition: all 500ms ease-out;
+    -ms-transition: all 500ms ease-out;
+     -o-transition: all 500ms ease-out;
+      transition: all 500ms ease-out;
+    }
+ }
+ .open {
+    .dropdown-menu.ld-submenu[aria-hidden=false]:not(.profile-menu){
+      display:unset;
+      visibility: visible;
+      max-height: 600px;
+      padding:0.9375rem;
+      -webkit-transition: all 500ms ease-in;
+      -moz-transition: all 500ms ease-in;
+    -ms-transition: all 500ms ease-in;
+     -o-transition: all 500ms ease-in;
+      transition: all 500ms ease-in;
+      & > .row{
+        width:100%;
+      -webkit-transition: opacity 0.9s ease-in-out;
+      -moz-transition: opacity 0.9s ease-in-out;
+    -ms-transition: opacity 0.9s ease-in-out;
+     -o-transition: opacity 0.9s ease-in-out;
+      transition: opacity 0.9s ease-in-out;
+        opacity: 1;
+        @include ld-ldesktop{
+          margin:0;
+        }
+      }
+
+    }
+ }
+}
+@include iedesktop{
+  .closed{
+    .dropdown-menu.ld-submenu[aria-hidden=true]:not(.profile-menu){
+      display:inherit; 
+    }
+  } 
+  .open {
+    .dropdown-menu.ld-submenu[aria-hidden=false]:not(.profile-menu){
+      display:inherit;
+    }
+  }       
+}
+
+.closed{
+  .dropdown-menu.ld-submenu[aria-hidden=true]:not(.profile-menu){
+    @include no-ldesktop {
+      display: none;
+    }
+    @include ld-ltablet{
+      display: block;
+      visibility: hidden;
+      max-height: 0;
+      overflow: hidden;
+    }
+  }
+}
+// Styles to hide welcome experience based on data-disable-welExp
+[disable-welExp = true] {
+    .show-welExp, .hide-show-welExp{
+      display: none !important;
+    }
+}

@@ -1,0 +1,93 @@
+#ld-navwrapper {
+  .search-results {
+    background-color: $lexus-secondary;
+    position: absolute;
+    top: 100%;
+    z-index: 11999;
+    width: 100%;
+    padding: 0;
+    box-shadow: inset 3px 7px 6px -9px rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid #ddd;
+
+    .src-wrapper {
+      max-width: 1200px;
+      display: block;
+      padding: 30px 0;
+      position: relative;
+      width: 96%;
+
+      div {
+        float: left;
+      }
+
+      h3 {
+        font-family: nobel-bold;
+        font-size: $f12;
+        text-transform: uppercase;
+      }
+
+      ul {
+        padding: 0;
+        padding-top: 10px;
+
+        li {
+          list-style-type: none;
+          padding: 5px 0;
+          text-transform: uppercase;
+          font-size: $f16;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+
+  .form-inline {
+    padding-left: 40px;
+
+    @include ld-ltablet {
+      padding-left: 30px;
+    }
+
+    @include ld-mobile {
+      padding-left: 20px;
+    }
+
+    img {
+      cursor: pointer;
+    }
+
+    .rightArrowdiv {
+      height: 70px;
+      width: 70px;
+      background-color: $search-grey;
+
+      .rightArrowStyle {
+        height: 13px !important;
+        width: 8px !important;
+        border: none !important;
+        margin-left: 45% !important;
+        margin-top: 43% !important;
+      }
+
+      @include ld-ltablet {
+        display: none;
+      }
+      @include ld-mobile {
+        display: none;
+      }
+    }
+  }
+
+  // results should be same as .form-inline but +35px due to search icon width
+  .viewResults {
+    padding-left: 75px;
+
+    @include ld-ltablet {
+      padding-left: 65px;
+    }
+
+    @include ld-mobile {
+      padding-left: 55px;
+    }
+  }
+}
