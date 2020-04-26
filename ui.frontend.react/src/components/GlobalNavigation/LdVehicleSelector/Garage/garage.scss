@@ -1,0 +1,362 @@
+.grg-wrapper {
+  %grg-Copy {
+    font-family: "nobel-regular";
+    letter-spacing: 0.02em;
+    color: $lexus-primary;
+    text-transform: uppercase;
+  }
+  @include ld-ldesktop {
+    padding-left: 100px;
+  }
+  @include ld-mquery('max-width','1500px'){
+    padding-left: 30px;
+  }
+  @include no-ldesktop {
+    padding-left: 0;
+  }
+
+  .title-panel {
+    @include ld-ldesktop {
+      margin-bottom: 1.875rem;
+    }
+    .manage-garage-title {
+      @extend %grg-Copy;
+      font-family:'nobel-book';
+      font-weight: 300;
+      font-size: $f24;
+      float: left;
+
+      .manage-garage-span {
+        margin-left: 10px;
+      }
+    }
+
+    .manage-garage-link {
+      float: right;
+      margin-right: 9px;
+      letter-spacing: 0.04em;
+      font-family: "nobel-bold";
+      @extend %grg-Copy;
+      font-size: $f13;
+      font-weight: bolder;
+      margin-left: auto;
+      cursor: pointer;
+      @include ld-ldesktop{
+        right:-44px;
+      }
+    }
+
+
+  }
+
+  .ld-submenu {
+    .col-panel {
+      margin-top: 0px !important;
+    }
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  .carouselStyle {
+    display: inline-block;
+
+    @include ld-xlnav {
+      max-width: 666px;
+    }
+
+    @include ld-ldesktop {
+      max-width: 100%;
+    }
+  }
+
+  .btn-group-vertical {
+    .btn,
+    a {
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+      margin: 0.625rem auto;
+      @include no-mobile {
+        flex: 0 0 100%;
+        width:288px;        
+      }
+      @include ld-breakpoints('641px', '750px') {
+        width:239px;        
+      }
+      @include ld-breakpoints('700px', '749px') {
+        width:270px;        
+      }
+    }
+  }
+  .vehicle-panel {
+    @include ld-ldesktop {
+      margin-top: 1.875rem;
+    }
+
+    //Carousel styles
+    .ld-carousel {
+      width:100%;
+      padding-bottom: 0;
+      
+      .selectedVehicleImg {
+        display: inline-block !important;
+        height: 20px !important;
+        width: 25px !important;
+        margin-left: 10px;
+        margin-top: -7px;
+        margin-bottom: 0px !important;
+      }
+
+      .cardBodyStyle {
+        white-space: nowrap;
+        &.card-body {
+          text-align: center !important;
+          @include ld-ldesktop {
+            text-align: left;
+
+            .card-title {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .slick-slider{
+        @include ld-ldesktop{
+          float:left;
+          width:100%;
+          justify-content: flex-start !important;
+        }
+      }
+
+      .slick-list {
+        @include no-mobile{
+          width: calc(100% - 100px)!important;
+        }
+        @include ld-ltablet{
+          margin-left: 2.5rem !important;
+        }
+        
+        @include ld-ldesktop{          
+          margin-right: auto;
+          margin-left:auto;
+          padding-left: 0 !important;
+        }
+
+        .slick-track {
+          @include ld-ldesktop{
+            width:100% !important;
+          }
+          .slick-slide {
+            filter: blur(0);
+            -webkit-filter: blur(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            @include ld-ldesktop {
+              display: block;
+              flex: 1 1;
+              min-width: calc(100% / 3);
+              text-align: left;
+              margin:0;
+            }
+
+            .ld-tile{
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+              color: $lexus-primary;
+              display: inline-block;              
+              max-height: 200px;
+              padding:18px 30px 30px 15px;
+              position: relative;
+              text-decoration: none;
+              top: 2px;
+              vertical-align: top;
+              -webkit-backface-visibility: hidden;
+              width: 222px !important;
+              &:hover img {
+                transform: scale(1.08);
+              }
+              
+              @include ld-ldesktop{
+                width:100% !important;
+                max-width: 222px;
+                height:auto;
+                padding-bottom:18px;
+                max-height:200px;
+              }
+              .card-img-top {
+                padding-bottom:61%;
+                width:100%;
+                height:0;
+                overflow: hidden;
+                display: block;   
+                margin:0 auto 10px; 
+                  img{
+                   width:100%;
+                   &.ld-viz-img{
+                    width:80%;
+                    position: absolute;
+                    bottom: 35px;
+                   }
+                }
+            }
+              &:hover {
+                background-color: $lexus-dgrey !important;
+              }
+
+                .card-body{
+                    padding-left:0.625rem !important;
+                    .card-title{
+                      margin-bottom:0.1875rem;
+                      line-height: 1rem;
+                        span {
+                        font-size: $f18;
+                        letter-spacing: 1px;
+                        font-family: 'nobel-bold'; 
+                        text-transform:none; 
+                        font-weight: 700;
+                        display: inline-block;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                        @include ld-mobile{
+                          font-size:$f21;
+                          font-family: 'nobel-book';
+                        } 
+                        @include ld-ldesktop{
+                          max-width: 135px;
+                        }          
+                      }
+                      @include ld-ldesktop{
+                          text-align: left;
+                        }
+                    }
+                    .carVin {
+                      color: #000000;
+                      font-family: "nobel-bold";
+                      font-size: $f13;
+                      letter-spacing: 1px;
+                    }
+                }
+              }
+
+             
+            }
+          }
+      }
+
+      /*to be changed as we will have arrows instead of dots */
+      .slick-arrow {
+        z-index: 3000;
+        display: block !important;
+        @include ld-mobile {
+          width: 34px;
+        }
+        @include ld-ltablet {
+          width: 50px;
+          background-size: 35%;
+          top:46%;
+          height:70px;
+        }
+        @include ld-ldesktop {
+          background-size: 48%;
+        }
+        &.slick-next {
+          right: 0;
+          @include ld-mobile {
+            right: 40px;
+            top:45%;
+          }
+
+          @include ld-ltablet {
+            right: 30px;
+          }
+          @include ld-breakpoints('800px', '900px') {
+            right: 15px;
+          }
+          @include ld-breakpoints('750px', '800px') {
+            right: 5px;
+          }
+          @include ld-breakpoints('680px', '750px') {
+            right: 0px;
+          }
+          @include ld-breakpoints('641px', '680px') {
+            right: -5px;
+          }
+          @include ld-breakpoints('1201px', '1340px') {
+            right: -35px;
+          }
+        }
+        &.slick-prev {
+          left: -25px;          
+          
+
+          @include ld-mobile {
+            left: 34px;
+            top:41%;
+          }
+
+          @include ld-ltablet {
+            left: 30px;
+            top:46%;
+          }
+          @include ld-ldesktop{
+            top:42%;
+            -webkit-transform: translateY(-50%) translateX(0) !important;
+            -moz-transform: translateY(-50%) translateX(0) !important;
+            transform: translateY(-50%) translateX(0) !important;
+          }
+          @include ld-breakpoints('800px', '900px') {
+            left: 15px;
+          }
+          @include ld-breakpoints('750px', '800px') {
+            left: 5px;
+          }
+          @include ld-breakpoints('680px', '750px') {
+            left: -5px;
+          }
+          @include ld-breakpoints('641px', '680px') {
+            left: -10px;
+          }
+        }
+        
+        ~ .slick-list{
+          .slick-track {
+            .slick-slide {
+              @include ld-breakpoints('641px', '831px') {
+                padding-bottom: 0;
+              }
+              @include ld-breakpoints('832px', '1200px') {
+                margin-bottom: 0;
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .slick-dots {
+        height: auto;
+        left:0;
+      }
+
+      .card-body {
+        text-align: center;
+      }
+
+      .slick-prev {
+        &.slick-disabled ~ .slick-list{
+          margin-left:0;
+
+          @include ld-ldesktop {
+            padding-left: 30px;
+          }
+        }
+      }
+    }
+  }
+}

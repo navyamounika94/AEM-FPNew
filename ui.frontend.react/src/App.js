@@ -5,7 +5,7 @@ import React from 'react';
 class App extends Page {
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         {this.childComponents}
         {this.childPages}
       </div>

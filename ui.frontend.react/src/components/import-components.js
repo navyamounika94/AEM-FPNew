@@ -15,9 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import './Page/Page';
-import './Text/Text';
-import './GlobalFooter/GlobalFooter';
-import './Navigation';
-import './Image';
-import './ForgotPassword/index';
 import './DisplayMessage/index';
+import  './ForgotPassword/index';
+import './GlobalNavigation/index';
+import './GlobalFooter/GlobalFooter';
