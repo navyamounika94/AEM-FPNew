@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React, { Component } from 'react';
-import {Helmet} from 'react-helmet';
+import Helmet from 'react-helmet';
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import HeaderLogo from './components/headerLogo';
 import { Viewport } from './components/Viewport';
@@ -9,6 +9,7 @@ import LdNavCenter from './LdNavCenter';
 import LdNavProfile from './LdNavProfile';
 import LdNavSearch from './LdNavSearch';
 import LdVehicleSelector from './LdVehicleSelector';
+import { getViewport } from './components/Viewport/index';
 import {MapTo} from '@adobe/cq-react-editable-components';
 require('../Common/Main.css');
 
@@ -23,6 +24,7 @@ const GlobalNavigationEditConfig = {
         return true;
     }
 };
+
 class GlobalNavigation extends Component {
 
     constructor(props) {
@@ -35,6 +37,7 @@ class GlobalNavigation extends Component {
             isOpen: false,
             isSearchOpen: false,
             openIndex: null,
+            viewport: 'DESKTOP'
         };
 
         this.experienceEditorActive = false;
@@ -52,10 +55,27 @@ class GlobalNavigation extends Component {
 
         this.graphQLResult = []; 
         this.currentView = 'DESKTOP';
+        this.previousView = '';
         this.lockItem = false; 
     }
 
     componentDidMount() {
+        const currentView = getViewport();
+        this.setState({
+            viewport: currentView
+        });
+        this.currentView = currentView;
+        this.previousView = currentView;
+        window.addEventListener('resize', () => {
+            const viewport = getViewport();
+
+            if (viewport !== this.state.viewport) {
+                this.previousView = this.state.viewport;
+                this.setState({
+                    viewport: viewport
+                });
+            }
+        });
         if (this.experienceEditorActive) {
             document.body.className = 'exp-editor-body';
         }
@@ -78,6 +98,9 @@ class GlobalNavigation extends Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (this.state.viewport !== this.previousView) {
+            this.graphQLResult.isTablet = this.state.viewport === Viewport.TABLET;
+        }
         /*if (this.navigationItems !== prevProps.navigationItems && this.navigationItems && this.navigationItems.fields) {
             this.setState({
                 headerLogo: this.navigationItems.fields.HeaderLogo.children[0].image,
@@ -324,7 +347,7 @@ class GlobalNavigation extends Component {
                         </NavLink>
                     </NavItem>
 
-                    {/*<Collapse isOpen={this.state.isSearchOpen}>
+                    <Collapse className="search-bar" isOpen={this.state.isSearchOpen}>
                         <div>
                         <LdNavSearch
                             isDesktop={true}
@@ -334,7 +357,7 @@ class GlobalNavigation extends Component {
                             toggleSearchbar={this.toggleSearchbar}
                         />
                         </div>
-                    </Collapse> */}
+                    </Collapse>
                 </div>
             </Navbar >
         );
@@ -604,7 +627,7 @@ class GlobalNavigation extends Component {
 
     // tslint:disable-next-line: cognitive-complexity
     render() {
-        const isDesktop = (this.props.viewport === Viewport.DESKTOP || this.props.viewport === Viewport.EXTRA_LARGE);
+        const isDesktop = (this.state.viewport === Viewport.DESKTOP || this.state.viewport === Viewport.EXTRA_LARGE);
         return (
             <>
                 <Helmet
@@ -615,8 +638,8 @@ class GlobalNavigation extends Component {
                 />
                 <div id="ld-navwrapper" className={this.state.isOpen ? 'open' : 'closed'}>
                     {(() => {
-                        if (this.props.viewport !== this.currentView) {
-                            this.currentView = this.props.viewport;
+                        if (this.state.viewport !== this.currentView) {
+                            this.currentView = this.state.viewport;
                             if (this.state.isOpen) {
                                 this.setState({
                                     isOpen: false,
@@ -628,7 +651,7 @@ class GlobalNavigation extends Component {
                                 this.toggleSearchbar();
                             }
                         }
-                        switch (this.props.viewport) {
+                        switch (this.state.viewport) {
                             case Viewport.TABLET:
                                 return <this.TabletView />;
                             case Viewport.MOBILE:
@@ -643,4 +666,6 @@ class GlobalNavigation extends Component {
         );
     }
 }
+
+
 export default MapTo('lexusdrivers/components/content/globalNav')(GlobalNavigation ,GlobalNavigationEditConfig);
