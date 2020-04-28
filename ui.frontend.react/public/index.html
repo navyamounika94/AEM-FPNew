@@ -2,31 +2,82 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="${appTitle}" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-        <title>Lexus Driver</title>
 
-        <!-- AEM page model -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="${appTitle}" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Lexus Driver</title>
+
+    <!-- AEM page model -->
 
 
-        <!-- AEM Base ClientLib -->
-        <link rel="stylesheet" href="/etc.clientlibs/lexusdrivers/clientlibs/clientlib-base.css" type="text/css" />
+    <!-- AEM Base ClientLib -->
+    <link rel="stylesheet" href="/etc.clientlibs/lexusdrivers/clientlibs/clientlib-base.css" type="text/css" />
 
-        <!-- In development mode, redirect from "/" to app root -->
-        <script>
-            if ('%NODE_ENV%' === 'development' && location.pathname === '/' && '%REACT_APP_ROOT%') {
-                location.href = '%REACT_APP_ROOT%';
+    <!-- In development mode, redirect from "/" to app root -->
+    <script>
+        if ('%NODE_ENV%' === 'development' && location.pathname === '/' && '%REACT_APP_ROOT%') {
+            location.href = '%REACT_APP_ROOT%';
+        }
+    </script>
+    <!-- Triggering analytics -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script type="text/javascript" async=""
+        src="https://drivers.lexus.com/lexus-share/js/tracking_omn/JSON/LDomni4.json"></script>
+    <script type="text/javascript" async=""
+        src="https://drivers.lexus.com/lexus-share/js/tracking_omn/s_code_ld.js"></script>
+    <script type="text/javascript" async=""
+        src="https://drivers.lexus.com/lexus-share/js/tracking_omn/LD_cod.js"></script>
+    <script type="text/javascript">
+        var tagCall = function (tagKey, tagContentTemplate) {
+            fireTag(tagKey, tagContentTemplate);
+        }
+        var fireTagCall = function (tagKey, errorMsg) {
+            var tagContentTemplate = jQuery.extend(true, {}, '');
+            if (fireTagParam.length != 0) {
+                $.extend(true, tagContentTemplate, fireTagParam);
             }
-        </script>
-    </head>
-    <body class="page basicpage">
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="spa-root"></div>
-    </body>
+            //console.log("||LD Analytics||" + tagKey + " TAG Content >> " + JSON.stringify(tagContentTemplate));
+            if (typeof tagContentTemplate == typeof undefined) {
+                console.log("||LD Analytics|| Unable to find tag entry " + tagKey);
+            } else {
+                //Generic elements
+                tagCall(tagKey, tagContentTemplate);
+                fireTagParam = {};
+            }
+
+        };
+        var TOAnalytics = (function () {
+            var module = {};
+            module.fire = function (tagKey, errorMsg) {
+                fireTagCall(tagKey, errorMsg);
+            };
+            return module;
+        }());
+        $(document).on("click", "[data-firetag]", function () {
+            if ("" != $(this).attr("data-firetag")) {
+                var tagId = "" + $(this).attr("data-firetag");
+                void 0 !== $(this).attr("data-firetag-param") && (fireTagParam = jQuery.parseJSON($(this).attr("data-firetag-param")));
+                var multipleTagIdIndex = tagId.indexOf(",");
+                if (multipleTagIdIndex > -1) {
+                    var firstTagId = tagId.substring(0, multipleTagIdIndex), secondTagId = tagId.substring(multipleTagIdIndex + 1);
+                    TOAnalytics.fire(firstTagId), TOAnalytics.fire(secondTagId, "");
+                } else TOAnalytics.fire(tagId);
+            }
+        })
+
+    </script>
+</head>
+
+<body class="page basicpage">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="spa-root"></div>
+</body>
+
 </html>
