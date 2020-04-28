@@ -21517,3 +21517,7 @@ body .hlt-elem .lgrid {
 .ld-submenu a.btn-white:hover{
     color: white;
 }
+
+#vehnavSlider .slick-track {
+    width: 100% !important;
+}

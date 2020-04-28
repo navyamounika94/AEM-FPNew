@@ -45,11 +45,23 @@ class GlobalNavigation extends Component {
         this.isLoggedIn = false;
         this.navigationItems = {
             fields: {
-                HeaderLogo: globalNavJson.HeaderLogo,
-                LoggedIn: globalNavJson.LoggedIn,
-                LoggedOut: globalNavJson.LoggedOut,
-                NavigationLinks: globalNavJson.NavigationLinks,
-                SelectVehicle: globalNavJson.SelectVehicle
+                HeaderLogo: {
+                    "image": {
+                        "jss": {
+                            "value": {
+                                "src": globalNavJson.globalnav.logoimage,
+                                "alt": "",
+                                "width": "410",
+                                "height": "60"
+                            }
+                        },
+                        "value": "<image mediaid=\"{0C838CF3-5EA0-4D57-843A-F5ACAFD082C8}\" />"
+                    }
+                },
+                LoggedIn: globalNavJson.globalnav.loggedIn,
+                LoggedOut: Object.values(globalNavJson.globalnav.loggedOut),
+                NavigationLinks: Object.values(globalNavJson.globalnav.navigationLinks),
+                SelectVehicle: globalNavJson.globalnav
             }
         }
 
@@ -86,7 +98,7 @@ class GlobalNavigation extends Component {
         }
         if (this.navigationItems && this.navigationItems.fields) {
             this.setState({
-                headerLogo: this.navigationItems.fields.HeaderLogo.children[0].image,
+                headerLogo: this.navigationItems.fields.HeaderLogo.image,
             });
 
             this.graphQLResult = this.navigationItems.fields;
@@ -308,6 +320,7 @@ class GlobalNavigation extends Component {
 
                     <LdVehicleSelector
                         {...this.graphQLResult}
+                        viewport={this.state.viewport}
 
                         isOpen={this.state.isOpen && this.state.openIndex === 0}
                         toggle={() => { this.toggleItem(0); }}
@@ -321,6 +334,7 @@ class GlobalNavigation extends Component {
                     <div className={this.isLoggedIn ? 'nm-view-nav' : 'nm-view-nav nm-view-unauth'}>
                         <LdNavCenter
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
 
                             toggle={this.toggleItem}
                             isOpen={this.state.isOpen}
@@ -367,6 +381,7 @@ class GlobalNavigation extends Component {
         const ldNavCenter = (
             <LdNavCenter
                 {...this.graphQLResult}
+                viewport={this.state.viewport}
 
                 toggle={(index) => {
                     if (this.state.openIndex === index) {
@@ -466,6 +481,7 @@ class GlobalNavigation extends Component {
                     >
                         <LdVehicleSelector
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
                             isOpen={this.state.openIndex === 0}
                             toggle={() => {
                                 if (this.state.openIndex === 0) {
@@ -545,6 +561,7 @@ class GlobalNavigation extends Component {
                     <Nav className="showView">
                         <LdVehicleSelector
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
                             onVehicleSelected={this.onVehicleSelected}
                             isOpen={isVehicleSelectorOpen}
                             toggle={() => {
@@ -587,6 +604,7 @@ class GlobalNavigation extends Component {
                     <Collapse isOpen={isCollapseOpen} navbar={true} className="hideElemView" >
                         <LdNavCenter
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
                             onLinkClick={this.onLinkClick}
                             isOpen={true}
                             openIndex={this.state.openIndex}

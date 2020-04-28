@@ -173,9 +173,10 @@ class ForgotPassword extends Component {
                                                     <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
                                                     <div className="text-center">
                                                         <button
-
                                                             type="submit"
                                                             className="btn btn-black "
+                                                            data-firetag="73.6"
+                                                            data-firetag-param='{"<subsection>": "Home","<page>": "", "<module>": "Forgot Password","<action>": "SEND EMAIL"}'
                                                         >
                                                             {sendEmailLabel}
                                                         </button>

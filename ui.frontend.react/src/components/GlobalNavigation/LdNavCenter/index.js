@@ -7,6 +7,7 @@ import RouterLink from '../components/routerLink';
 import { Viewport } from '../components/Viewport';
 import ImageSlider from '../ImageSlider';
 import selectedVehicleJson from '../json/SelectedVehicle.json';
+import { routerLinkFormat, routerLabelFormat } from '../components/models';
 
 class LdNavCenter extends Component {
     constructor(props) {
@@ -75,7 +76,7 @@ class LdNavCenter extends Component {
         if (this.props.NavigationLinks !== undefined) {
 
             this.setState({
-                navlist: this.props.NavigationLinks.children,
+                navlist: this.props.NavigationLinks,
             });
         }
     }
@@ -84,7 +85,7 @@ class LdNavCenter extends Component {
         if (this.props.NavigationLinks !== prevProps.NavigationLinks) {
 
             this.setState({
-                navlist: this.props.NavigationLinks.children,
+                navlist: this.props.NavigationLinks,
             });
         }
     }
@@ -93,8 +94,8 @@ class LdNavCenter extends Component {
     // tslint:disable-next-line
     render() {
         const { navlist } = this.state;
-        const isTablet = this.viewport === Viewport.TABLET;
-        const isMobile = this.viewport === Viewport.MOBILE;
+        const isTablet = this.props.viewport === Viewport.TABLET;
+        const isMobile = this.props.viewport === Viewport.MOBILE;
 
         return (
 
@@ -104,6 +105,8 @@ class LdNavCenter extends Component {
                     // tslint:disable-next-line: no-big-function
                     Object.keys(navlist).map((key, index) => {
                         return (
+                            <React.Fragment key={key}>
+                            {navlist[index].label &&
                             <Dropdown
                                 nav={true}
                                 inNavbar={true}
@@ -133,7 +136,7 @@ class LdNavCenter extends Component {
                                     className="ld-caret nav-centerItem"
                                     id={`nav-bar-tab-${index + 1}`}
                                     data-metrics-nav_subcategory="Home"
-                                    data-metrics-nav_category={navlist[index].navLabel.jss.value}
+                                    data-metrics-nav_category={navlist[index].label}
                                     onClick={() => {
                                         // For mobile and tablet, we only toggle on clicks
                                         if (this.props.toggle && (this.viewport === Viewport.MOBILE || this.viewport === Viewport.TABLET)) {
@@ -152,59 +155,63 @@ class LdNavCenter extends Component {
                                         }
                                     }}
                                 >
-                                    {navlist[index].navLabel.jss.value}
+                                    {navlist[index].label}
                                 </DropdownToggle>
 
                                 <DropdownMenu right={true} className="ld-submenu">
                                     <div className="row">
                                         {navlist[index].children &&
-                                            Object.keys(navlist[index].children).map((j, indexNav) => {
+                                            Object.keys(Object.values(navlist[index].children)).map((j, indexNav) => {
                                                 const menu = navlist[index];
-                                                const subMenu = navlist[index].children[j];
-
+                                                const subMenu = Object.values(navlist[index].children)[j];
                                                 return (
+                                                    <React.Fragment key={indexNav}>
+                                                    {subMenu.navlabel &&
                                                     <div
                                                         className={classnames({
                                                             'col-12': true,
                                                             'col-lg-4': !isTablet,
                                                             'col-panel ': true,
-                                                            'col-sm-6': isTablet,
-                                                            'col-sm-8': isTablet && menu.children.length - 1 === indexNav,
-                                                            'imgNavCenterTabletView': isTablet && menu.children.length - 1 === indexNav,
+                                                            'col-sm-6': isTablet
                                                         })}
-                                                        key={j}
+                                                        key={j+subMenu.navlabel}
                                                     >
 
-                                                        {subMenu.navLabel ?
-                                                            <>
-                                                                <h4>{subMenu.navLabel.value}</h4>
+                                                                <h4>{subMenu.navlabel}</h4>
                                                                 <hr className="ld-hrule" />
                                                                 <ListGroup
-                                                                    className={`d-flex flex-row flex-wrap ${menu.navLabel.jss.value.toUpperCase() === 'BENEFITS' ? 'multiColList' : ''}`}
+                                                                    className={`d-flex flex-row flex-wrap ${menu.label.toUpperCase() === 'BENEFITS' ? 'multiColList' : ''}`}
                                                                 >
                                                                     {subMenu.children &&
-                                                                        Object.keys(subMenu.children).map((k) => {
+                                                                        Object.keys(Object.values(subMenu.children)).map((k) => {
+                                                                            const subMenuChildren = Object.values(subMenu.children);
                                                                             return (
+                                                                                <React.Fragment key={k}>
+                                                                                { subMenuChildren[k].navLabel &&
                                                                                 <ListGroupItem key={k}>
                                                                                     <span
                                                                                         data-metrics-event-name="72.3"
                                                                                         data-metrics-container="Global Nav"
-                                                                                        data-metrics-nav_category={menu.navLabel.jss.value}
-                                                                                        data-metrics-nav_subcategory={subMenu.navLabel.jss.value + ':' + subMenu.children[k].navLabel.value}
+                                                                                        data-metrics-nav_category={menu.label}
+                                                                                        data-metrics-nav_subcategory={subMenu.navlabel + ':' + subMenuChildren[k].navlabel}
                                                                                     >
                                                                                         <RouterLink
-                                                                                            field={subMenu.children[k].navLink}
+                                                                                            field={routerLinkFormat(subMenuChildren[k])}
                                                                                             onClick={() => this.props.onLinkClick}
                                                                                         >
-                                                                                            <Text field={subMenu.children[k].navLabel} />
+                                                                                            <Text field={routerLabelFormat(subMenuChildren[k].navLabel)} />
+                                                                                            {subMenuChildren[k].navIcon &&
                                                                                             <Image
                                                                                                 className="navlink-icon"
                                                                                                 lazyLoad={false}
-                                                                                                field={subMenu.children[k].navIcon.jss}
+                                                                                                field={subMenuChildren[k].navIcon}
                                                                                             />
+                                                                                            }
                                                                                         </RouterLink>
                                                                                     </span>
                                                                                 </ListGroupItem>
+                                                                                }
+                                                                                </React.Fragment>
                                                                             );
                                                                         })
                                                                     }
@@ -212,41 +219,44 @@ class LdNavCenter extends Component {
 
                                                                 <div className="d-flex flex-row flex-wrap link-btm">
                                                                     <RouterLink
-                                                                        field={subMenu.link}
+                                                                        field={routerLinkFormat(subMenu)}
                                                                         tag_id="72.3"
                                                                         container="Global Nav"
-                                                                        nav_category={subMenu.navLabel.value}
-                                                                        nav_subcategory={subMenu.navLabel.value + ':' + subMenu.label.value}
+                                                                        nav_category={subMenu.navlabel}
+                                                                        nav_subcategory={subMenu.navlabel + ':' + subMenu.navlabel}
                                                                         onClick={() => {
                                                                             this.props.onLinkClick();
                                                                         }}
                                                                     >
-                                                                        <Text field={subMenu.navLabel} />
+                                                                        <Text field={routerLabelFormat(subMenu.navlabel)} />
                                                                     </RouterLink>
                                                                 </div>
-                                                            </>
-                                                            :
-                                                            <>
+                                                        </div>
+                                                    }
+                                                        { Object.values(menu.children).length - 1 === indexNav &&
+                                                        <div
+                                                            className={classnames({
+                                                                'col-12': true,
+                                                                'col-lg-4': !isTablet,
+                                                                'col-panel ': true,
+                                                                'col-sm-6': isTablet,
+                                                                'col-sm-8': isTablet,
+                                                                'imgNavCenterTabletView': isTablet,
+                                                            })}
+                                                            key={j}
+                                                        >    
 
                                                                 <div className="col imagecolumn">
-                                                                    {
+                                                                    {this.props.isOpen &&
                                                                         // Here, the check for 'isOpen' is to avoid loading images that will not be seen
-                                                                        (subMenu.children.length > 1 && this.props.isOpen) ?
-                                                                            <ImageSlider
-                                                                                settings={this.settings}
-                                                                                sliderContent={subMenu.children}
-                                                                                category={menu.navLabel.jss.value}
-                                                                                id={`navSlider${index}`}
-                                                                            />
-                                                                            :
                                                                             <div>
                                                                                 <Card className="ld-tile">
                                                                                     <RouterLink
-                                                                                        field={subMenu.children[0].linkoutUrl}
+                                                                                        field={routerLinkFormat(menu)}
                                                                                         tag_id="72.3"
                                                                                         container="Global Nav"
-                                                                                        nav_category={menu.navLabel.jss.value}
-                                                                                        nav_subcategory={subMenu.children[0].title.jss.value}
+                                                                                        nav_category={menu.label}
+                                                                                        nav_subcategory={menu.carouselTitle}
                                                                                         onClick={() => {
                                                                                             this.props.onLinkClick();
                                                                                         }}
@@ -255,7 +265,7 @@ class LdNavCenter extends Component {
                                                                                             {this.props.isOpen &&
                                                                                                 <CardImg
                                                                                                     top={true}
-                                                                                                    src={subMenu.children[0].thumbnail.jss.value.src}
+                                                                                                    src={menu.thumbnail}
                                                                                                     alt="Card image cap"
                                                                                                 />
                                                                                             }
@@ -265,16 +275,16 @@ class LdNavCenter extends Component {
                                                                                     <CardBody>
                                                                                         {this.props.isOpen &&
                                                                                             <RouterLink
-                                                                                                field={subMenu.children[0].linkoutUrl}
-                                                                                                nav_category={subMenu.children[0].title.jss.value}
+                                                                                                field={routerLinkFormat(menu)}
+                                                                                                nav_category={menu.carouselTitle}
                                                                                                 nav_subcategory={
-                                                                                                    menu.navLabel.jss.value + ':' + menu.navLabel.jss.value
+                                                                                                    menu.label + ':' + menu.label
                                                                                                 }
                                                                                                 onClick={() => {
                                                                                                     this.props.onLinkClick();
                                                                                                 }}
                                                                                             >
-                                                                                                <CardSubtitle>{subMenu.children[0].title.jss.value}</CardSubtitle>
+                                                                                                <CardSubtitle>{menu.carouselTitle}</CardSubtitle>
                                                                                             </RouterLink>
                                                                                         }
                                                                                     </CardBody>
@@ -283,10 +293,10 @@ class LdNavCenter extends Component {
                                                                             </div>
                                                                     }
                                                                 </div>
-                                                            </>
+                                                        
+                                                            </div>
                                                         }
-                                                    </div>
-
+                                                    </React.Fragment>
                                                 );
                                             }
 
@@ -294,6 +304,8 @@ class LdNavCenter extends Component {
                                     </div>
                                 </DropdownMenu>
                             </Dropdown>
+                        }
+                        </React.Fragment>
                         );
                     })
                 }
