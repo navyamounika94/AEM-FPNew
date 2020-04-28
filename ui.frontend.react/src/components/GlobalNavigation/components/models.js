@@ -65,3 +65,40 @@ export const modelEquals = (m1, m2) => {
 export const sameModelYear = (v1, v2) => {
     return (modelEquals(v1.model, v2.model) && v1.year.trim() === v2.year.trim());
 };
+
+export const routerLabelFormat = (label) => {
+    return {
+        "jss": {
+           "value": label
+        },
+        "value": label
+     };
+};
+export const routerLinkFormat = (profile) => {
+    const url = profile.url?profile.url:profile.linkoutUrl;
+    return {
+        "value": "<link linktype="+profile.linktype+" url="+url+" anchor=\"\" target=\"\" />",
+        "jss": {
+           "value": {
+              "href": url,
+              "linktype": profile.linktype,
+              "url": url,
+              "anchor": "",
+              "target": ""
+           }
+        }
+     }
+};
+export const richTextValueFormat = (value) => {
+    return {
+        "value": value
+    }
+}
+export const imageSliderFormat = (props) => {
+    return [{
+        "linkoutUrl": props.carousellinkoutUrl,
+        "thumbnail": props.carouselThumbnail,
+        "title": props.selectcarouselTitle,
+        "videoSlide": props.videoslide
+    }]
+}

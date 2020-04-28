@@ -16,6 +16,7 @@ import RouterLink from '../components/routerLink';
 import { Viewport } from '../components/Viewport';
 import ImageSlider from '../ImageSlider';
 import Garage from './Garage';
+import { routerLinkFormat, routerLabelFormat, richTextValueFormat, imageSliderFormat } from '../components/models';
 const defaultVehicleLabel = 'Select a Vehicle';
 const defaultModelLabel = 'SELECT A VEHICLE';
 const defaultYearLabel = 'SELECT A YEAR';
@@ -274,9 +275,9 @@ class LdVehicleSelector extends Component {
     VehicleCopy = (props) => {
         return (
             <div className={`col-12 col-sm-6 col-md-4 col-panel defaultView`}>
-                <h4> <Text field={props.title} /></h4>
+                <h4> <Text field={richTextValueFormat(props.title)} /></h4>
                 <div className="d-flex flex-row flex-wrap">
-                    <RichText field={props.body} />
+                    <RichText field={richTextValueFormat(props.body)} />
                 </div>
             </div>
         );
@@ -290,30 +291,36 @@ class LdVehicleSelector extends Component {
         return (
             <div className={`col-12 col-sm-6 col-md-4 col-panel`}>
                 <h4>
-                    {props.vehicleLabel} <Text field={props.QuickLinks.navLabel.jss} />
+                    {props.vehicleLabel} <Text field={richTextValueFormat(props.QuickLinks.name)} />
                 </h4>
 
                 <hr className="ld-hrule" />
 
                 <ListGroup className="d-flex flex-row flex-wrap">
-                    {props.QuickLinks.children &&
-                        props.QuickLinks.children.map((child, index) => {
+                    {props.QuickLinks.quickLinks &&
+                        Object.values(props.QuickLinks.quickLinks).map((child, index) => {
                             return (
+                                <React.Fragment key={index}>
+                                {child.name &&
                                 <ListGroupItem key={index}>
                                     <div
                                         data-metrics-event-name="72.3"
                                         data-metrics-container="Global Nav"
                                         data-metrics-nav_category="Vehicle Module"
-                                        data-metrics-nav_subcategory={child.navLabel.jss.value}
+                                        data-metrics-nav_subcategory={child.name}
                                     >
                                         <RouterLink
-                                            field={child.navLink}
+                                            field={routerLinkFormat(child)}
                                         >
-                                            <Text field={child.navLabel.jss} />
-                                            <Image className="navlink-icon" lazyLoad={false} field={child.navIcon.jss} />
+                                            <Text field={richTextValueFormat(child.name)} />
+                                            {child.navIcon &&
+                                            <Image className="navlink-icon" lazyLoad={false} field={child.navIcon} />
+                                            }
                                         </RouterLink>
                                     </div>
                                 </ListGroupItem>
+                                }
+                                </React.Fragment>
                             );
                         })
                     }
@@ -347,12 +354,12 @@ class LdVehicleSelector extends Component {
 
         const modelYearData = this.getModelYearData();
 
-        const navigationDatasource = this.props.SelectVehicle.children[0];
+        const navigationDatasource = this.props.SelectVehicle;
 
-        const benefitsDescription = this.props.SelectVehicle.children[0].children[0];
-        const carModelSelector = this.props.SelectVehicle.children[0].children[1];
-        const carousel = this.props.SelectVehicle.children[0].children[2];
-        const quickLinks = this.props.SelectVehicle.children[0].children[3];
+        const benefitsDescription = this.props.SelectVehicle;
+        const carModelSelector = this.props.SelectVehicle;
+        const carousel = this.props.SelectVehicle;
+        const quickLinks = this.props.SelectVehicle;
 
         let GarageContent;
         GarageContent = (
@@ -362,7 +369,7 @@ class LdVehicleSelector extends Component {
         );
 
         const { yearList, selectedYear, selectedModel, moduleLabel, isLoggedIn, isVehicleDetailsLoading, isModelSelected } = this.state;
-        const vinLabel = get(carModelSelector, 'children[1].vINLabel.jss', { value: '' });
+        const vinLabel = this.props.SelectVehicle.vINLabel;
         const vin = this.selectedGarageVehicle.vin;
         const showClearLink =
             (!this.isLoggedIn && this.selectedGarageVehicle !== null) ||
@@ -371,7 +378,7 @@ class LdVehicleSelector extends Component {
         return (
             <Dropdown
                 nav={true}
-                inNavbar={(this.viewport !== Viewport.MOBILE)}
+                inNavbar={(this.props.viewport !== Viewport.MOBILE)}
                 tag="div"
                 className={classnames({
                     'garage-auth': isLoggedIn,
@@ -387,7 +394,7 @@ class LdVehicleSelector extends Component {
                 onMouseLeave={this.props.onMouseLeave}
             >
 
-                {navigationDatasource.navLabel && <>
+                {navigationDatasource.selectVehicle && <>
                     <DropdownToggle
                         nav={true}
                         className={classnames({
@@ -400,28 +407,28 @@ class LdVehicleSelector extends Component {
                         data-metrics-nav_subcategory="My Vehicle"
                         onClick={(e) => { e.preventDefault(); }}
                     >
-                        {this.viewport === Viewport.MOBILE ?
+                        {this.props.viewport === Viewport.MOBILE ?
                             <div className="text-hide closePanel">Before</div>
                             : null
                         }
                         {moduleLabel}
 
-                        {(this.viewport === Viewport.MOBILE && isLoggedIn && this.selectedGarageVehicle && this.selectedGarageVehicle.vin) &&
+                        {(this.props.viewport === Viewport.MOBILE && isLoggedIn && this.selectedGarageVehicle && this.selectedGarageVehicle.vin) &&
                             <div className="displayVin">
                                 <Text field={vinLabel} />
                                 {vin}
                             </div>
                         }
-                        {this.viewport === Viewport.MOBILE ?
+                        {this.props.viewport === Viewport.MOBILE ?
                             <div className="text-hide closeMenu" onClick={this.props.toggleNav}>after</div>
                             : null
                         }
                     </DropdownToggle>
 
                     <DropdownMenu className="ld-submenu">
-                        {navigationDatasource.children &&
+                        {navigationDatasource.selectVehicle &&
                             <div className="row veh-selector">
-                                {this.viewport === Viewport.MOBILE && isLoggedIn &&
+                                {this.props.viewport === Viewport.MOBILE && isLoggedIn &&
                                     <div
                                         className={classnames({
                                             'col-12': true,
@@ -448,14 +455,14 @@ class LdVehicleSelector extends Component {
                                         'select-vehicle-div': true
                                     })}
                                 >
-                                    <p className="col veh-copy">{carModelSelector.title.jss.value}</p>
+                                    <p className="col veh-copy">{this.props.SelectVehicle.titleSelection}</p>
                                     <Form>
                                         <div className="row">
                                             <div className="col-12 vehiclepanel">
                                                 {showClearLink &&
                                                     <div className="clearLink">
                                                         <a onClick={this.resetVehicleSelection}>
-                                                            {carModelSelector.subTitle.jss.value}
+                                                            {this.props.SelectVehicle.clearSelection}
                                                         </a>
                                                     </div>
                                                 }
@@ -480,18 +487,18 @@ class LdVehicleSelector extends Component {
                                                         type="button"
                                                         className="btn-black btn-block veh-submit"
                                                         onClick={this.handleVehicleSelection}
-                                                        value={carModelSelector.buttonLabel.jss.value}
+                                                        value={this.props.SelectVehicle.buttonLabel}
                                                     />
                                                 </FormGroup>
                                                 <div
                                                     data-metrics-event-name="73.2"
-                                                    data-metrics-action={carModelSelector.bottomText.jss.value}
+                                                    data-metrics-action={this.props.SelectVehicle.bottomText}
                                                     data-metrics-module="Vehicle Module"
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
                                                             className="veh-caption"
-                                                            field={carModelSelector.bottomText.jss}
+                                                            field={richTextValueFormat(this.props.SelectVehicle.bottomText)}
                                                             data-metrics-event-name="73.2"
                                                         />
                                                     }
@@ -502,7 +509,7 @@ class LdVehicleSelector extends Component {
                                 </div>
 
                                 {isLoggedIn ?
-                                    <> {this.viewport !== Viewport.MOBILE &&
+                                    <> {this.props.viewport !== Viewport.MOBILE &&
                                         <div
                                             className={classnames({
                                                 'col-12': true,
@@ -524,25 +531,26 @@ class LdVehicleSelector extends Component {
                                         {isModelSelected ?
                                             <this.QuickLinksSection
                                                 isModelSelected={this.state.isModelSelected}
-                                                QuickLinks={quickLinks}
+                                                QuickLinks={this.props.SelectVehicle}
                                                 vehicleLabel={this.state.moduleLabel}
                                             />
                                             :
                                             <this.VehicleCopy
                                                 isModelSelected={this.state.isModelSelected}
-                                                title={benefitsDescription.title.jss}
-                                                body={benefitsDescription.body.jss}
+                                                title={this.props.SelectVehicle.titleaccount}
+                                                body={this.props.SelectVehicle.titleaccount}
                                             />
                                         }
                                         <div className="col-12 col-md-4 col-panel un-authPanel">
                                             <div className="col imagecolumn">
-                                                {!!carousel && this.props.isOpen &&
+                                                {!!this.props.SelectVehicle.selectcarouselTitle && this.props.isOpen &&
                                                     <ImageSlider
                                                         settings={this.settings}
-                                                        sliderContent={carousel.children}
+                                                        sliderContent={imageSliderFormat(this.props.SelectVehicle)}
                                                         category="Vehicle Module"
                                                         id="vehnavSlider"
-                                                    />}
+                                                    />
+                                                }
                                             </div>
                                         </div>
                                     </>
