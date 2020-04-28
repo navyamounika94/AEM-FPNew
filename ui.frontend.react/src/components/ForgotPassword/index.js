@@ -21,6 +21,7 @@ import { Redirect } from 'react-router';
 import { FormWithConstraints } from 'react-form-with-constraints-bootstrap4';
 import { MapTo } from '@adobe/cq-react-editable-components';
 import DisplayMessage from '../DisplayMessage';
+import { getViewport } from '../GlobalNavigation/components/Viewport/index';
 require('./forgotPassword.css');
 
 const ForgotPasswordEditConfig = {
@@ -39,7 +40,7 @@ class ForgotPassword extends Component {
             errorDtl: '',
             formErrMsg: '',
             userEmail: '',
-            isValidEmail: false,
+            isValidEmail: true,
             isLoading: false,
             loginStatus: false
         }
@@ -51,8 +52,19 @@ class ForgotPassword extends Component {
 
         target.setCustomValidity('');
         this.ValidateEmailData(e.target.value);
-
+        this.classToggle();
     }
+    classToggle = () => {
+        if (this.state.isValidEmail) {
+            document.getElementById('userEmail').classList.remove('is-invalid');
+            document.getElementById('userEmail').classList.add('is-valid');
+        }
+        else {
+            document.getElementById('userEmail').classList.remove('is-valid');
+            document.getElementById('userEmail').classList.add('is-invalid');
+        }
+    }
+
     ValidateEmailData(val) {
         const isValid = this.validateEmail(val);
         let msg = '';
@@ -75,6 +87,7 @@ class ForgotPassword extends Component {
         await this.form.validateForm();
         this.ValidateEmailData(this.state.userEmail);
         let _isValidEmail = this.validateEmail(this.state.userEmail);
+        this.classToggle();
         if (this.form.isValid() && _isValidEmail) {
             var myHeaders = new Headers();
             myHeaders.append("Access-Control-Request-Method", "POST");
@@ -166,8 +179,8 @@ class ForgotPassword extends Component {
                                                         placeholder={emailField}// aem
                                                         onChange={this.handleChange}
                                                         ref={this.textRef}
-                                                        className={`form-control icase-field ${this.state.isValidEmail ? 'is-valid' : 'is-invalid'}`
-                                                        }
+                                                        className="form-control icase-field"
+
 
                                                     />
                                                     <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
@@ -175,8 +188,10 @@ class ForgotPassword extends Component {
                                                         <button
                                                             type="submit"
                                                             className="btn btn-black "
-                                                            data-firetag="73.6"
-                                                            data-firetag-param='{"<subsection>": "Home","<page>": "", "<module>": "Forgot Password","<action>": "SEND EMAIL"}'
+                                                            data-firetag={this.state.isValidEmail ? '73.6' : '80.4'}
+                                                            data-firetag-param={`{"<subsection>": "Home","<tag_id>":"${this.state.isValidEmail ? '73.6' : '80.4'}","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
+                                                            "<error_message>":"${!this.state.isValidEmail ? this.state.formErrMsg : ''}",
+                                                            "<action>": "${sendEmailLabel}","<break_point>":"${getViewport()}"}`}
                                                         >
                                                             {sendEmailLabel}
                                                         </button>
@@ -188,7 +203,11 @@ class ForgotPassword extends Component {
                                     </div>
                                     <div className="row justify-content-center " id="captionPanel">
                                         <div className="col-12 col-md-3 need-help-div">
-                                            <span>
+                                            <span
+                                                data-firetag="73.6"
+                                                data-firetag-param={`{"<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
+                                            "<action>": "${needMoreHelp}","<break_point>":"${getViewport()}"}`}
+                                            >
                                                 <h3 className="caption-link"> {needMoreHelp} <a className="rich-text-anchor" href="">Contact Us</a></h3>
                                             </span>
                                         </div>
