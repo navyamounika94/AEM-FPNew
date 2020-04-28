@@ -37,8 +37,8 @@ class ImageSlider extends Component {
                               return (
                                 <div
                                         {...this.props.dataMetrics}
-                                        data-metrics-nav_category={this.props.category}
-                                        data-metrics-nav_subcategory={i.title}
+                                        data-firetag="72.3"
+                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"${this.props.category}","<nav_subcategory>":"${i.title}" }`}
                                         key={this.counter}
                                 >
                                         <RouterLink

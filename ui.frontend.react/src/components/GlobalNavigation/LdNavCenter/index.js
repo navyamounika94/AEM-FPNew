@@ -135,8 +135,8 @@ class LdNavCenter extends Component {
                                     nav={true}
                                     className="ld-caret nav-centerItem"
                                     id={`nav-bar-tab-${index + 1}`}
-                                    data-metrics-nav_subcategory="Home"
-                                    data-metrics-nav_category={navlist[index].label}
+                                    data-firetag="72.3"
+                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"${navlist[index].label}","<nav_subcategory>":"Home" }`}
                                     onClick={() => {
                                         // For mobile and tablet, we only toggle on clicks
                                         if (this.props.toggle && (this.viewport === Viewport.MOBILE || this.viewport === Viewport.TABLET)) {
@@ -190,10 +190,8 @@ class LdNavCenter extends Component {
                                                                                 { subMenuChildren[k].navLabel &&
                                                                                 <ListGroupItem key={k}>
                                                                                     <span
-                                                                                        data-metrics-event-name="72.3"
-                                                                                        data-metrics-container="Global Nav"
-                                                                                        data-metrics-nav_category={menu.label}
-                                                                                        data-metrics-nav_subcategory={subMenu.navlabel + ':' + subMenuChildren[k].navlabel}
+                                                                                        data-firetag="72.3"
+                                                                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"${menu.label}","<nav_subcategory>":"${subMenu.navlabel + ':' + subMenuChildren[k].navLabel}" }`}
                                                                                     >
                                                                                         <RouterLink
                                                                                             field={routerLinkFormat(subMenuChildren[k])}
@@ -217,7 +215,10 @@ class LdNavCenter extends Component {
                                                                     }
                                                                 </ListGroup>
 
-                                                                <div className="d-flex flex-row flex-wrap link-btm">
+                                                                <div className="d-flex flex-row flex-wrap link-btm"
+                                                                    data-firetag="72.3"
+                                                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"${subMenu.navlabel}","<nav_subcategory>":"${subMenu.navlabel + ':' + subMenu.navlabel}" }`}
+                                                                >
                                                                     <RouterLink
                                                                         field={routerLinkFormat(subMenu)}
                                                                         tag_id="72.3"

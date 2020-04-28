@@ -26,19 +26,7 @@ const RouterLink = (props) => {
         jss = props.jss;
     }
 
-    const dataMetrics = {
-        'data-metrics-action': props.action,
-        'data-metrics-button_text': props.button_text,
-        'data-metrics-container': props.container,
-        'data-metrics-dealer_name' : props.dealer_name,
-        'data-metrics-event-name': props.tag_id,
-        'data-metrics-field': JSON.stringify(jss),
-        'data-metrics-module': props.module,
-        'data-metrics-nav_category' : props.nav_category,
-        'data-metrics-nav_subcategory': props.nav_subcategory,
-        'data-metrics-section': props.section,
-        'data-metrics-subsection': props.subsection,
-    };
+    
 
     if (!isEmpty(jss)) {
 
@@ -49,7 +37,6 @@ const RouterLink = (props) => {
                         className={props.className}
                         field={jss}
                         aria-label={JSON.stringify(jss.value)}
-                        {...dataMetrics}
                         id={props.id}
                         onClick={props.onClick}
                         target={(jss.value.href.startsWith('/')) ? '' : '_blank'}
@@ -64,7 +51,6 @@ const RouterLink = (props) => {
                 <NavLink
                     className={props.className}
                     to={href}
-                    {...dataMetrics}
                     aria-label={JSON.stringify(href)}
                     onClick={() => {
                         /**
@@ -90,7 +76,6 @@ const RouterLink = (props) => {
                 <NavLink
                     className={props.className}
                     to="#"
-                    {...dataMetrics}
                     onClick={props.onClick}
                 >
                     {props.children}

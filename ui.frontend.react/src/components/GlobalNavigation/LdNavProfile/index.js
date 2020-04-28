@@ -60,10 +60,8 @@ class LdNavProfile extends Component {
                     <>
                         <NavItem className="ld-navright show-welExp ml-auto">
                             <NavLink
-                                data-metrics-event-name="73.6"
-                                data-metrics-subsection="Home"
-                                data-metrics-module="Welcome Tool Tip Steps"
-                                data-metrics-action="Restart"
+                                data-firetag="73.6"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
                                 href=""
                                 className="text-hide show-welExp"
                                 onClick={(e) => {
@@ -87,11 +85,8 @@ class LdNavProfile extends Component {
                             onClick={this.props.onClick}
                         >
                             <div
-                                data-metrics-event-name="72.3"
-                                data-metrics-container="Global Nav"
-                                data-metrics-nav_category="Profile"
-                                data-metrics-module="Global Nav"
-                                data-metrics-nav_subcategory="Profile"
+                                data-firetag="72.3"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"Profile" }`}
                             >
                                 <DropdownToggle
                                     id="loginNav"
@@ -114,10 +109,8 @@ class LdNavProfile extends Component {
                                         onClick={(e) => {
                                             this.toggleNotificationModal();
                                         }}
-                                        data-metrics-event-name="72.3"
-                                        data-metrics-nav_category="Profile"
-                                        data-metrics-container="Global Nav"
-                                        data-metrics-nav_subcategory="Notifications"
+                                        data-firetag="72.3"
+                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"Notifications" }`}
                                     >
                                     Notifications ({this.notificationCount})
                                     </a>
@@ -140,11 +133,8 @@ class LdNavProfile extends Component {
                                                 className={classnames({ 'hide-show-welExp': showExpCheck }, { [`${deviceClass}`] : true})}
                                             >
                                                 <div
-                                                    data-metrics-event-name="72.3"
-                                                    data-metrics-nav_category="Profile"
-                                                    data-metrics-container="Global Nav"
-                                                    data-metrics-nav_subcategory={authProfile[i].navLabel.jss.value}
-                                                    data-metrics-action={authProfile[i].navLabel.jss.value}
+                                                    data-firetag="72.3"
+                                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"${authProfile[i].navLabel.jss.value}" }`}
                                                 >
                                                 <RouterLink {...routerProps}>
                                                     <Text field={authProfile[i].navLabel} />
@@ -178,10 +168,8 @@ class LdNavProfile extends Component {
                                     <React.Fragment key={i}>
                                     {unauthProfile[i].navLabel &&
                                         <span
-                                            data-metrics-event-name="73.2"
-                                            data-metrics-subsection="Home"
-                                            data-metrics-module="Account Module"
-                                            data-metrics-action={unauthProfile[i].navLabel}
+                                            data-firetag="72.3"
+                                            data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"Profile","<module>":"Account Module","<action>":"${unauthProfile[i].navLabel}" }`}
                                         >
                                             <RouterLink
                                                 // THESE NEED TO BE RECONFIGURED FOR MOBILE VS DESKTOP

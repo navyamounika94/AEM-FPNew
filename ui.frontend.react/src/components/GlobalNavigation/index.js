@@ -357,7 +357,10 @@ class GlobalNavigation extends Component {
 
                     <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                         <NavLink id="ld-navSearch">
-                            <i data-metrics-nav_category="Search" data-metrics-nav_subcategory="Search" />
+                            <i 
+                                data-firetag="72.3"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                            />
                         </NavLink>
                     </NavItem>
 
@@ -453,10 +456,8 @@ class GlobalNavigation extends Component {
                     {this.isLoggedIn ?
                         <NavItem className="ld-navright show-welExp ml-auto welexp">
                             <NavLink
-                                data-metrics-event-name="73.6"
-                                data-metrics-subsection="Home"
-                                data-metrics-module="Welcome Tool Tip Steps"
-                                data-metrics-action="Restart"
+                                data-firetag="73.6"
+                                data-firetag-param={`{"<container>": "Global Footer","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
                                 href=""
                                 className="text-hide show-welExp"
                                 onClick={(e) => {
@@ -512,7 +513,10 @@ class GlobalNavigation extends Component {
 
                         <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                             <NavLink id="ld-navSearch">
-                                <i data-metrics-nav_category="Search" data-metrics-nav_subcategory="Search" />
+                                <i 
+                                    data-firetag="72.3"
+                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                                />
                             </NavLink>
                         </NavItem>
                     </Collapse>
@@ -595,10 +599,8 @@ class GlobalNavigation extends Component {
                         id="navToggler"
                         aria-label="Lexus Drivers"
                         onClick={this.toggleNavbar}
-                        data-metrics-module="Hamburger Menu"
-                        data-metrics-action="Expand"
-                        data-metrics-nav_category="Hamburger Menu"
-                        data-metrics-nav_subcategory="Expand"
+                        data-firetag="72.3"
+                        data-firetag-param={`{"<container>": "Global Footer","<action>":"Expand","<module>":"Hamburger Menu","<nav_category>":"Hamburger Menu","<nav_subcategory>":"Expand" }`}
                     />
 
                     <Collapse isOpen={isCollapseOpen} navbar={true} className="hideElemView" >
@@ -624,7 +626,10 @@ class GlobalNavigation extends Component {
                         />
                         <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                             <NavLink id="ld-navSearch">
-                                <i data-metrics-nav_category="Search" data-metrics-nav_subcategory="Search" />
+                            <i 
+                                data-firetag="72.3"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                            />
                             </NavLink>
                         </NavItem>
                     </Collapse>

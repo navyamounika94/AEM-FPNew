@@ -304,10 +304,8 @@ class LdVehicleSelector extends Component {
                                 {child.name &&
                                 <ListGroupItem key={index}>
                                     <div
-                                        data-metrics-event-name="72.3"
-                                        data-metrics-container="Global Nav"
-                                        data-metrics-nav_category="Vehicle Module"
-                                        data-metrics-nav_subcategory={child.name}
+                                        data-firetag="72.3"
+                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Vehicle Module","<nav_subcategory>":"${child.name}" }`}
                                     >
                                         <RouterLink
                                             field={routerLinkFormat(child)}
@@ -403,8 +401,8 @@ class LdVehicleSelector extends Component {
                             'selectVehicle-nav-unauth': !isLoggedIn
                         })}
                         id="nav-bar-selectVehicle-tab"
-                        data-metrics-nav_category="My Vehicle"
-                        data-metrics-nav_subcategory="My Vehicle"
+                        data-firetag="72.3"
+                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"My Vehicle","<nav_subcategory>":"My Vehicle" }`}
                         onClick={(e) => { e.preventDefault(); }}
                     >
                         {this.props.viewport === Viewport.MOBILE ?
@@ -491,9 +489,8 @@ class LdVehicleSelector extends Component {
                                                     />
                                                 </FormGroup>
                                                 <div
-                                                    data-metrics-event-name="73.2"
-                                                    data-metrics-action={this.props.SelectVehicle.bottomText}
-                                                    data-metrics-module="Vehicle Module"
+                                                    data-firetag="73.2"
+                                                    data-firetag-param={`{"<container>": "Global Nav","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
