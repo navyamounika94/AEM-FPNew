@@ -10,6 +10,7 @@ import selectedVehicleJson from '../json/SelectedVehicle.json';
 import ModelYearJson from '../json/ModelYearJson.json'; 
 import Image from '../components/image';
 import { modelFormat, modelStrip } from '../components/models';
+import { getVehicleFromCookiesLoggedout, setSelectedVehicle } from '../components/Viewport/index';
 import PageLoader from '../components/PageLoader';
 import RichText from '../components/RichText';
 import RouterLink from '../components/routerLink';
@@ -37,7 +38,7 @@ class LdVehicleSelector extends Component {
         super(props);
 
         this.isLoggedIn = false;
-        this.selectedGarageVehicle = selectedVehicleJson;
+        this.selectedGarageVehicle = null;
         this.viewport = 'DESKTOP';
 
         this.state = {
@@ -161,7 +162,7 @@ class LdVehicleSelector extends Component {
             selectedModel: defaultModelLabel,
             selectedYear: defaultYearLabel,
         });
-
+        this.selectedGarageVehicle = null;
     }
 
     handleModelChange = (e) => {
@@ -194,7 +195,11 @@ class LdVehicleSelector extends Component {
             this.setState({
                 moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel
             });
-
+            this.selectedGarageVehicle = {
+                "model" : this.state.selectedModel,
+                "year" : this.state.selectedYear
+            }
+            setSelectedVehicle(this.selectedGarageVehicle);
         }
     }
 
@@ -328,6 +333,8 @@ class LdVehicleSelector extends Component {
     }
 
     componentDidMount() {
+        console.log(getVehicleFromCookiesLoggedout());
+        this.selectedGarageVehicle = getVehicleFromCookiesLoggedout();
         this.getModelYearDataAPI();
         const modelYearData = this.getModelYearData();
         this.setState({
@@ -368,7 +375,7 @@ class LdVehicleSelector extends Component {
 
         const { yearList, selectedYear, selectedModel, moduleLabel, isLoggedIn, isVehicleDetailsLoading, isModelSelected } = this.state;
         const vinLabel = this.props.SelectVehicle.vINLabel;
-        const vin = this.selectedGarageVehicle.vin;
+        const vin = this.selectedGarageVehicle && this.selectedGarageVehicle.vin?this.selectedGarageVehicle.vin:'';
         const showClearLink =
             (!this.isLoggedIn && this.selectedGarageVehicle !== null) ||
             (this.isLoggedIn && this.selectedGarageVehicle !== null);
