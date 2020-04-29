@@ -47,13 +47,15 @@ class ForgotPassword extends Component {
     }
 
 
-    handleChange = async (e) => {
+    handleChange = (e) => {
         const target = e.target;
-
         target.setCustomValidity('');
+        if (e.target.value == "")
+            this.state.isValidEmail = false;
         this.ValidateEmailData(e.target.value);
         this.classToggle();
     }
+
     classToggle = () => {
         if (this.state.isValidEmail) {
             document.getElementById('userEmail').classList.remove('is-invalid');
@@ -197,6 +199,7 @@ class ForgotPassword extends Component {
                                                         value={this.state.userEmail}
                                                         placeholder={this.props.emailField}
                                                         onChange={this.handleChange}
+                                                        onBlur={this.handleChange}
                                                         ref={this.textRef}
                                                         className="form-control icase-field"
 
