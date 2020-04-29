@@ -2,6 +2,9 @@
 	padding:0;
 	margin:0;
 }
+a.cookie-consent {
+    cursor: pointer;
+}
 .ld-footer .footer {
     background: #000;
     width: 100%;

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import * as SocialMedia from './SocialMedia/icons';
 import { MapTo } from '@adobe/cq-react-editable-components';
+import zenscroll from 'zenscroll';
+import ScrollToTop from 'react-scroll-up';
+
 require('../Common/Main.css');
 require('./footer.css');
 
@@ -13,10 +16,11 @@ const GlobalFooterEditConfig = {
 };
 
 export default class GlobalFooter extends Component {
+
 	constructor(props) {
 		super(props)
 		this.state = {
-			condition: false
+			condition: false,
 		}
 		this.handleClick = this.handleClick.bind(this)
 	}
@@ -24,8 +28,56 @@ export default class GlobalFooter extends Component {
 		this.setState({
 			condition: !this.state.condition
 		})
+
 	}
 
+	lauchConsentModal() {
+		// gateway object is returned by the ensighten bootstrap js used to launch the privacy modal
+		const gateway = (window).gateway;
+		const footerCTA = document.querySelector('.footer-bottom');
+		const backdropDiv = document.querySelector('.ensighten-backdrop');
+		if (gateway) {
+			if (backdropDiv) {
+				document.getElementsByTagName('body')[0].appendChild(backdropDiv);
+				backdropDiv.classList.add('in');
+			}
+			if (footerCTA) {
+				// (footerCTA as HTMLElement).style.display = 'none';
+				document.querySelector('.footer-bottom').style.display = 'none';
+			}
+			gateway.openModal();
+			zenscroll.toY(0, 500, () => { document.getElementsByTagName('body')[0].classList.add('lock-scroll'); });
+			//	this.ensightenModal();
+		}
+	}
+	// this method is used to attach event listeners to enighten CTA
+	ensightenModal() {
+		console.log('ensightenModal start');
+		const cancelCTA = document.getElementById('ensCancel');
+		const saveCTA = document.getElementById('ensSave');
+		if (cancelCTA) {
+			document.getElementById('ensCancel').addEventListener('click', this.closeConsentModal);
+		}
+		if (saveCTA) {
+			document.getElementById('ensSave').addEventListener('click', this.closeConsentModal);
+		}
+		console.log('ensightenModal end');
+	}
+
+	// this method is used for removing the backdrop and adding back scroll top cta
+	closeConsentModal() {
+		const backdropDiv = document.querySelector('.ensighten-backdrop');
+		const footerCTA = document.querySelector('.footer-bottom');
+		if (backdropDiv) {
+			backdropDiv.classList.remove('in');
+		}
+		if (footerCTA) {
+			//(footerCTA as HTMLElement).style.display = 'block';
+			document.querySelector('.footer-bottom').style.display = 'block';
+		}
+		document.getElementsByTagName('body')[0].classList.remove('lock-scroll');
+
+	}
 
 
 
@@ -118,7 +170,11 @@ export default class GlobalFooter extends Component {
 												</li>
 											)
 										})
+
 									}
+									<li>
+										<a className="cookie-consent" data-button-type="ccpa dialog" data-button-location="global nav" onClick={this.lauchConsentModal}>Cookie Consent Options</a>
+									</li>
 								</ul>
 								<ul className="social">
 									<SocialMedia.facebook />
@@ -133,8 +189,14 @@ export default class GlobalFooter extends Component {
 
 							<p dangerouslySetInnerHTML={{ __html: copyRightDescElement }}></p>
 						</div>
+						<div className="footer-bottom">
+							<ScrollToTop showUnder={160}>
+								<a href="javascript:void(0)" className="go-top icons" />
+							</ScrollToTop>
+						</div>
 					</div>
 				</div>
+				<div className="ensighten-backdrop" />
 			</div>
 
 
