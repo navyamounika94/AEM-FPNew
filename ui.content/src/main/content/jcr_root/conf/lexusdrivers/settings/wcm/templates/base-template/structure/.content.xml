@@ -32,7 +32,7 @@
             <globalfooter
                 jcr:created="{Date}2020-04-17T16:19:30.666+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2020-04-18T12:09:32.333+05:30"
+                jcr:lastModified="{Date}2020-04-29T14:25:41.095+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="lexusdrivers/components/content/globalfooter"
@@ -52,37 +52,37 @@
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/about"
                                 linktitle="About"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item1
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/contact"
                                 linktitle="contact us"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/"
                                 linktitle="lexus.com"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item3
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/offers"
                                 linktitle="Your Lexus Dealer"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item4
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/privacy"
                                 linktitle="privacy"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item5
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/privacy/legal-terms"
                                 linktitle="legal"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                         </footerlinks>
                     </item0>
@@ -94,19 +94,19 @@
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="https://www.lexusfinancial.com"
                                 linktitle="End of Lease Options"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item1
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="https://www.lexusfinancial.com"
                                 linktitle="Lexus Financial Services"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="https://www.lexusfinancial.com/us/en/planning_tools/ways_to_pay.html"
                                 linktitle="Pay My Bill"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                         </footerlinks>
                     </item1>
@@ -118,31 +118,31 @@
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="https://see.lexus.com"
                                 linktitle="See Lexus"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item1
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.thelexuscollection.com"
                                 linktitle="Lexus Merchandise"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item2
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/lcertified"
                                 linktitle="L/Certified"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item3
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus-int.com/"
                                 linktitle="Lexus International"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item4
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/lexusplus"
                                 linktitle="Lexus Plus"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                         </footerlinks>
                     </item2>
@@ -154,13 +154,13 @@
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexus.com/service"
                                 linktitle="Service By Lexus"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                             <item1
                                 jcr:primaryType="nt:unstructured"
                                 linktargeturl="http://www.lexustirecenter.com/?utm_source"
                                 linktitle="Lexus Tire Center"
-                                openinnew="no"
+                                openinnew="yes"
                                 thirdpartyicon="no"/>
                         </footerlinks>
                     </item3>
@@ -170,41 +170,37 @@
                         jcr:primaryType="nt:unstructured"
                         linkstitle="FAQ"
                         linksUrl="http://lexus2.custhelp.com/"
-                        openinnew="no"/>
+                        openinnew="yes"/>
                     <item1
                         jcr:primaryType="nt:unstructured"
                         linkstitle="FIND A LEXUS DEALER"
                         linksUrl="/lexusdrivers/service/dealers"
-                        openinnew="no"/>
+                        openinnew="yes"/>
                     <item2
                         jcr:primaryType="nt:unstructured"
                         linkstitle="CONTACT US"
                         linksUrl="http://www.lexus.com/contact"
-                        openinnew="no"/>
+                        openinnew="yes"/>
                     <item3
                         jcr:primaryType="nt:unstructured"
                         linkstitle="ACCESSIBILITY"
                         linksUrl="http://www.lexus.com/accessibility"
-                        openinnew="no"/>
+                        openinnew="yes"/>
                     <item4
                         jcr:primaryType="nt:unstructured"
                         linkstitle="California Privacy"
                         linksUrl="https://www.lexus.com/privacy/online-statement#california-privacy"
-                        openinnew="no"/>
-                    <item5
-                        jcr:primaryType="nt:unstructured"
-                        linkstitle="Cookie Consent Options"
-                        openinnew="no"/>
+                        openinnew="yes"/>
                 </footercolumnsTwo>
             </globalfooter>
             <globalnav
                 jcr:created="{Date}2020-04-24T10:51:30.140+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2020-04-26T17:19:50.061+05:30"
+                jcr:lastModified="{Date}2020-04-29T14:35:05.791+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="lexusdrivers/components/content/globalNav"
-                body="&lt;ul>&#xd;&#xa;&lt;li>&lt;a>Vehicle Health Reports&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a>Service History&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a>Maintenance Schedule&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a>Vehicle Specs, Maintenance and Warranty Information&lt;/a>&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>\\n&lt;/p>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;"
+                body="&lt;ul>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/VehicleHealthReportLandingPage\\&quot; target=\\&quot;_self\\&quot;>Vehicle Health Reports&lt;/a>&lt;/li>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/history\\&quot; target=\\&quot;_self\\&quot;>Service History&lt;/a>&lt;/li>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/service/maintenance-schedules\\&quot; target=\\&quot;_self\\&quot;>Maintenance Schedule&lt;/a>&lt;/li>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/resources\\&quot; target=\\&quot;_self\\&quot;>Vehicle Specs, Maintenance and Warranty Information&lt;/a>&lt;/li>\\n&lt;/ul>\\n&lt;p>&amp;nbsp;&lt;/p>"
                 bottomText="Add this vehicle to your account by &lt;a href=\\&quot;/lexusdrivers/account/login\\&quot; target=\\&quot;_self\\&quot;>SIGNING IN&lt;/a> or &lt;a href=\\&quot;/lexusdrivers/account/register\\&quot;>CREATING AN ACCOUNT&lt;/a>."
                 buttonLabel="SUBMIT"
                 carousellinkoutUrl="/lexusdrivers/account/register"
@@ -227,7 +223,7 @@
                 quickvalue="&lt;link linktype=\\&quot;external\\&quot; url=\\&quot;/lexusdrivers/resources\\&quot; anchor=\\&quot;\\&quot; target=\\&quot;\\&quot; />"
                 selectcarouselTitle="CREATE YOUR LEXUS DRIVERS ACCOUNT"
                 subTitle="clear"
-                textIsRich="[true,true]"
+                textIsRich="[true]"
                 titleaccoutnt="CREATE YOUR ACCOUNT TODAY FOR ACCESS TO THESE SERVICES AND MORE"
                 titleSelection="Make a selection for a more customized experience."
                 vehicleSelectorDefaultText="SELECT A MODEL"
