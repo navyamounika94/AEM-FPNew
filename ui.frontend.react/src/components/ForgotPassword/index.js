@@ -128,7 +128,7 @@ class ForgotPassword extends Component {
         }
     }
     componentDidMount() {
-        this.pageLoadMetrics();
+        // this.pageLoadMetrics();
     }
 
     render() {
