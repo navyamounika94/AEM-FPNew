@@ -49,19 +49,19 @@ class GlobalNavigation extends Component {
                     "image": {
                         "jss": {
                             "value": {
-                                "src": globalNavJson.globalnav.logoimage,
+                                "src": this.props.logoimage,
                                 "alt": "",
                                 "width": "410",
                                 "height": "60"
                             }
                         },
-                        "value": "<image mediaid=\"{0C838CF3-5EA0-4D57-843A-F5ACAFD082C8}\" />"
+                        "value": this.props.logomediaId
                     }
                 },
-                LoggedIn: globalNavJson.globalnav.loggedIn,
-                LoggedOut: Object.values(globalNavJson.globalnav.loggedOut),
-                NavigationLinks: Object.values(globalNavJson.globalnav.navigationLinks),
-                SelectVehicle: globalNavJson.globalnav
+                LoggedIn: this.props.loggedIn,
+                LoggedOut: Object.values(this.props.loggedOut),
+                NavigationLinks: Object.values(this.props.navigationLinks),
+                SelectVehicle: this.props
             }
         }
 
@@ -320,6 +320,7 @@ class GlobalNavigation extends Component {
 
                     <LdVehicleSelector
                         {...this.graphQLResult}
+                        SelectVehicle = {this.props}
                         viewport={this.state.viewport}
 
                         isOpen={this.state.isOpen && this.state.openIndex === 0}
@@ -482,6 +483,7 @@ class GlobalNavigation extends Component {
                     >
                         <LdVehicleSelector
                             {...this.graphQLResult}
+                            SelectVehicle = {this.props}
                             viewport={this.state.viewport}
                             isOpen={this.state.openIndex === 0}
                             toggle={() => {
@@ -565,6 +567,7 @@ class GlobalNavigation extends Component {
                     <Nav className="showView">
                         <LdVehicleSelector
                             {...this.graphQLResult}
+                            SelectVehicle = {this.props}
                             viewport={this.state.viewport}
                             onVehicleSelected={this.onVehicleSelected}
                             isOpen={isVehicleSelectorOpen}

@@ -10,7 +10,7 @@ import selectedVehicleJson from '../json/SelectedVehicle.json';
 import ModelYearJson from '../json/ModelYearJson.json'; 
 import Image from '../components/image';
 import { modelFormat, modelStrip } from '../components/models';
-import { getVehicleFromCookiesLoggedout, setSelectedVehicle } from '../components/Viewport/index';
+import { getVehicleFromCookiesLoggedout, setSelectedVehicle, replaceNewLine } from '../components/Viewport/index';
 import PageLoader from '../components/PageLoader';
 import RichText from '../components/RichText';
 import RouterLink from '../components/routerLink';
@@ -193,7 +193,8 @@ class LdVehicleSelector extends Component {
 
         if (this.state.selectedModel.toLowerCase() !== defaultModelLabel.toLowerCase() && this.state.selectedYear.toLowerCase() !== defaultYearLabel.toLowerCase()) {
             this.setState({
-                moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel
+                moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel,
+                isModelSelected : true
             });
             this.selectedGarageVehicle = {
                 "model" : this.state.selectedModel,
@@ -296,17 +297,17 @@ class LdVehicleSelector extends Component {
         return (
             <div className={`col-12 col-sm-6 col-md-4 col-panel`}>
                 <h4>
-                    {props.vehicleLabel} <Text field={richTextValueFormat(props.QuickLinks.name)} />
+                    {props.vehicleLabel} <Text field={richTextValueFormat(props.QuickLinks.quicknavLabel)} />
                 </h4>
 
                 <hr className="ld-hrule" />
 
                 <ListGroup className="d-flex flex-row flex-wrap">
-                    {props.QuickLinks.quickLinks &&
-                        Object.values(props.QuickLinks.quickLinks).map((child, index) => {
+                    {props.QuickLinks.quicklinks &&
+                        Object.values(props.QuickLinks.quicklinks).map((child, index) => {
                             return (
                                 <React.Fragment key={index}>
-                                {child.name &&
+                                {child.navLabel &&
                                 <ListGroupItem key={index}>
                                     <div
                                         data-firetag="72.3"
@@ -315,7 +316,7 @@ class LdVehicleSelector extends Component {
                                         <RouterLink
                                             field={routerLinkFormat(child)}
                                         >
-                                            <Text field={richTextValueFormat(child.name)} />
+                                            <Text field={richTextValueFormat(child.navLabel)} />
                                             {child.navIcon &&
                                             <Image className="navlink-icon" lazyLoad={false} field={child.navIcon} />
                                             }
@@ -399,7 +400,7 @@ class LdVehicleSelector extends Component {
                 onMouseLeave={this.props.onMouseLeave}
             >
 
-                {navigationDatasource.selectVehicle && <>
+                {navigationDatasource.navLabel && <>
                     <DropdownToggle
                         nav={true}
                         className={classnames({
@@ -431,7 +432,7 @@ class LdVehicleSelector extends Component {
                     </DropdownToggle>
 
                     <DropdownMenu className="ld-submenu">
-                        {navigationDatasource.selectVehicle &&
+                        {navigationDatasource.navLabel &&
                             <div className="row veh-selector">
                                 {this.props.viewport === Viewport.MOBILE && isLoggedIn &&
                                     <div
@@ -467,7 +468,7 @@ class LdVehicleSelector extends Component {
                                                 {showClearLink &&
                                                     <div className="clearLink">
                                                         <a onClick={this.resetVehicleSelection}>
-                                                            {this.props.SelectVehicle.clearSelection}
+                                                            {this.props.SelectVehicle.subTitle}
                                                         </a>
                                                     </div>
                                                 }
@@ -541,8 +542,8 @@ class LdVehicleSelector extends Component {
                                             :
                                             <this.VehicleCopy
                                                 isModelSelected={this.state.isModelSelected}
-                                                title={this.props.SelectVehicle.titleaccount}
-                                                body={this.props.SelectVehicle.titleaccount}
+                                                title={this.props.SelectVehicle.titleaccoutnt}
+                                                body={replaceNewLine(this.props.SelectVehicle.body)}
                                             />
                                         }
                                         <div className="col-12 col-md-4 col-panel un-authPanel">

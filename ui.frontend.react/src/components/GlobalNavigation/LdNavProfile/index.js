@@ -175,7 +175,7 @@ class LdNavProfile extends Component {
                                                 // THESE NEED TO BE RECONFIGURED FOR MOBILE VS DESKTOP
                                                 key={i+unauthProfile[i].navLabel}
                                                 button_text={unauthProfile[i].navLabel}
-                                                className={Number(i) % 2 === 0 ? 'btn btn-black' : 'btn btn-white'}
+                                                className={Number(i) % 2 === 0 ? 'btn btn-white' : 'btn btn-black'}
                                                 field={routerLinkFormat(unauthProfile[i])}
                                                 onClick={this.onLinkClick}
                                             >

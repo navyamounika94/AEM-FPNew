@@ -75,7 +75,14 @@ export const routerLabelFormat = (label) => {
      };
 };
 export const routerLinkFormat = (profile) => {
-    const url = profile.url?profile.url:profile.linkoutUrl;
+    let url = '';
+    if(profile.url){
+        url = profile.url;
+    }else if(profile.linkoutUrl){
+        url = profile.linkoutUrl;
+    }else{
+        url = profile.navLink;
+    }
     return {
         "value": "<link linktype="+profile.linktype+" url="+url+" anchor=\"\" target=\"\" />",
         "jss": {

@@ -108,3 +108,9 @@ export const setSelectedVehicle = (vehicle) => {
         setCookie(COOKIESCONFIG.SELECTED_VEHICLE_ARRAY, '', 0);
     }
 };
+
+export const replaceNewLine = (string) => {
+    const str = string.replace(/\r?\n|\r/g, '');
+    console.log('str'+str);
+    return str;
+}
