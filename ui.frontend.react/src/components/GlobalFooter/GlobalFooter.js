@@ -31,7 +31,7 @@ export default class GlobalFooter extends Component {
 
 	}
 
-	lauchConsentModal() {
+	lauchConsentModal = () => {
 		// gateway object is returned by the ensighten bootstrap js used to launch the privacy modal
 		const gateway = (window).gateway;
 		const footerCTA = document.querySelector('.footer-bottom');
@@ -47,11 +47,11 @@ export default class GlobalFooter extends Component {
 			}
 			gateway.openModal();
 			zenscroll.toY(0, 500, () => { document.getElementsByTagName('body')[0].classList.add('lock-scroll'); });
-			//	this.ensightenModal();
+			this.ensightenModal();
 		}
 	}
 	// this method is used to attach event listeners to enighten CTA
-	ensightenModal() {
+	ensightenModal = () => {
 		console.log('ensightenModal start');
 		const cancelCTA = document.getElementById('ensCancel');
 		const saveCTA = document.getElementById('ensSave');
