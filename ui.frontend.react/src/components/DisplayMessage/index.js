@@ -19,6 +19,7 @@ import React, { Component } from 'react';
 import { MapTo } from '@adobe/cq-react-editable-components';
 import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 import { Link } from "react-router-dom";
+import { getViewport } from '../GlobalNavigation/components/Viewport/index';
 require('./DisplayMessage.css');
 
 const displayMessageEditConfig = {
@@ -38,14 +39,19 @@ class DisplayMessage extends Component {
 
     static defaultProps = {
         displaydescription: "We sent password reset instructions to",//RichText
-		displaydescription2:"If you didn't receive the email, please check your spam folder",
+        displaydescription2: "If you didn't receive the email, please check your spam folder",
         displayprimaryButtonLink: "/lexusdrivers/account/login",
         displayprimaryButtonText: "OK",
         displaysupportContent: "RESEND PASSWORD RESET EMAIL",
         diplaytitle: "Success",
         displayverticalCenterAlign: true,
-        name: "DisplayMessage"   
+        name: "DisplayMessage"
     }
+    // componentDidMount() {
+    //     window.fireTag("70.1",
+    //         { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password Success", "page": "Forgot Password Success", "<tag_id>": "70.1" }
+    //     );
+    // }
     render() {
         let boxClass = 'pg-box';
         if (this.props.displayverticalCenterAlign === false) {
@@ -61,16 +67,19 @@ class DisplayMessage extends Component {
                             </CardTitle>}
                             {this.props.displaydescription && <CardText className="col-8 m-auto" tag="div">
                                 {/*this.props.description*/}
-									{this.props.displaydescription} <strong>{this.props.email}</strong>. {this.props.displaydescription2}
+                                {this.props.displaydescription} <strong>{this.props.email}</strong>. {this.props.displaydescription2}
                             </CardText>}
                             {this.props.displayprimaryButtonLink && this.props.displayprimaryButtonText &&
                                 <CardText tag="h5">
-                                    <a href={this.props.displayprimaryButtonLink} class="btn-black  btn btn-secondary" target="">{this.props.displayprimaryButtonText}</a>
+                                    <a href={this.props.displayprimaryButtonLink} className="btn-black  btn btn-secondary" target=""
+                                        data-firetag="73.6"
+                                        data-firetag-param={`{"<app>":"ld","<subsection>": "Home","<tag_id>":"73.6","<page>": "Forgot Password Success", "<module>": "Forgot Password Success",
+                                "<action>": "${this.props.displayprimaryButtonText}","<break_point>":"${getViewport()}"}`}>{this.props.displayprimaryButtonText}</a>
                                 </CardText>
                             }
                             {this.props.displaysupportContent &&
                                 <CardText tag="h5">
-                                    <a class="rich-text-anchor active" aria-current="page" href="/lexusdrivers/account/forgot-password"> {this.props.displaysupportContent}</a>
+                                    <a className="rich-text-anchor active" aria-current="page" href="/lexusdrivers/account/forgot-password"> {this.props.displaysupportContent}</a>
                                 </CardText>
                             }
                         </CardBody>

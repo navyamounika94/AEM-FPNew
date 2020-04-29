@@ -18,3 +18,9 @@ export const ViewportWidths = {
         max: Infinity,
     },
 };
+
+export const COOKIESCONFIG = {
+    SELECTED_VEHICLE: 'last-viewed-cars',
+    SELECTED_VEHICLE_ARRAY: 'lexus-drivers-viewed-cars',
+    ZIP_CODE: 'dealer-last-search-dealerZip',
+};
