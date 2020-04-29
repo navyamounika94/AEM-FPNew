@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import React, {Component} from 'react';
 import { Dropdown, DropdownMenu, DropdownToggle, NavItem, NavLink } from 'reactstrap';
 import RouterLink from '../components/routerLink';
+import { routerLinkFormat, routerLabelFormat } from '../components/models';
 
 class LdNavProfile extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class LdNavProfile extends Component {
 
             this.setState({
                 authProfile: this.props.LoggedIn.children,
-                unauthProfile: this.props.LoggedOut.children,
+                unauthProfile: this.props.LoggedOut,
             });
         }
     }
@@ -30,7 +31,7 @@ class LdNavProfile extends Component {
         if (this.props.NavigationLinks !== prevProps.NavigationLinks) {
             this.setState({
                 authProfile: this.props.LoggedIn.children,
-                unauthProfile: this.props.LoggedOut.children,
+                unauthProfile: this.props.LoggedOut,
             });
         }
     }
@@ -59,10 +60,8 @@ class LdNavProfile extends Component {
                     <>
                         <NavItem className="ld-navright show-welExp ml-auto">
                             <NavLink
-                                data-metrics-event-name="73.6"
-                                data-metrics-subsection="Home"
-                                data-metrics-module="Welcome Tool Tip Steps"
-                                data-metrics-action="Restart"
+                                data-firetag="73.6"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
                                 href=""
                                 className="text-hide show-welExp"
                                 onClick={(e) => {
@@ -86,11 +85,8 @@ class LdNavProfile extends Component {
                             onClick={this.props.onClick}
                         >
                             <div
-                                data-metrics-event-name="72.3"
-                                data-metrics-container="Global Nav"
-                                data-metrics-nav_category="Profile"
-                                data-metrics-module="Global Nav"
-                                data-metrics-nav_subcategory="Profile"
+                                data-firetag="72.3"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"Profile" }`}
                             >
                                 <DropdownToggle
                                     id="loginNav"
@@ -113,10 +109,8 @@ class LdNavProfile extends Component {
                                         onClick={(e) => {
                                             this.toggleNotificationModal();
                                         }}
-                                        data-metrics-event-name="72.3"
-                                        data-metrics-nav_category="Profile"
-                                        data-metrics-container="Global Nav"
-                                        data-metrics-nav_subcategory="Notifications"
+                                        data-firetag="72.3"
+                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"Notifications" }`}
                                     >
                                     Notifications ({this.notificationCount})
                                     </a>
@@ -139,11 +133,8 @@ class LdNavProfile extends Component {
                                                 className={classnames({ 'hide-show-welExp': showExpCheck }, { [`${deviceClass}`] : true})}
                                             >
                                                 <div
-                                                    data-metrics-event-name="72.3"
-                                                    data-metrics-nav_category="Profile"
-                                                    data-metrics-container="Global Nav"
-                                                    data-metrics-nav_subcategory={authProfile[i].navLabel.jss.value}
-                                                    data-metrics-action={authProfile[i].navLabel.jss.value}
+                                                    data-firetag="72.3"
+                                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"${authProfile[i].navLabel.jss.value}" }`}
                                                 >
                                                 <RouterLink {...routerProps}>
                                                     <Text field={authProfile[i].navLabel} />
@@ -174,23 +165,25 @@ class LdNavProfile extends Component {
                         <DropdownMenu right={true} className="ld-submenu unauth-sumenu profile-menu">
                             {unauthProfile &&
                                 Object.keys(unauthProfile).map((i) => (
-                                    <span
-                                        data-metrics-event-name="73.2"
-                                        data-metrics-subsection="Home"
-                                        data-metrics-module="Account Module"
-                                        data-metrics-action={unauthProfile[i].navLabel.jss.value}
-                                    >
-                                        <RouterLink
-                                            // THESE NEED TO BE RECONFIGURED FOR MOBILE VS DESKTOP
-                                            key={i}
-                                            button_text={unauthProfile[i].navLabel.jss.value}
-                                            className={Number(i) % 2 === 0 ? 'btn btn-black' : 'btn btn-white'}
-                                            field={unauthProfile[i].navLink}
-                                            onClick={this.onLinkClick}
+                                    <React.Fragment key={i}>
+                                    {unauthProfile[i].navLabel &&
+                                        <span
+                                            data-firetag="72.3"
+                                            data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Profile","<nav_subcategory>":"Profile","<module>":"Account Module","<action>":"${unauthProfile[i].navLabel}" }`}
                                         >
-                                            <Text field={unauthProfile[i].navLabel} />
-                                        </RouterLink>
-                                    </span>
+                                            <RouterLink
+                                                // THESE NEED TO BE RECONFIGURED FOR MOBILE VS DESKTOP
+                                                key={i+unauthProfile[i].navLabel}
+                                                button_text={unauthProfile[i].navLabel}
+                                                className={Number(i) % 2 === 0 ? 'btn btn-black' : 'btn btn-white'}
+                                                field={routerLinkFormat(unauthProfile[i])}
+                                                onClick={this.onLinkClick}
+                                            >
+                                                <Text field={routerLabelFormat(unauthProfile[i].navLabel)} />
+                                            </RouterLink>
+                                        </span>
+                                    }
+                                    </React.Fragment>
                                 ))
                             }
                         </DropdownMenu>

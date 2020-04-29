@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
 
+import com.toyota.tmna.lexusdrivers.core.util.ConstantsUtil;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -25,235 +26,218 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 
 @Model(adaptables = SlingHttpServletRequest.class, resourceType = GlobalFooterModel.RESOURCE_TYPE, adapters = {
-		GlobalFooterModel.class,
-		ComponentExporter.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, selector = "footer", extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+        GlobalFooterModel.class,
+        ComponentExporter.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, selector = ConstantsUtil.GLOBAL_FOOTER_SELECTOR, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class GlobalFooterModel implements ComponentExporter {
 
-	private static final Logger LOG = LoggerFactory.getLogger(GlobalFooterModel.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GlobalFooterModel.class);
+    static final String RESOURCE_TYPE = ConstantsUtil.GLOBAL_FOOTER_RESOURCE;
 
-	protected static final String RESOURCE_TYPE = "lexusdrivers/components/content/globalfooter";
+    @SlingObject
+    private
+    SlingHttpServletRequest req;
 
-	@SlingObject
+    @ValueMapValue(name = "headline")
+    private String headline;
+    @ValueMapValue(name = "headPathOpennewwindow")
+    private String headPathOpennewwindow;
+    @ValueMapValue(name = "copyopennewwindow")
+    private String copyopennewwindow;
+    @ValueMapValue(name = "copyRightText")
+    private String copyRightText;
+    @ValueMapValue(name = "headlinePath")
+    private String headlinePath;
+    @ValueMapValue(name = "copyRightLink")
+    private String copyRightLink;
+    @ValueMapValue(name = "copyRightDesc")
+    private String copyRightDesc;
 
-	SlingHttpServletRequest req;
+    @Inject
+    @Optional
+    @Via("resource")
+    private Resource footercolumns;
 
-	@ValueMapValue(name = "headline")
-	private String headline;
-	@ValueMapValue(name = "headPathOpennewwindow")
-	private String headPathOpennewwindow;
-	@ValueMapValue(name = "copyopennewwindow")
-	private String copyopennewwindow;
+    public String getFootercolumnsOne() {
+        ResourceResolver resourceResolver = req.getResourceResolver();
+        Resource resource = resourceResolver.getResource(footercolumns.getPath());
+        JSONArray jsonA = new JSONArray();
+        if (resource != null && resource.hasChildren()) {
+            Iterable<Resource> children = resource.getChildren();
+            for (Resource child : children) {
 
-	@ValueMapValue(name = "copyRightText")
-	private String copyRightText;
+                if (child.getValueMap().containsKey(ConstantsUtil.GF_COLUMN_HEADLINE)) {
+                    String footerColumnHeadline = child.getValueMap().get(ConstantsUtil.GF_COLUMN_HEADLINE).toString();
 
-	@ValueMapValue(name = "headlinePath")
-	private String headlinePath;
+                    try {
+                        JSONObject jsonObj = new JSONObject();
+                        JSONObject obi = new JSONObject();
 
-	@ValueMapValue(name = "copyRightLink")
-	private String copyRightLink;
+                        jsonObj.put("footerColumnHeadline", footerColumnHeadline);
+                        JSONArray jsonAGrand = new JSONArray();
+                        Resource resourceChild = resourceResolver.getResource(child.getPath() + ConstantsUtil.GLOBAL_FOOTER_LINKS_PATH);
+                        Iterable<Resource> grandchildren = null;
+                        if (resourceChild != null) {
+                            grandchildren = resourceChild.getChildren();
 
-	@ValueMapValue(name = "copyRightDesc")
-	private String copyRightDesc;
+                            String linktargeturl = null;
+                            String linktitle = null;
+                            String openinnew = null;
+                            String thirdpartyicon = null;
+                            for (Resource grandchild : grandchildren) {
 
-	@Inject
-	@Optional
-	@Via("resource")
-	private Resource footercolumns;
+                                if (grandchild.getValueMap().containsKey(ConstantsUtil.GF_LINK_TARGET_URL)) {
+                                    linktargeturl = grandchild.getValueMap().get(ConstantsUtil.GF_LINK_TARGET_URL).toString();
+                                }
+                                if (grandchild.getValueMap().containsKey(ConstantsUtil.GF_LINK_TITLE)) {
+                                    linktitle = grandchild.getValueMap().get(ConstantsUtil.GF_LINK_TITLE).toString();
+                                }
+                                if (grandchild.getValueMap().containsKey(ConstantsUtil.GF_OPEN_NEW)) {
+                                    openinnew = grandchild.getValueMap().get(ConstantsUtil.GF_OPEN_NEW).toString();
+                                }
+                                if (grandchild.getValueMap().containsKey(ConstantsUtil.GF_THIRD_PARTY_ICON)) {
+                                    thirdpartyicon = grandchild.getValueMap().get(ConstantsUtil.GF_THIRD_PARTY_ICON).toString();
+                                }
 
-	public String footercolumnsOne;
+                                Map<String, String> tempMap = new HashMap<>();
+                                if (linktitle != null) {
+                                    tempMap.put(ConstantsUtil.GF_LINK_TITLE, linktitle);
+                                }
+                                if (linktargeturl != null) {
+                                    tempMap.put(ConstantsUtil.GF_LINK_TARGET_URL, linktargeturl);
+                                }
+                                if (openinnew != null) {
+                                    tempMap.put(ConstantsUtil.GF_OPEN_NEW, openinnew);
+                                }
+                                if (thirdpartyicon != null) {
+                                    tempMap.put(ConstantsUtil.GF_THIRD_PARTY_ICON, thirdpartyicon);
+                                }
 
-	public String getFootercolumnsOne() {
+                                jsonAGrand.put(tempMap);
 
-		ResourceResolver resourceResolver = req.getResourceResolver();
-		Resource resource = resourceResolver.getResource(footercolumns.getPath());
-		JSONArray jsonA = new JSONArray();
-		if (resource.hasChildren() && resource != null) {
-			Iterable<Resource> children = resource.getChildren();
+                            }
+                        }
+                        JSONArray InnerLoopArray = new JSONArray();
+                        jsonObj.put(ConstantsUtil.GLOBAL_FOOTER_LINKLIST, jsonAGrand);
+                        InnerLoopArray.put(jsonObj);
+                        obi.put(ConstantsUtil.GLOBAL_FOOTER_LINK, InnerLoopArray);
+                        jsonA.put(obi);
+                    } catch (JSONException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
 
-			for (Resource child : children) {
+        }
 
-				if (child.getValueMap().containsKey("footerColumnHeadline")) {
-					String footerColumnHeadline = child.getValueMap().get("footerColumnHeadline").toString();
+        JSONObject oje = new JSONObject();
+        JSONArray arr = new JSONArray();
+        try {
+            oje.put("columns", jsonA);
+            arr.put(oje);
+            //String footercolumnsOne = arr.toString();
 
-					try {
-						JSONObject jsonObj = new JSONObject();
-						JSONObject obi = new JSONObject();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-						jsonObj.put("footerColumnHeadline", footerColumnHeadline);
+        return arr.toString();
+    }
 
-						Resource resourceChild = resourceResolver.getResource(child.getPath() + "/footerlinks");
-						Iterable<Resource> grandchildren = resourceChild.getChildren();
+    public void setFootercolumns(Resource footercolumns) {
+        this.footercolumns = footercolumns;
+    }
 
-						JSONArray jsonAGrand = new JSONArray();
-						String linktargeturl = null;
-						String linktitle = null;
-						String openinnew = null;
-						String thirdpartyicon = null;
-						for (Resource grandchild : grandchildren) {
+    @Inject
+    @Optional
+    @Via("resource")
+    private Resource footercolumnsTwo;
 
-							if (grandchild.getValueMap().containsKey("linktargeturl")) {
-								linktargeturl = grandchild.getValueMap().get("linktargeturl").toString();
-							}
-							if (grandchild.getValueMap().containsKey("linktitle")) {
-								linktitle = grandchild.getValueMap().get("linktitle").toString();
-							}
-							if (grandchild.getValueMap().containsKey("openinnew")) {
-								openinnew = grandchild.getValueMap().get("openinnew").toString();
-							}
-							if (grandchild.getValueMap().containsKey("thirdpartyicon")) {
-								thirdpartyicon = grandchild.getValueMap().get("thirdpartyicon").toString();
-							}
+    public String getFootercolumnsSecond() {
 
-							Map<String, String> tempMap = new HashMap<>();
-							if (linktitle != null) {
-								tempMap.put("linktitle", linktitle);
-							}
-							if (linktargeturl != null) {
-								tempMap.put("linktargeturl", linktargeturl);
-							}
-							if (openinnew != null) {
-								tempMap.put("openinnew", openinnew);
-							}
-							if (thirdpartyicon != null) {
-								tempMap.put("thirdpartyicon", thirdpartyicon);
-							}
+        ResourceResolver resourceResolver = req.getResourceResolver();
+        Resource resource = resourceResolver.getResource(footercolumnsTwo.getPath());
+        JSONArray jsonA = new JSONArray();
+        if (resource != null && resource.hasChildren()) {
+            Iterable<Resource> children = resource.getChildren();
 
-							jsonAGrand.put(tempMap);
+            for (Resource child : children) {
 
-						}
+                if (child.getValueMap().containsKey(ConstantsUtil.GF_LINKS_TITLE)) {
+                    String linksUrl = null;
+                    String openinnew = null;
+                    String linkstitle = null;
+                    if (child.getValueMap().containsKey(ConstantsUtil.GF_LINKS_URLS)) {
+                        linksUrl = child.getValueMap().get(ConstantsUtil.GF_LINKS_URLS).toString();
+                    }
 
-						JSONArray InnerLoopArray = new JSONArray();
+                    if (child.getValueMap().containsKey(ConstantsUtil.GF_OPEN_NEW)) {
+                        openinnew = child.getValueMap().get(ConstantsUtil.GF_OPEN_NEW).toString();
+                    }
 
-						jsonObj.put("linklist", jsonAGrand);
+                    if (child.getValueMap().containsKey(ConstantsUtil.GF_LINKS_TITLE)) {
+                        linkstitle = child.getValueMap().get(ConstantsUtil.GF_LINKS_TITLE).toString();
+                    }
 
-						InnerLoopArray.put(jsonObj);
 
-						obi.put("footerlinks", InnerLoopArray);
+                    try {
+                        JSONObject jsonObj = new JSONObject();
 
-						jsonA.put(obi);
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
+                        if (linksUrl != null) {
+                            jsonObj.put(ConstantsUtil.GF_LINKS_URLS, linksUrl);
+                        }
+                        if (openinnew != null) {
+                            jsonObj.put(ConstantsUtil.GF_OPEN_NEW, openinnew);
+                        }
+                        if (linkstitle != null) {
+                            jsonObj.put(ConstantsUtil.GF_LINKS_TITLE, linkstitle);
+                        }
+                        jsonA.put(jsonObj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
-		}
+        }
 
-		JSONObject oje = new JSONObject();
+       // String footercolumnsSecond = jsonA.toString();
 
-		JSONArray arr = new JSONArray();
-		try {
-			oje.put("columns", jsonA);
+        return jsonA.toString();
+    }
 
-			arr.put(oje);
-			footercolumnsOne = arr.toString();
+    public String getCopyopennewwindow() {
+        return copyopennewwindow;
+    }
 
-		} catch (JSONException e) {
+    public String getHeadPathOpennewwindow() {
+        return headPathOpennewwindow;
+    }
 
-			e.printStackTrace();
-		}
+    public String getCopyRightDesc() {
+        return copyRightDesc;
+    }
 
-		return arr.toString();
-	}
+    public String getHeadlinePath() {
+        return headlinePath;
+    }
 
-	public void setFootercolumns(Resource footercolumns) {
-		this.footercolumns = footercolumns;
-	}
+    public String getHeadline() {
+        return headline;
+    }
 
-	@Inject
-	@Optional
-	@Via("resource")
-	private Resource footercolumnsTwo;
+    public String getCopyRightText() {
+        return copyRightText;
+    }
 
-	public String footercolumnsSecond;
+    public String getCopyRightLink() {
+        return copyRightLink;
+    }
 
-	public String getFootercolumnsSecond() {
-
-		ResourceResolver resourceResolver = req.getResourceResolver();
-		Resource resource = resourceResolver.getResource(footercolumnsTwo.getPath());
-		JSONArray jsonA = new JSONArray();
-		if (resource.hasChildren() && resource != null) {
-			Iterable<Resource> children = resource.getChildren();
-
-			for (Resource child : children) {
-
-				if (child.getValueMap().containsKey("linkstitle")) {
-					String linksUrl = null;
-					String openinnew = null;
-					String linkstitle = null;
-					if (child.getValueMap().containsKey("linksUrl")) {
-						linksUrl = child.getValueMap().get("linksUrl").toString();
-					}
-
-					if (child.getValueMap().containsKey("openinnew")) {
-						openinnew = child.getValueMap().get("openinnew").toString();
-					}
-
-					if (child.getValueMap().containsKey("linkstitle")) {
-						linkstitle = child.getValueMap().get("linkstitle").toString();
-					}
-					
-
-					try {
-						JSONObject jsonObj = new JSONObject();
-
-						if (linksUrl != null) {
-							jsonObj.put("linksUrl", linksUrl);
-						}
-						if (openinnew != null) {
-							jsonObj.put("openinnew", openinnew);
-						}
-						if (linkstitle != null) {
-							jsonObj.put("linkstitle", linkstitle);
-						}
-						jsonA.put(jsonObj);
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-		}
-
-		footercolumnsSecond = jsonA.toString();
-
-		return footercolumnsSecond;
-	}
-
-	public String getCopyopennewwindow() {
-		return copyopennewwindow;
-	}
-
-	public String getHeadPathOpennewwindow() {
-		return headPathOpennewwindow;
-	}
-
-	public String getCopyRightDesc() {
-		return copyRightDesc;
-	}
-
-	public String getHeadlinePath() {
-		return headlinePath;
-	}
-
-	public String getHeadline() {
-		return headline;
-	}
-
-	public String getCopyRightText() {
-		return copyRightText;
-	}
-
-	public String getCopyRightLink() {
-		return copyRightLink;
-	}
-
-	@Nonnull
-	@Override
-	public String getExportedType() {
-		return RESOURCE_TYPE;
-	}
+    @Nonnull
+    @Override
+    public String getExportedType() {
+        return RESOURCE_TYPE;
+    }
 }

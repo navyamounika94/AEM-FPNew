@@ -2,17 +2,14 @@ import React,{Component} from 'react';
 import zenScroll from 'zenscroll';
 import Image from '../image';
 import RouterLink from '../routerLink';
-
+import { getViewport } from '../Viewport/index';
 
 class HeaderLogo extends Component {
     render() {
         return (
             <div
-                data-metrics-event-name="72.3"
-                data-metrics-subsection="Home"
-                data-metrics-container="Global Nav"
-                data-metrics-nav_category="Lexus Drivers"
-                data-metrics-nav_subcategory="Lexus Drivers Logo"
+                data-firetag="72.3"
+                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Lexus Drivers","<nav_subcategory>":"Lexus Drivers Logo", "<break_point>":"${getViewport()}" }`}
             >
                 <RouterLink
                     className="navbar-brand"

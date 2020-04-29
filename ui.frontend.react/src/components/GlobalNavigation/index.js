@@ -45,11 +45,23 @@ class GlobalNavigation extends Component {
         this.isLoggedIn = false;
         this.navigationItems = {
             fields: {
-                HeaderLogo: globalNavJson.HeaderLogo,
-                LoggedIn: globalNavJson.LoggedIn,
-                LoggedOut: globalNavJson.LoggedOut,
-                NavigationLinks: globalNavJson.NavigationLinks,
-                SelectVehicle: globalNavJson.SelectVehicle
+                HeaderLogo: {
+                    "image": {
+                        "jss": {
+                            "value": {
+                                "src": globalNavJson.globalnav.logoimage,
+                                "alt": "",
+                                "width": "410",
+                                "height": "60"
+                            }
+                        },
+                        "value": "<image mediaid=\"{0C838CF3-5EA0-4D57-843A-F5ACAFD082C8}\" />"
+                    }
+                },
+                LoggedIn: globalNavJson.globalnav.loggedIn,
+                LoggedOut: Object.values(globalNavJson.globalnav.loggedOut),
+                NavigationLinks: Object.values(globalNavJson.globalnav.navigationLinks),
+                SelectVehicle: globalNavJson.globalnav
             }
         }
 
@@ -86,7 +98,7 @@ class GlobalNavigation extends Component {
         }
         if (this.navigationItems && this.navigationItems.fields) {
             this.setState({
-                headerLogo: this.navigationItems.fields.HeaderLogo.children[0].image,
+                headerLogo: this.navigationItems.fields.HeaderLogo.image,
             });
 
             this.graphQLResult = this.navigationItems.fields;
@@ -308,6 +320,7 @@ class GlobalNavigation extends Component {
 
                     <LdVehicleSelector
                         {...this.graphQLResult}
+                        viewport={this.state.viewport}
 
                         isOpen={this.state.isOpen && this.state.openIndex === 0}
                         toggle={() => { this.toggleItem(0); }}
@@ -321,6 +334,7 @@ class GlobalNavigation extends Component {
                     <div className={this.isLoggedIn ? 'nm-view-nav' : 'nm-view-nav nm-view-unauth'}>
                         <LdNavCenter
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
 
                             toggle={this.toggleItem}
                             isOpen={this.state.isOpen}
@@ -343,7 +357,10 @@ class GlobalNavigation extends Component {
 
                     <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                         <NavLink id="ld-navSearch">
-                            <i data-metrics-nav_category="Search" data-metrics-nav_subcategory="Search" />
+                            <i 
+                                data-firetag="72.3"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                            />
                         </NavLink>
                     </NavItem>
 
@@ -367,6 +384,7 @@ class GlobalNavigation extends Component {
         const ldNavCenter = (
             <LdNavCenter
                 {...this.graphQLResult}
+                viewport={this.state.viewport}
 
                 toggle={(index) => {
                     if (this.state.openIndex === index) {
@@ -438,10 +456,8 @@ class GlobalNavigation extends Component {
                     {this.isLoggedIn ?
                         <NavItem className="ld-navright show-welExp ml-auto welexp">
                             <NavLink
-                                data-metrics-event-name="73.6"
-                                data-metrics-subsection="Home"
-                                data-metrics-module="Welcome Tool Tip Steps"
-                                data-metrics-action="Restart"
+                                data-firetag="73.6"
+                                data-firetag-param={`{"<container>": "Global Footer","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
                                 href=""
                                 className="text-hide show-welExp"
                                 onClick={(e) => {
@@ -466,6 +482,7 @@ class GlobalNavigation extends Component {
                     >
                         <LdVehicleSelector
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
                             isOpen={this.state.openIndex === 0}
                             toggle={() => {
                                 if (this.state.openIndex === 0) {
@@ -496,7 +513,10 @@ class GlobalNavigation extends Component {
 
                         <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                             <NavLink id="ld-navSearch">
-                                <i data-metrics-nav_category="Search" data-metrics-nav_subcategory="Search" />
+                                <i 
+                                    data-firetag="72.3"
+                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                                />
                             </NavLink>
                         </NavItem>
                     </Collapse>
@@ -545,6 +565,7 @@ class GlobalNavigation extends Component {
                     <Nav className="showView">
                         <LdVehicleSelector
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
                             onVehicleSelected={this.onVehicleSelected}
                             isOpen={isVehicleSelectorOpen}
                             toggle={() => {
@@ -578,15 +599,14 @@ class GlobalNavigation extends Component {
                         id="navToggler"
                         aria-label="Lexus Drivers"
                         onClick={this.toggleNavbar}
-                        data-metrics-module="Hamburger Menu"
-                        data-metrics-action="Expand"
-                        data-metrics-nav_category="Hamburger Menu"
-                        data-metrics-nav_subcategory="Expand"
+                        data-firetag="72.3"
+                        data-firetag-param={`{"<container>": "Global Footer","<action>":"Expand","<module>":"Hamburger Menu","<nav_category>":"Hamburger Menu","<nav_subcategory>":"Expand" }`}
                     />
 
                     <Collapse isOpen={isCollapseOpen} navbar={true} className="hideElemView" >
                         <LdNavCenter
                             {...this.graphQLResult}
+                            viewport={this.state.viewport}
                             onLinkClick={this.onLinkClick}
                             isOpen={true}
                             openIndex={this.state.openIndex}
@@ -606,7 +626,10 @@ class GlobalNavigation extends Component {
                         />
                         <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                             <NavLink id="ld-navSearch">
-                                <i data-metrics-nav_category="Search" data-metrics-nav_subcategory="Search" />
+                            <i 
+                                data-firetag="72.3"
+                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                            />
                             </NavLink>
                         </NavItem>
                     </Collapse>

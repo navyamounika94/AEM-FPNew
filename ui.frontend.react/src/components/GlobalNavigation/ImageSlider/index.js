@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import Slider from 'react-slick';
 import { Card, CardBody, CardImg } from 'reactstrap';
 import RouterLink from '../components/routerLink';
+import { routerLinkFormat, richTextValueFormat } from '../components/models';
 
 class ImageSlider extends Component {
     constructor(props) {
@@ -36,27 +37,27 @@ class ImageSlider extends Component {
                               return (
                                 <div
                                         {...this.props.dataMetrics}
-                                        data-metrics-nav_category={this.props.category}
-                                        data-metrics-nav_subcategory={i.title.jss.value}
+                                        data-firetag="72.3"
+                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"${this.props.category}","<nav_subcategory>":"${i.title}" }`}
                                         key={this.counter}
                                 >
                                         <RouterLink
-                                            field={i.linkoutUrl}
+                                            field={routerLinkFormat(i)}
                                             {...this.props.dataMetrics}
                                             tag_id="72.3"
                                             container="Global Nav"
                                             nav_category={this.props.category}
-                                            nav_subcategory={i.title.jss.value}
+                                            nav_subcategory={i.title}
                                         >
                                             <Card className="ld-tile" >
                                             <div className="nav-img-wrapper">
                                                 <CardImg
                                                     top={true}
-                                                    src={i.thumbnail.jss.value.src}
+                                                    src={i.thumbnail}
                                                 />
                                             </div>
                                                 <CardBody>
-                                                <Text field={i.title.jss} className="card-subtitle" tag="h5"/>
+                                                <Text field={richTextValueFormat(i.title)} className="card-subtitle" tag="h5"/>
                                                 </CardBody>
                                             </Card>
                                         </RouterLink>
