@@ -47,11 +47,16 @@ class DisplayMessage extends Component {
         displayverticalCenterAlign: true,
         name: "DisplayMessage"
     }
-    // componentDidMount() {
-    //     window.fireTag("70.1",
-    //         { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password Success", "page": "Forgot Password Success", "<tag_id>": "70.1" }
-    //     );
-    // }
+    componentDidMount() {
+        try {
+            window.fireTag("70.1",
+                { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password Success", "page": "Forgot Password Success", "<tag_id>": "70.1" }
+            );
+        }
+        catch (err) {
+            console.log(err, 'FireTag failed')
+        }
+    }
     render() {
         let boxClass = 'pg-box';
         if (this.props.displayverticalCenterAlign === false) {

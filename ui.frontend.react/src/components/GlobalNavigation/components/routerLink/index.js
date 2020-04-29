@@ -23,7 +23,7 @@ const RouterLink = (props) => {
     if (props.jss) {
         href = get(props, 'jss.value.href', '');
         linktype = get(props, 'jss.value.linktype', '');
-        jss = props.jss;
+        jss = props.jss; 
     }
 
     
@@ -32,22 +32,19 @@ const RouterLink = (props) => {
 
         if (linktype === 'external') {
             return (
-                <div>
-                    <Link
-                        className={props.className}
-                        field={jss}
-                        aria-label={JSON.stringify(jss.value)}
-                        id={props.id}
-                        onClick={props.onClick}
-                        target={(jss.value.href.startsWith('/')) ? '' : '_blank'}
-                    >
-                        {props.children}
-                    </Link>
-                </div>
+                <Link
+                    className={props.className}
+                    field={jss}
+                    aria-label={JSON.stringify(jss.value)}
+                    id={props.id}
+                    onClick={props.onClick}
+                    target={(jss.value.href.startsWith('/')) ? '' : '_blank'}
+                >
+                    {props.children}
+                </Link>
             );
         } else { // internal or empty linktypes
             return (
-                <div>
                 <NavLink
                     className={props.className}
                     to={href}
@@ -67,20 +64,17 @@ const RouterLink = (props) => {
                 >
                     {props.children}
                 </NavLink>
-                </div>
             );
         }
     } else {
         return (
-            <div>
-                <NavLink
-                    className={props.className}
-                    to="#"
-                    onClick={props.onClick}
-                >
-                    {props.children}
-                </NavLink>
-            </div>
+            <NavLink
+                className={props.className}
+                to="#"
+                onClick={props.onClick}
+            >
+                {props.children}
+            </NavLink>
         );
     }
 };
