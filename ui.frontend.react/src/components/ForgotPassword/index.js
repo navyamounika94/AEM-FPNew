@@ -47,13 +47,15 @@ class ForgotPassword extends Component {
     }
 
 
-    handleChange = async (e) => {
+    handleChange = (e) => {
         const target = e.target;
-
         target.setCustomValidity('');
+        if (e.target.value == "")
+            this.state.isValidEmail = false;
         this.ValidateEmailData(e.target.value);
         this.classToggle();
     }
+
     classToggle = () => {
         if (this.state.isValidEmail) {
             document.getElementById('userEmail').classList.remove('is-invalid');
@@ -117,32 +119,38 @@ class ForgotPassword extends Component {
         }
     }
     pageLoadMetrics() {
-        if (document.readyState === 'complete') {
-            window.fireTag("70.1",
-                { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password" }
-            );
+        try {
+            if (document.readyState === 'complete') {
+                window.fireTag("70.1",
+                    { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password" }
+                );
+            }
+            else {
+                console.log("pageView|ForgotPassword|Waiting for initialization");
+                setTimeout(() => { this.pageLoadMetrics(); }, 1000);
+            }
         }
-        else {
-            console.log("pageView|ForgotPassword|Waiting for initialization");
-            setTimeout(() => { this.pageLoadMetrics(); }, 1000);
+        catch (err) {
+            console.log(err, 'FireTag failed');
         }
     }
+
     componentDidMount() {
-        // this.pageLoadMetrics();
+        this.pageLoadMetrics();
     }
 
     render() {
-        const {
-            description = "To reset your password, please enter the email associated with your account to receive a password reset link.", //Richtext
-            emailField = "EMAIL", //text
-            emailRequiredMessage = '', //JSSText
-            id = '',
-            name = '',
-            needMoreHelp = "Need more help?", // JSSRichText
-            sendEmailLabel = "Send Email", //JSSText
-            successPage = '',//JSSLink;
-            title = "Forgot password?"
-        } = this.props
+        // const {
+        //     //description = "To reset your password, please enter the email associated with your account to receive a password reset link.", //Richtext
+        //     emailField = "EMAIL", //text
+        //     emailRequiredMessage = '', //JSSText
+        //     id = '',
+        //     name = '',
+        //     needMoreHelp = "Need more help?", // JSSRichText
+        //     sendEmailLabel = "Send Email", //JSSText
+        //     successPage = '',//JSSLink;
+        //     title = "Forgot password?"
+        // } = this.props
         return (
             <>
                 {
@@ -159,9 +167,9 @@ class ForgotPassword extends Component {
                         <div className="container-fluid acc-bg" id="forgot-password">
                             <div className="row justify-content-center " id="titlePanel">
                                 <div className="col-12 col-md-11">
-                                    <h1>{title}</h1>
+                                    <h1>{this.props.title}</h1>
                                     <div className="subtitle">
-                                        <div className="m-auto">{description}</div>
+                                        <div className="m-auto">{this.props.description}</div>
                                     </div>
                                 </div>
                             </div>
@@ -185,18 +193,18 @@ class ForgotPassword extends Component {
                                                     name="accIndvidualname"
                                                     className="accForm forgot-password-form"
                                                 >
-
                                                     <input
                                                         id="userEmail"
                                                         name="userEmail"
                                                         value={this.state.userEmail}
-                                                        placeholder={emailField}// aem
+                                                        placeholder={this.props.emailField}
                                                         onChange={this.handleChange}
+                                                        onBlur={this.handleChange}
                                                         ref={this.textRef}
                                                         className="form-control icase-field"
 
-
                                                     />
+
                                                     <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
                                                     <div className="text-center">
                                                         <button
@@ -205,9 +213,9 @@ class ForgotPassword extends Component {
                                                             data-firetag={this.state.isValidEmail ? '73.6' : '80.4'}
                                                             data-firetag-param={`{"<app>":"ld","<subsection>": "Home","<tag_id>":"${this.state.isValidEmail ? '73.6' : '80.4'}","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                                             "<error_message>":"${!this.state.isValidEmail ? this.state.formErrMsg : ''}",
-                                                            "<action>": "${sendEmailLabel}","<break_point>":"${getViewport()}"}`}
+                                                            "<action>": "${this.props.sendEmailLabel}","<break_point>":"${getViewport()}"}`}
                                                         >
-                                                            {sendEmailLabel}
+                                                            {this.props.sendEmailLabel}
                                                         </button>
 
                                                     </div>
@@ -220,9 +228,9 @@ class ForgotPassword extends Component {
                                             <span
                                                 data-firetag="73.6"
                                                 data-firetag-param={`{"<app>":"ld","<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
-                                            "<action>": "${needMoreHelp}","<break_point>":"${getViewport()}"}`}
+                                            "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
                                             >
-                                                <h3 className="caption-link"> {needMoreHelp} <a className="rich-text-anchor" href="">Contact Us</a></h3>
+                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" href="https://www.lexus.com/contact">Contact Us</a></h3>
                                             </span>
                                         </div>
                                     </div>

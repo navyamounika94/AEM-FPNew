@@ -92,7 +92,7 @@
                                                                         sling:resourceType="granite/ui/components/foundation/form/select"
                                                                         class="cq-dialog-dropdown-showhide"
                                                                         cq-dialog-dropdown-showhide-target=".text-type-hide-show"
-                                                                        fieldLabel="Link Openinnew Icon ?"
+                                                                        fieldLabel="Link Open In New Tab?"
                                                                         name="./openinnew"
                                                                         required="false">
                                                                         <items jcr:primaryType="nt:unstructured">
@@ -111,7 +111,7 @@
                                                                         sling:resourceType="granite/ui/components/foundation/form/select"
                                                                         class="cq-dialog-dropdown-showhide"
                                                                         cq-dialog-dropdown-showhide-target=".text-type-hide-show"
-                                                                        fieldLabel="Link thirdpartyicon Icon ?"
+                                                                        fieldLabel="Thirdparty Icon ?"
                                                                         name="./thirdpartyicon"
                                                                         required="false">
                                                                         <items jcr:primaryType="nt:unstructured">
@@ -169,7 +169,7 @@
                                                     sling:resourceType="granite/ui/components/foundation/form/select"
                                                     class="cq-dialog-dropdown-showhide"
                                                     cq-dialog-dropdown-showhide-target=".text-type-hide-show"
-                                                    fieldLabel="Link Openinnew Icon ?"
+                                                    fieldLabel="Link Open In New Tab?"
                                                     name="./openinnew"
                                                     required="false">
                                                     <items jcr:primaryType="nt:unstructured">

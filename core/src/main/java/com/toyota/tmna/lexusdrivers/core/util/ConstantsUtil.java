@@ -1,8 +1,5 @@
 package com.toyota.tmna.lexusdrivers.core.util;
 
-/**
- * @author Nvish
- */
 public class ConstantsUtil {
     /* Global Footer*/
     public static final String GLOBAL_FOOTER_RESOURCE = "lexusdrivers/components/content/globalfooter";
@@ -28,22 +25,14 @@ public class ConstantsUtil {
 
     public static final String FORGOT_PASSWORD_RESOURCE = "lexusdrivers/components/content/forgotPassword";
 
+    /* Global Navigation Message*/
 
-    public static final String READ_SERVICE = "readService";
+    public static final String GNAV_MESSAGE_RESOURCE = "lexusdrivers/components/content/globalNav";
+
+
     public static final String COMPO_PATH = "/jcr:content/root/responsivegrid";
-    public static final String PROPERTY_MAPPING = "mapping";
-    public static final String DATA_NODE = "datasource";
-    public static final String PROPERTY_URLS = "urls";
-    public static final String PROPERTY_URL = "url";
-    public static final String PROPERTY_CHILD = "child";
-    public static final String PROFILE = "/profile";
-    public static final String CHILD_NAME = "profile";
 
     public static final String RESPONSE_APPLICATION_JSON = "application/json";
     public static final String RESPONSE_CHARACTER_CODE = "UTF-8";
-
-
-
-
 
 }

@@ -120,18 +120,18 @@ export default class GlobalFooter extends Component {
 											{
 												key1.columns.map((key2, j) => {
 													return (
-														<div>
+														<div key={j}>
 															{
 																key2.footerlinks.map((key3, k) => {
 																	return (
-																		<div className={this.state.condition ? "footer-link-wrapper footer-section-expanded" : "footer-link-wrapper"}>
+																		<div className={this.state.condition ? "footer-link-wrapper footer-section-expanded" : "footer-link-wrapper"} key={key3}>
 																			<h4 onClick={this.handleClick}>
 																				<span dangerouslySetInnerHTML={{ __html: key3.footerColumnHeadline }} data-firetag="72.3"></span>
 																			</h4>																			{
 																				key3.linklist.map((key4, k) => {
 
 																					return (
-																						<ul className={this.state.condition ? "footer-accordion show" : "footer-accordion"} >
+																						<ul className={this.state.condition ? "footer-accordion show" : "footer-accordion"} key={k} >
 																							<li>
 
 																								<a data-firetag="72.3" data-model={key4.linktitle} data-category={key3.footerColumnHeadline}
@@ -159,11 +159,11 @@ export default class GlobalFooter extends Component {
 
 						<div className="col-xs-3 col-md-3 col-sm-3">
 							<div className="footer-main-link-wrapper">
-								<ul className="main-links">
+								<ul className="main-links" >
 									{
 										fcolobj2.map((key1, i) => {
 											return (
-												<li>
+												<li key={i}>
 													<a href={key1.linksUrl} target={key1.openinnew == 'yes' ? "_blank" : "_self"}>
 														{key1.linkstitle}
 													</a>
@@ -191,7 +191,7 @@ export default class GlobalFooter extends Component {
 						</div>
 						<div className="footer-bottom">
 							<ScrollToTop showUnder={160}>
-								<a href="javascript:void(0)" className="go-top icons" />
+								<a href="#" className="go-top icons" />
 							</ScrollToTop>
 						</div>
 					</div>
