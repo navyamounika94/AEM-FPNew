@@ -117,21 +117,24 @@ class ForgotPassword extends Component {
         }
     }
     pageLoadMetrics() {
-
-        if (document.readyState === 'complete') {
-            window.fireTag("70.1",
-                { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password" }
-            );
+        try {
+            if (document.readyState === 'complete') {
+                window.fireTag("70.1",
+                    { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password" }
+                );
+            }
+            else {
+                console.log("pageView|ForgotPassword|Waiting for initialization");
+                setTimeout(() => { this.pageLoadMetrics(); }, 1000);
+            }
         }
-        else {
-            console.log("pageView|ForgotPassword|Waiting for initialization");
-            setTimeout(() => { this.pageLoadMetrics(); }, 1000);
+        catch (err) {
+            console.log(err, 'FireTag failed');
         }
-
     }
 
     componentDidMount() {
-        // this.pageLoadMetrics();
+        this.pageLoadMetrics();
     }
 
     render() {
@@ -188,18 +191,17 @@ class ForgotPassword extends Component {
                                                     name="accIndvidualname"
                                                     className="accForm forgot-password-form"
                                                 >
-
                                                     <input
                                                         id="userEmail"
                                                         name="userEmail"
                                                         value={this.state.userEmail}
-                                                        placeholder={this.props.emailField}// aem
+                                                        placeholder={this.props.emailField}
                                                         onChange={this.handleChange}
                                                         ref={this.textRef}
                                                         className="form-control icase-field"
 
-
                                                     />
+
                                                     <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
                                                     <div className="text-center">
                                                         <button
@@ -225,7 +227,7 @@ class ForgotPassword extends Component {
                                                 data-firetag-param={`{"<app>":"ld","<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                             "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
                                             >
-                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" href="">Contact Us</a></h3>
+                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" href="https://www.lexus.com/contact">Contact Us</a></h3>
                                             </span>
                                         </div>
                                     </div>
