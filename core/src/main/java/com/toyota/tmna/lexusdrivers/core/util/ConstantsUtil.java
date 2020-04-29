@@ -24,6 +24,12 @@ public class ConstantsUtil {
     /* Forgot Password Message*/
 
     public static final String FORGOT_PASSWORD_RESOURCE = "lexusdrivers/components/content/forgotPassword";
+
+    /* Global Navigation Message*/
+
+    public static final String GNAV_MESSAGE_RESOURCE = "lexusdrivers/components/content/globalNav";
+
+
     public static final String COMPO_PATH = "/jcr:content/root/responsivegrid";
 
     public static final String RESPONSE_APPLICATION_JSON = "application/json";
