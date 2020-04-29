@@ -25,7 +25,7 @@ export const facebook = () => {
                     width="100%"
                     height="100%"
                     viewBox="91.882 1914 14.118 14.174"
-                    enable-background="new 91.882 1914 14.118 14.174"
+                    enableBackground="new 91.882 1914 14.118 14.174"
                     xmlSpace="preserve"
                 >
                     <path
@@ -65,7 +65,7 @@ export const twitter = () => {
                     width="100%"
                     height="100%"
                     viewBox="50 68.734 200 162.536"
-                    enable-background="new 50 68.734 200 162.536"
+                    enableBackground="new 50 68.734 200 162.536"
                     xmlSpace="preserve"
                 >
                     <path
@@ -100,7 +100,7 @@ export const youtube = () => {
                     width="100%"
                     height="100%"
                     viewBox="153 1915 16 12"
-                    enable-background="new 153 1915 16 12"
+                    enableBackground="new 153 1915 16 12"
                     xmlSpace="preserve"
                 >
                     <path
@@ -166,14 +166,14 @@ export const instagram = () => {
                     width="100%"
                     height="100%"
                     viewBox="0 0 621.655 621.655"
-                    enable-background="new 0 0 621.655 621.655"
+                    enableBackground="new 0 0 621.655 621.655"
                     xmlSpace="preserve"
                 >
                     <g>
                         <path
-                            fill-rule="evenodd"
+                            fillRule="evenodd"
                             fill="#FFFFFF"
-                            clip-rule="evenodd"
+                            clipRule="evenodd"
                             d={dValue}
                         />
                     </g>
@@ -207,7 +207,7 @@ export const tumblr = () => {
                     width="100%"
                     height="100%"
                     viewBox="10.529 5.402 11.471 19.957"
-                    enable-background="new 10.529 5.402 11.471 19.957"
+                    enableBackground="new 10.529 5.402 11.471 19.957"
                     xmlSpace="preserve"
                 >
                     <path
