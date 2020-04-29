@@ -117,6 +117,7 @@ class ForgotPassword extends Component {
         }
     }
     pageLoadMetrics() {
+
         if (document.readyState === 'complete') {
             window.fireTag("70.1",
                 { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password" }
@@ -126,9 +127,11 @@ class ForgotPassword extends Component {
             console.log("pageView|ForgotPassword|Waiting for initialization");
             setTimeout(() => { this.pageLoadMetrics(); }, 1000);
         }
+
     }
+
     componentDidMount() {
-        // this.pageLoadMetrics();
+        this.pageLoadMetrics();
     }
 
     render() {
