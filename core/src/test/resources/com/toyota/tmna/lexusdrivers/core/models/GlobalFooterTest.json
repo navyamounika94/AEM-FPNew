@@ -1,0 +1,189 @@
+{
+    "messagecheckbox": "true",
+    "headlinePath": "https://privacy.toyota.com/",
+    "headline": "DO NOT SELL MY PERSONAL INFORMATION",
+    "copyopennewwindow": "true",
+    "headPathOpennewwindow":"true",
+    "copyRightDesc": "<p>© 2006-2019 Lexus, a Division of Toyota Motor Sales, U.S.A., Inc. All information contained herein applies to U.S. vehicles only.</p>",
+    "copyRightLink": "http://www.toyota.com/recall",
+    "copyRightText": "Safety Recalls & Service Campaigns",
+    "sling:resourceType": "lexusdrivers/components/content/globalfooter",
+    "textIsRich": "true",
+    "footercolumns": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "footerColumnHeadline": "ABOUT LEXUS",
+        "footerlinks": {
+          "jcr:primaryType": "nt:unstructured",
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "About",
+            "linktargeturl": "http://www.lexus.com/about",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "contact us",
+            "linktargeturl": "http://www.lexus.com/contact",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item2": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "lexus.com",
+            "linktargeturl": "http://www.lexus.com/",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item3": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Your Lexus Dealer",
+            "linktargeturl": "http://www.lexus.com/offers",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item4": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "privacy",
+            "linktargeturl": "http://www.lexus.com/privacy",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item5": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "legal",
+            "linktargeturl": "http://www.lexus.com/privacy/legal-terms",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          }
+        }
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "footerColumnHeadline": "Finance &amp; Leasing",
+        "footerlinks": {
+          "jcr:primaryType": "nt:unstructured",
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "End of Lease Options",
+            "linktargeturl": "https://www.lexusfinancial.com",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Lexus Financial Services",
+            "linktargeturl": "https://www.lexusfinancial.com",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item2": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Pay My Bill",
+            "linktargeturl": "https://www.lexusfinancial.com/us/en/planning_tools/ways_to_pay.html",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          }
+        }
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "footerColumnHeadline": "Brand &amp; Lifestyle",
+        "footerlinks": {
+          "jcr:primaryType": "nt:unstructured",
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "See Lexus",
+            "linktargeturl": "https://see.lexus.com",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Lexus Merchandise",
+            "linktargeturl": "http://www.thelexuscollection.com",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item2": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "L/Certified",
+            "linktargeturl": "http://www.lexus.com/lcertified",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item3": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Lexus International",
+            "linktargeturl": "http://www.lexus-int.com/",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item4": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Lexus Plus",
+            "linktargeturl": "http://www.lexus.com/lexusplus",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          }
+        }
+      },
+      "item3": {
+        "jcr:primaryType": "nt:unstructured",
+        "footerColumnHeadline": "Service",
+        "footerlinks": {
+          "jcr:primaryType": "nt:unstructured",
+          "item0": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Service By Lexus",
+            "linktargeturl": "http://www.lexus.com/service",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          },
+          "item1": {
+            "jcr:primaryType": "nt:unstructured",
+            "linktitle": "Lexus Tire Center",
+            "linktargeturl": "http://www.lexustirecenter.com/?utm_source",
+            "thirdpartyicon": "no",
+            "openinnew": "yes"
+          }
+        }
+      }
+    },
+    "footercolumnsTwo": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "linksUrl": "http://lexus2.custhelp.com/",
+        "openinnew": "yes",
+        "linkstitle": "FAQ"
+      },
+      "item1": {
+        "jcr:primaryType": "nt:unstructured",
+        "linksUrl": "/lexusdrivers/service/dealers",
+        "openinnew": "yes",
+        "linkstitle": "FIND A LEXUS DEALER"
+      },
+      "item2": {
+        "jcr:primaryType": "nt:unstructured",
+        "linksUrl": "http://www.lexus.com/contact",
+        "openinnew": "yes",
+        "linkstitle": "CONTACT US"
+      },
+      "item3": {
+        "jcr:primaryType": "nt:unstructured",
+        "linksUrl": "http://www.lexus.com/accessibility",
+        "openinnew": "yes",
+        "linkstitle": "ACCESSIBILITY"
+      },
+      "item4": {
+        "jcr:primaryType": "nt:unstructured",
+        "linksUrl": "https://www.lexus.com/privacy/online-statement#california-privacy",
+        "openinnew": "yes",
+        "linkstitle": "California Privacy"
+      }
+    }
+
+}
