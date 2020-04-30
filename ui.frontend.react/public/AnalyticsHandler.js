@@ -9,10 +9,12 @@ digitalData = {
         '<section>': "",
         '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
         '<app>': "LD-AEM",
-        '<device_type>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
+        '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
         '<login_status>': "Logged Out",
-        '<break_point>': window.innerWidth + "x" + window.innerHeight,
-        '<tag_id>': ""
+        '<tag_id>': "",
+        '<zip_code>': "",
+        "<registration_type>": "",
+        "<role>": ""
     }
 
 }
@@ -21,7 +23,7 @@ var tagCall = function (tagKey, tagContentTemplate) {
     fireTag(tagKey, tagContentTemplate);
 }
 var fireTagCall = function (tagKey, errorMsg) {
-    var tagContentTemplate = jQuery.extend(true, {}, fireTagJson[tagKey]);
+    var tagContentTemplate = jQuery.extend(true, {}, '');
     if (fireTagParam.length != 0) {
         $.extend(true, tagContentTemplate, fireTagParam);
         $.extend(true, tagContentTemplate, digitalData.page);
@@ -57,25 +59,25 @@ $(document).on("click", "[data-firetag]", function () {
 })
 
 /*TODO : Need to move to seperate JSON*/
-var fireTagJson = {
-    "72.3": {
-        "<tag_id>": "",
-        "<container>": "", "<content_model>": getContentModel(), "<model_name>": getModelName(),
-        "<model_year>": getModelYear(), "<zip_code>": getZipCode()
-    },
-    "70.1": {
-        "<tag_id>": "",
-        "<login_status>": getLoginStatus(),
-        "<model_name>": getModelName(),
-        "<model_year>": getModelYear(),
-        "<owner_model_name>": getOwnerModelName(),
-        "<owner_model_year>": getOwnerModelYear(),
-        "<page>": getPage(),
-        "<section>": getSection(),
-        "<subsection>": getSubSection()
-    },
+// var fireTagJson = {
+//     "72.3": {
+//         "<tag_id>": "",
+//         "<container>": "", "<content_model>": getContentModel(), "<model_name>": getModelName(),
+//         "<model_year>": getModelYear(), "<zip_code>": getZipCode()
+//     },
+//     "70.1": {
+//         "<tag_id>": "",
+//         "<login_status>": getLoginStatus(),
+//         "<model_name>": getModelName(),
+//         "<model_year>": getModelYear(),
+//         "<owner_model_name>": getOwnerModelName(),
+//         "<owner_model_year>": getOwnerModelYear(),
+//         "<page>": getPage(),
+//         "<section>": getSection(),
+//         "<subsection>": getSubSection()
+//     },
 
-};
+// };
 
 function getSubSection() {
     return "";

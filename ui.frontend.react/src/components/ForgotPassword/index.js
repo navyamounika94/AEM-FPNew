@@ -114,8 +114,14 @@ class ForgotPassword extends Component {
         try {
             if (document.readyState === 'complete') {
                 window.fireTag("70.1",
-                    { "<app>": "LD-AEM", "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password" }
+                    {
+                        "<section>": "Home", "<subsection>": "Forgot Password", "<tag_id>": "70.1", "<page>": "Forgot Password",
+                        "<break_point>": window.digitalData.page["<break_point>"], "<app>": window.digitalData.page["<app>"],
+                        "<orientation>": window.digitalData.page["<orientation>"], "<login_status>": window.digitalData.page["<login_status>"], "<zip_code>": "",
+                        "<registration_type>": "", "<role>": ""
+                    }
                 );
+
             }
             else {
                 console.log("pageView|ForgotPassword|Waiting for initialization");
@@ -209,7 +215,7 @@ class ForgotPassword extends Component {
                                                             type="submit"
                                                             className="btn btn-black "
                                                             data-firetag={this.state.isValidEmail ? '73.6' : '80.4'}
-                                                            data-firetag-param={`{"<app>":"LD-AEM","<subsection>": "Home","<tag_id>":"${this.state.isValidEmail ? '73.6' : '80.4'}","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
+                                                            data-firetag-param={`{"<subsection>": "Home","<tag_id>":"${this.state.isValidEmail ? '73.6' : '80.4'}","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                                             "<error_message>":"${!this.state.isValidEmail ? this.state.formErrMsg : ''}",
                                                             "<action>": "${this.props.sendEmailLabel}","<break_point>":"${getViewport()}"}`}
                                                         >
@@ -225,7 +231,7 @@ class ForgotPassword extends Component {
                                         <div className="col-12 col-md-3 need-help-div">
                                             <span
                                                 data-firetag="73.6"
-                                                data-firetag-param={`{"<app>":"LD-AEM","<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
+                                                data-firetag-param={`{"<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                             "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
                                             >
                                                 <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" target="_blank" href="https://www.lexus.com/contact">Contact Us</a></h3>

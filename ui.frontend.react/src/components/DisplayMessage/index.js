@@ -50,7 +50,12 @@ class DisplayMessage extends Component {
     componentDidMount() {
         try {
             window.fireTag("70.1",
-                { "<app>": "ld", "<section>": "Home", "<subsection>": "Forgot Password Success", "page": "Forgot Password Success", "<tag_id>": "70.1" }
+                {
+                    "<section>": "Home", "<subsection>": "Forgot Password Success", "page": "Forgot Password Success", "<tag_id>": "70.1",
+                    "<break_point>": window.digitalData.page["<break_point>"], "<app>": window.digitalData.page["<app>"],
+                    "<orientation>": window.digitalData.page["<orientation>"], "<login_status>": window.digitalData.page["<login_status>"], "<zip_code>": "", "<registration_type>": "", "<role>": ""
+
+                }
             );
         }
         catch (err) {
@@ -78,7 +83,7 @@ class DisplayMessage extends Component {
                                 <CardText tag="h5">
                                     <a href={this.props.displayprimaryButtonLink} className="btn-black  btn btn-secondary" target=""
                                         data-firetag="73.6"
-                                        data-firetag-param={`{"<app>":"ld","<subsection>": "Home","<tag_id>":"73.6","<page>": "Forgot Password Success", "<module>": "Forgot Password Success",
+                                        data-firetag-param={`{"<subsection>": "Home","<tag_id>":"73.6","<page>": "Forgot Password Success", "<module>": "Forgot Password Success",
                                 "<action>": "${this.props.displayprimaryButtonText}","<break_point>":"${getViewport()}"}`}>{this.props.displayprimaryButtonText}</a>
                                 </CardText>
                             }
