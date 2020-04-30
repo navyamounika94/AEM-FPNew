@@ -101,6 +101,13 @@ export const richTextValueFormat = (value) => {
         "value": value
     }
 }
+export const imageJSSFormat = (value) => {
+    return {
+        "value":{
+            "src" : value
+        } 
+    }
+}
 export const imageSliderFormat = (props) => {
     return [{
         "linkoutUrl": props.carousellinkoutUrl,
