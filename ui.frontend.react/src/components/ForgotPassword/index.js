@@ -52,44 +52,36 @@ class ForgotPassword extends Component {
         target.setCustomValidity('');
         if (e.target.value == "")
             this.state.isValidEmail = false;
-        this.ValidateEmailData(e.target.value);
-        this.classToggle();
+        let isemailValid = this.validateEmail(e.target.value);
     }
 
-    classToggle = () => {
-        if (this.state.isValidEmail) {
+    validateEmail(email) {
+        const re = /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
+        let msg = '';
+        let isValid = re.test(email);
+        if (!isValid) {
+            msg = "Please enter valid email address";
+        }
+        this.setState({
+            userEmail: email,
+            isValidEmail: isValid,
+            formErrMsg: msg
+        });
+        if (isValid) {
             document.getElementById('userEmail').classList.remove('is-invalid');
-            document.getElementById('userEmail').classList.add('is-valid');
+            document.getElementById('userEmail').classList.toggle('is-valid');
         }
         else {
             document.getElementById('userEmail').classList.remove('is-valid');
             document.getElementById('userEmail').classList.add('is-invalid');
         }
-    }
-
-    ValidateEmailData(val) {
-        const isValid = this.validateEmail(val);
-        let msg = '';
-        if (!isValid) {
-            msg = "Please enter valid email address";
-        }
-        this.setState({
-            userEmail: val,
-            isValidEmail: isValid,
-            formErrMsg: msg
-        });
-    }
-    validateEmail(email) {
-        const re = /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
-        return re.test(email)
+        return isValid;
     }
     handleSubmit = async (e) => {
         e.preventDefault();
 
         await this.form.validateForm();
-        this.ValidateEmailData(this.state.userEmail);
         let _isValidEmail = this.validateEmail(this.state.userEmail);
-        this.classToggle();
         if (this.form.isValid() && _isValidEmail) {
             var myHeaders = new Headers();
             myHeaders.append("Access-Control-Request-Method", "POST");
@@ -198,7 +190,6 @@ class ForgotPassword extends Component {
                                                             id="userEmail"
                                                             name="userEmail"
                                                             autoComplete="false"
-                                                            type="email"
                                                             value={this.state.userEmail}
                                                             onChange={this.handleChange}
                                                             onBlur={this.handleChange}
