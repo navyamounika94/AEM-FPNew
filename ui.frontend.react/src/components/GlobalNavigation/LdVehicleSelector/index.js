@@ -1,12 +1,10 @@
 import { Text } from '@sitecore-jss/sitecore-jss-react';
 import classnames from 'classnames';
-import get from 'lodash.get';
 import isEmpty from 'lodash.isempty';
 import sortBy from 'lodash.sortby';
 import toPairs from 'lodash.topairs';
 import React, {Component} from 'react';
 import { Dropdown, DropdownMenu, DropdownToggle, Form, FormGroup, Input, ListGroup, ListGroupItem } from 'reactstrap';
-import selectedVehicleJson from '../json/SelectedVehicle.json'; 
 import ModelYearJson from '../json/ModelYearJson.json'; 
 import Image from '../components/image';
 import { modelFormat, modelStrip } from '../components/models';
@@ -17,7 +15,7 @@ import RouterLink from '../components/routerLink';
 import { Viewport } from '../components/Viewport';
 import ImageSlider from '../ImageSlider';
 import Garage from './Garage';
-import { routerLinkFormat, routerLabelFormat, richTextValueFormat, imageSliderFormat } from '../components/models';
+import { routerLinkFormat, richTextValueFormat, imageSliderFormat } from '../components/models';
 const defaultVehicleLabel = 'Select a Vehicle';
 const defaultModelLabel = 'SELECT A VEHICLE';
 const defaultYearLabel = 'SELECT A YEAR';
@@ -361,11 +359,6 @@ class LdVehicleSelector extends Component {
         const modelYearData = this.getModelYearData();
 
         const navigationDatasource = this.props.SelectVehicle;
-
-        const benefitsDescription = this.props.SelectVehicle;
-        const carModelSelector = this.props.SelectVehicle;
-        const carousel = this.props.SelectVehicle;
-        const quickLinks = this.props.SelectVehicle;
 
         let GarageContent;
         GarageContent = (

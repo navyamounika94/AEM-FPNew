@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import HeaderLogo from './components/headerLogo';
 import { Viewport } from './components/Viewport';
-import globalNavJson from './json/GlobalNav.json'; 
 import LdNavCenter from './LdNavCenter';
 import LdNavProfile from './LdNavProfile';
 import LdNavSearch from './LdNavSearch';

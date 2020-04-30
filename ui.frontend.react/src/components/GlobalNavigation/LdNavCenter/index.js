@@ -5,9 +5,8 @@ import { Card, CardBody, CardImg, CardSubtitle, Dropdown, DropdownMenu, Dropdown
 import Image from '../components/image';
 import RouterLink from '../components/routerLink';
 import { Viewport } from '../components/Viewport';
-import ImageSlider from '../ImageSlider';
 import selectedVehicleJson from '../json/SelectedVehicle.json';
-import { routerLinkFormat, routerLabelFormat } from '../components/models';
+import { routerLinkFormat, routerLabelFormat, imageJSSFormat } from '../components/models';
 
 class LdNavCenter extends Component {
     constructor(props) {
@@ -202,7 +201,7 @@ class LdNavCenter extends Component {
                                                                                             <Image
                                                                                                 className="navlink-icon"
                                                                                                 lazyLoad={false}
-                                                                                                field={subMenuChildren[k].navIcon}
+                                                                                                field={imageJSSFormat(subMenuChildren[k].navIcon)}
                                                                                             />
                                                                                             }
                                                                                         </RouterLink>
