@@ -281,7 +281,7 @@ class LdVehicleSelector extends Component {
             <div className={`col-12 col-sm-6 col-md-4 col-panel defaultView`}>
                 <h4> <Text field={richTextValueFormat(props.title)} /></h4>
                 <div className="d-flex flex-row flex-wrap">
-                    <RichText field={richTextValueFormat(props.body)} />
+                    <RichText field={richTextValueFormat(props.body)} sitecoreContext='normal'/>
                 </div>
             </div>
         );
@@ -492,12 +492,12 @@ class LdVehicleSelector extends Component {
                                                 <div
                                                     data-firetag="73.2"
                                                     data-firetag-param={`{"<container>": "Global Nav",,"<app>": "LD-AEM","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
-                                                    className="veh-caption"
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
                                                             className="veh-caption"
                                                             field={richTextValueFormat(this.props.SelectVehicle.bottomText)}
+                                                            sitecoreContext='normal'
                                                             data-metrics-event-name="73.2"
                                                         />
                                                     }
@@ -537,7 +537,7 @@ class LdVehicleSelector extends Component {
                                             <this.VehicleCopy
                                                 isModelSelected={this.state.isModelSelected}
                                                 title={this.props.SelectVehicle.titleaccoutnt}
-                                                body={replaceNewLine(this.props.SelectVehicle.body)}
+                                                body={this.props.SelectVehicle.body}
                                             />
                                         }
                                         <div className="col-12 col-md-4 col-panel un-authPanel">
