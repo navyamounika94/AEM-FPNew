@@ -4,6 +4,9 @@ digitalData = {
     page: {
         pageName: window.document.location.pathname,
         siteSection: "",
+        '<page>': "",
+        '<subsection>': "",
+        '<section>': "",
         '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
         '<app>': "LD-AEM",
         '<device_type>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
