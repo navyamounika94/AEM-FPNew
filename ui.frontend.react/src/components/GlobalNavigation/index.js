@@ -9,7 +9,7 @@ import LdNavProfile from './LdNavProfile';
 import LdNavSearch from './LdNavSearch';
 import LdVehicleSelector from './LdVehicleSelector';
 import { getViewport } from './components/Viewport/index';
-import {MapTo} from '@adobe/cq-react-editable-components';
+import { MapTo } from '@adobe/cq-react-editable-components';
 require('../Common/Main.css');
 
 
@@ -64,10 +64,10 @@ class GlobalNavigation extends Component {
             }
         }
 
-        this.graphQLResult = []; 
+        this.graphQLResult = [];
         this.currentView = 'DESKTOP';
         this.previousView = '';
-        this.lockItem = false; 
+        this.lockItem = false;
     }
 
     componentDidMount() {
@@ -319,7 +319,7 @@ class GlobalNavigation extends Component {
 
                     <LdVehicleSelector
                         {...this.graphQLResult}
-                        SelectVehicle = {this.props}
+                        SelectVehicle={this.props}
                         viewport={this.state.viewport}
 
                         isOpen={this.state.isOpen && this.state.openIndex === 0}
@@ -357,22 +357,22 @@ class GlobalNavigation extends Component {
 
                     <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                         <NavLink id="ld-navSearch">
-                            <i 
+                            <i
                                 data-firetag="72.3"
-                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
                             />
                         </NavLink>
                     </NavItem>
 
                     <Collapse className="search-bar" isOpen={this.state.isSearchOpen}>
                         <div>
-                        <LdNavSearch
-                            isDesktop={true}
-                            ref={this.searchElem}
-                            inputRef={this.searchInput}
-                            toggleNav={this.toggleNavbar}
-                            toggleSearchbar={this.toggleSearchbar}
-                        />
+                            <LdNavSearch
+                                isDesktop={true}
+                                ref={this.searchElem}
+                                inputRef={this.searchInput}
+                                toggleNav={this.toggleNavbar}
+                                toggleSearchbar={this.toggleSearchbar}
+                            />
                         </div>
                     </Collapse>
                 </div>
@@ -425,16 +425,16 @@ class GlobalNavigation extends Component {
                         topElement.scrollIntoView();
                     }
                 }}
-                // In mobile, we use 'onClick' instead of 'toggle' because toggle is called anytime the page is clicked outside the dropdown (unwanted behavior)
+            // In mobile, we use 'onClick' instead of 'toggle' because toggle is called anytime the page is clicked outside the dropdown (unwanted behavior)
             />
         );
 
         const headerLogo = this.state.headerLogo;
         const componentsOrder = (this.isLoggedIn) ?
-            [ ldNavProfile, ldNavCenter ]
+            [ldNavProfile, ldNavCenter]
             :
-            [ ldNavCenter, ldNavProfile ]
-        ;
+            [ldNavCenter, ldNavProfile]
+            ;
 
         return (
             <Navbar
@@ -457,7 +457,7 @@ class GlobalNavigation extends Component {
                         <NavItem className="ld-navright show-welExp ml-auto welexp">
                             <NavLink
                                 data-firetag="73.6"
-                                data-firetag-param={`{"<container>": "Global Footer","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
+                                data-firetag-param={`{"<container>": "Global Footer""<app>": "LD-AEM","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
                                 href=""
                                 className="text-hide show-welExp"
                                 onClick={(e) => {
@@ -482,7 +482,7 @@ class GlobalNavigation extends Component {
                     >
                         <LdVehicleSelector
                             {...this.graphQLResult}
-                            SelectVehicle = {this.props}
+                            SelectVehicle={this.props}
                             viewport={this.state.viewport}
                             isOpen={this.state.openIndex === 0}
                             toggle={() => {
@@ -509,14 +509,14 @@ class GlobalNavigation extends Component {
                                     'vehicle-panelShown': this.state.openIndex === 0
                                 })}
                             >
-                            {component}
+                                {component}
                             </div>)}
 
                         <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                             <NavLink id="ld-navSearch">
-                                <i 
+                                <i
                                     data-firetag="72.3"
-                                    data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
+                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
                                 />
                             </NavLink>
                         </NavItem>
@@ -566,7 +566,7 @@ class GlobalNavigation extends Component {
                     <Nav className="showView">
                         <LdVehicleSelector
                             {...this.graphQLResult}
-                            SelectVehicle = {this.props}
+                            SelectVehicle={this.props}
                             viewport={this.state.viewport}
                             onVehicleSelected={this.onVehicleSelected}
                             isOpen={isVehicleSelectorOpen}
@@ -602,7 +602,7 @@ class GlobalNavigation extends Component {
                         aria-label="Lexus Drivers"
                         onClick={this.toggleNavbar}
                         data-firetag="72.3"
-                        data-firetag-param={`{"<container>": "Global Footer","<action>":"Expand","<module>":"Hamburger Menu","<nav_category>":"Hamburger Menu","<nav_subcategory>":"Expand" }`}
+                        data-firetag-param={`{"<container>": "Global Footer","<app>": "LD-AEM","<action>":"Expand","<module>":"Hamburger Menu","<nav_category>":"Hamburger Menu","<nav_subcategory>":"Expand" }`}
                     />
 
                     <Collapse isOpen={isCollapseOpen} navbar={true} className="hideElemView" >
@@ -628,10 +628,10 @@ class GlobalNavigation extends Component {
                         />
                         <NavItem className="ld-navright" tag="div" onClick={this.toggleSearchbar}>
                             <NavLink id="ld-navSearch">
-                            <i 
-                                data-firetag="72.3"
-                                data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Search","<nav_subcategory>":"Search" }`} 
-                            />
+                                <i
+                                    data-firetag="72.3"
+                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
+                                />
                             </NavLink>
                         </NavItem>
                     </Collapse>
@@ -693,4 +693,4 @@ class GlobalNavigation extends Component {
 }
 
 
-export default MapTo('lexusdrivers/components/content/globalNav')(GlobalNavigation ,GlobalNavigationEditConfig);
+export default MapTo('lexusdrivers/components/content/globalNav')(GlobalNavigation, GlobalNavigationEditConfig);

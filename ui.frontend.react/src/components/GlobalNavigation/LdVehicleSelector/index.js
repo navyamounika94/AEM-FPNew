@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import isEmpty from 'lodash.isempty';
 import sortBy from 'lodash.sortby';
 import toPairs from 'lodash.topairs';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Dropdown, DropdownMenu, DropdownToggle, Form, FormGroup, Input, ListGroup, ListGroupItem } from 'reactstrap';
-import ModelYearJson from '../json/ModelYearJson.json'; 
+import ModelYearJson from '../json/ModelYearJson.json';
 import Image from '../components/image';
 import { modelFormat, modelStrip } from '../components/models';
 import { getVehicleFromCookiesLoggedout, setSelectedVehicle, replaceNewLine } from '../components/Viewport/index';
@@ -66,10 +66,10 @@ class LdVehicleSelector extends Component {
     getModelYearDataAPI = () => {
         var myHeaders = new Headers();
         myHeaders.append("Access-Control-Request-Method", "GET");
-        myHeaders.append("x-api-key","CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1");
-        myHeaders.append("X-BRAND","L");
-        myHeaders.append('Content-Type','application/json');
-        myHeaders.append('Accept','application/json');
+        myHeaders.append("x-api-key", "CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1");
+        myHeaders.append("X-BRAND", "L");
+        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append('Accept', 'application/json');
         fetch("https://region1.test.eos.toyota.com/v1/vehicle/model-year-list?format=model-year", {
             headers: myHeaders
         }).then((response) => {
@@ -83,9 +83,9 @@ class LdVehicleSelector extends Component {
     }
     getModelYearData = () => {
         const dataLoaded = (!isEmpty(this.state.modelYearDataAPI));
-        if(dataLoaded){
+        if (dataLoaded) {
             return this.state.modelYearDataAPI.data.vehicleModelYearList;
-        }else{ 
+        } else {
             return ModelYearJson.vehicleModelYearList;
         }
     }
@@ -107,9 +107,9 @@ class LdVehicleSelector extends Component {
         return formattedModelYearData[modelStrip(selectedModel)];
     }
 
-     /**
-      * Given a model, return true/false depends on whether model exists in data.
-      */
+    /**
+     * Given a model, return true/false depends on whether model exists in data.
+     */
     validateModelWithData = (selectedModel) => {
         const modelYearData = this.getModelYearData();
         const model = modelStrip(selectedModel).replace(/^([A-Z][A-Z])F/, '$1 F');
@@ -120,7 +120,7 @@ class LdVehicleSelector extends Component {
      * Reset component state based on the currently selected Vehicle
      */
     loadSelectedVehicle = () => {
-        if (!!this.selectedGarageVehicle  && this.validateModelWithData(this.selectedGarageVehicle.model)) {
+        if (!!this.selectedGarageVehicle && this.validateModelWithData(this.selectedGarageVehicle.model)) {
             const model = this.selectedGarageVehicle.model;
             const year = this.selectedGarageVehicle.year;
 
@@ -192,11 +192,11 @@ class LdVehicleSelector extends Component {
         if (this.state.selectedModel.toLowerCase() !== defaultModelLabel.toLowerCase() && this.state.selectedYear.toLowerCase() !== defaultYearLabel.toLowerCase()) {
             this.setState({
                 moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel,
-                isModelSelected : true
+                isModelSelected: true
             });
             this.selectedGarageVehicle = {
-                "model" : this.state.selectedModel,
-                "year" : this.state.selectedYear
+                "model": this.state.selectedModel,
+                "year": this.state.selectedYear
             }
             setSelectedVehicle(this.selectedGarageVehicle);
         }
@@ -236,7 +236,7 @@ class LdVehicleSelector extends Component {
 
     YearSelectionDropdown = (props) => {
         let yearList;
-        {props.yearList ? yearList = props.yearList : yearList = props.modelYearData[props.selectedModel] ; }
+        { props.yearList ? yearList = props.yearList : yearList = props.modelYearData[props.selectedModel]; }
         let yearOptions = [];
         if (yearList) {
             yearList.sort((a, b) => {
@@ -305,23 +305,23 @@ class LdVehicleSelector extends Component {
                         Object.values(props.QuickLinks.quicklinks).map((child, index) => {
                             return (
                                 <React.Fragment key={index}>
-                                {child.navLabel &&
-                                <ListGroupItem key={index}>
-                                    <div
-                                        data-firetag="72.3"
-                                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"Vehicle Module","<nav_subcategory>":"${child.name}" }`}
-                                    >
-                                        <RouterLink
-                                            field={routerLinkFormat(child)}
-                                        >
-                                            <Text field={richTextValueFormat(child.navLabel)} />
-                                            {child.navIcon &&
-                                            <Image className="navlink-icon" lazyLoad={false} field={child.navIcon} />
-                                            }
-                                        </RouterLink>
-                                    </div>
-                                </ListGroupItem>
-                                }
+                                    {child.navLabel &&
+                                        <ListGroupItem key={index}>
+                                            <div
+                                                data-firetag="72.3"
+                                                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Vehicle Module","<nav_subcategory>":"${child.name}" }`}
+                                            >
+                                                <RouterLink
+                                                    field={routerLinkFormat(child)}
+                                                >
+                                                    <Text field={richTextValueFormat(child.navLabel)} />
+                                                    {child.navIcon &&
+                                                        <Image className="navlink-icon" lazyLoad={false} field={child.navIcon} />
+                                                    }
+                                                </RouterLink>
+                                            </div>
+                                        </ListGroupItem>
+                                    }
                                 </React.Fragment>
                             );
                         })
@@ -369,7 +369,7 @@ class LdVehicleSelector extends Component {
 
         const { yearList, selectedYear, selectedModel, moduleLabel, isLoggedIn, isVehicleDetailsLoading, isModelSelected } = this.state;
         const vinLabel = this.props.SelectVehicle.vINLabel;
-        const vin = this.selectedGarageVehicle && this.selectedGarageVehicle.vin?this.selectedGarageVehicle.vin:'';
+        const vin = this.selectedGarageVehicle && this.selectedGarageVehicle.vin ? this.selectedGarageVehicle.vin : '';
         const showClearLink =
             (!this.isLoggedIn && this.selectedGarageVehicle !== null) ||
             (this.isLoggedIn && this.selectedGarageVehicle !== null);
@@ -403,7 +403,7 @@ class LdVehicleSelector extends Component {
                         })}
                         id="nav-bar-selectVehicle-tab"
                         data-firetag="72.3"
-                        data-firetag-param={`{"<container>": "Global Nav","<nav_category>":"My Vehicle","<nav_subcategory>":"My Vehicle" }`}
+                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"My Vehicle","<nav_subcategory>":"My Vehicle" }`}
                         onClick={(e) => { e.preventDefault(); }}
                     >
                         {this.props.viewport === Viewport.MOBILE ?
@@ -491,7 +491,7 @@ class LdVehicleSelector extends Component {
                                                 </FormGroup>
                                                 <div
                                                     data-firetag="73.2"
-                                                    data-firetag-param={`{"<container>": "Global Nav","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
+                                                    data-firetag-param={`{"<container>": "Global Nav",,"<app>": "LD-AEM","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
