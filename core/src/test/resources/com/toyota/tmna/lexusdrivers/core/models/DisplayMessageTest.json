@@ -1,0 +1,11 @@
+ {
+   "displaymessage": {
+     "title": "Display Title",
+     "description": "Display Description",
+     "primaryButtonText": "Find us",
+     "primaryButtonLink": "/content/lexusdrivers/us",
+     "supportContent": "Display Support Content",
+     "verticalCenterAlign": "true",
+     ":type": "lexusdrivers/components/content/displayMessage"
+   }
+}
