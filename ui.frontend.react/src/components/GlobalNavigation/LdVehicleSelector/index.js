@@ -492,6 +492,7 @@ class LdVehicleSelector extends Component {
                                                 <div
                                                     data-firetag="73.2"
                                                     data-firetag-param={`{"<container>": "Global Nav","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
+                                                    className="veh-caption"
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
