@@ -80,7 +80,7 @@ class ForgotPassword extends Component {
         });
     }
     validateEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const re = /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
         return re.test(email)
     }
     handleSubmit = async (e) => {
@@ -193,19 +193,26 @@ class ForgotPassword extends Component {
                                                     name="accIndvidualname"
                                                     className="accForm forgot-password-form"
                                                 >
-                                                    <input
-                                                        id="userEmail"
-                                                        name="userEmail"
-                                                        value={this.state.userEmail}
-                                                        placeholder={this.props.emailField}
-                                                        onChange={this.handleChange}
-                                                        onBlur={this.handleChange}
-                                                        ref={this.textRef}
-                                                        className="form-control icase-field"
+                                                    <div className="form-group">
+                                                        <input
+                                                            id="userEmail"
+                                                            name="userEmail"
+                                                            autoComplete="false"
+                                                            type="email"
+                                                            value={this.state.userEmail}
+                                                            onChange={this.handleChange}
+                                                            onBlur={this.handleChange}
+                                                            ref={this.textRef}
+                                                            className="form-control icase-field"
+                                                            required={true}
 
-                                                    />
+                                                        />
+                                                        <label className={`form-control-placeholder ${this.state.userEmail > 0 ? 'dirty' : 'pristine'}`} htmlFor="userEmail">
+                                                            {this.props.emailField}
+                                                        </label>
 
-                                                    <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
+                                                        <div className="text-center invalid-feedback">{this.state.formErrMsg}</div>
+                                                    </div>
                                                     <div className="text-center">
                                                         <button
                                                             type="submit"
@@ -230,7 +237,7 @@ class ForgotPassword extends Component {
                                                 data-firetag-param={`{"<app>":"ld","<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                             "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
                                             >
-                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" href="https://www.lexus.com/contact">Contact Us</a></h3>
+                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" target="_blank" href="https://www.lexus.com/contact">Contact Us</a></h3>
                                             </span>
                                         </div>
                                     </div>
