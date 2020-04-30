@@ -194,10 +194,19 @@ class LdVehicleSelector extends Component {
                 moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel,
                 isModelSelected: true
             });
-            this.selectedGarageVehicle = {
-                "model": this.state.selectedModel,
-                "year": this.state.selectedYear
-            }
+            this.selectedGarageVehicle  = {
+                description: '',
+                isSelected: true,
+                make: 'Lexus',
+                model: this.state.selectedModel,
+                modelCode: '9900',
+                nickname: '',
+                vehicleId: 0,
+                vehicleOfInterestId: 0,
+                vin: '',
+                year: this.state.selectedYear,
+                yearMakeModel: `${this.state.selectedYear}  ${this.state.selectedModel}`,
+            };
             setSelectedVehicle(this.selectedGarageVehicle);
         }
     }
@@ -487,6 +496,8 @@ class LdVehicleSelector extends Component {
                                                         className="btn-black btn-block veh-submit"
                                                         onClick={this.handleVehicleSelection}
                                                         value={this.props.SelectVehicle.buttonLabel}
+                                                        data-firetag="73.2"
+                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<action>":"submit","<module>":"Vehicle Module" }`}
                                                     />
                                                 </FormGroup>
                                                 <div

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import searchJson from '../json/LdNavSearch.json'; 
 import ArrowIcon from '../images/Icon-Arrow-Large.svg';
 import CloseIcon from '../images/icon-Close-60x60.png';
 
@@ -11,7 +10,6 @@ export class LdNavSearch extends Component {
 		this.state = {
             searchInput: ''
         };
-        this.contentQuery = searchJson;
 	}
 
     handleChange = (e) => {
@@ -47,15 +45,11 @@ export class LdNavSearch extends Component {
      * @return { placeholderText: string, searchUrlRelativePath: string} | null
      */
     getFields = () => {
-        if (this.contentQuery && this.contentQuery.status === 'SUCCESS') {
-            const content = this.contentQuery.response;
-
-            if (content.item) { // In case of query failure, content.item returns null
-                return {
-                    placeholderText: content.item.children[0].placeholderText.jss.value,
-                    searchUrlRelativePath: content.item.children[0].searchUrlRelativePath.jss.value
-                };
-            }
+        if (this.props.placeholdertext && this.props.searchUrlPath) { // In case of query failure, content.item returns null
+            return {
+                placeholderText: this.props.placeholdertext,
+                searchUrlRelativePath: this.props.searchUrlPath
+            };
         }
 
         return null;
