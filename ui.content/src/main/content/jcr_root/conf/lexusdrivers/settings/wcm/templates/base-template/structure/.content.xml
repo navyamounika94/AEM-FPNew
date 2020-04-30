@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[/etc/mobile/groups/responsive]"
-        cq:lastModified="{Date}2020-04-18T12:09:32.355+05:30"
+        cq:lastModified="{Date}2020-04-30T14:15:35.642+05:30"
         cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2020-04-15T14:05:42.057+05:30"
         cq:lastReplicatedBy="chenna"
@@ -32,10 +32,11 @@
             <globalfooter
                 jcr:created="{Date}2020-04-17T16:19:30.666+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2020-04-29T14:25:41.095+05:30"
+                jcr:lastModified="{Date}2020-04-30T14:15:35.576+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="lexusdrivers/components/content/globalfooter"
+                copyopennewwindow="true"
                 copyRightDesc="&lt;p>© 2006-2019 Lexus, a Division of Toyota Motor Sales, U.S.A., Inc. All information contained herein applies to U.S. vehicles only.&lt;/p>&#xd;&#xa;"
                 copyRightLink="http://www.toyota.com/recall"
                 copyRightText="Safety Recalls &amp; Service Campaigns"
@@ -196,11 +197,11 @@
             <globalnav
                 jcr:created="{Date}2020-04-24T10:51:30.140+05:30"
                 jcr:createdBy="admin"
-                jcr:lastModified="{Date}2020-04-29T14:35:05.791+05:30"
+                jcr:lastModified="{Date}2020-04-30T13:51:43.722+05:30"
                 jcr:lastModifiedBy="admin"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="lexusdrivers/components/content/globalNav"
-                body="&lt;ul>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/VehicleHealthReportLandingPage\\&quot; target=\\&quot;_self\\&quot;>Vehicle Health Reports&lt;/a>&lt;/li>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/history\\&quot; target=\\&quot;_self\\&quot;>Service History&lt;/a>&lt;/li>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/service/maintenance-schedules\\&quot; target=\\&quot;_self\\&quot;>Maintenance Schedule&lt;/a>&lt;/li>\\n    &lt;li>&lt;a href=\\&quot;/lexusdrivers/resources\\&quot; target=\\&quot;_self\\&quot;>Vehicle Specs, Maintenance and Warranty Information&lt;/a>&lt;/li>\\n&lt;/ul>\\n&lt;p>&amp;nbsp;&lt;/p>"
+                body="&lt;ul>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/VehicleHealthReportLandingPage&quot; target=&quot;_self&quot;>Vehicle Health Reports&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/history&quot; target=&quot;_self&quot;>Service History&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/service/maintenance-schedules&quot; target=&quot;_self&quot;>Maintenance Schedule&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/resources&quot; target=&quot;_self&quot;>Vehicle Specs, Maintenance and Warranty Information&lt;/a>&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;"
                 bottomText="Add this vehicle to your account by &lt;a href=\\&quot;/lexusdrivers/account/login\\&quot; target=\\&quot;_self\\&quot;>SIGNING IN&lt;/a> or &lt;a href=\\&quot;/lexusdrivers/account/register\\&quot;>CREATING AN ACCOUNT&lt;/a>."
                 buttonLabel="SUBMIT"
                 carousellinkoutUrl="/lexusdrivers/account/register"
@@ -217,13 +218,15 @@
                 manageValue="My Garage"
                 name="Select Vehicle"
                 navLabel="Select A Vehicle"
+                placeholdertext="SEARCH..."
                 quickLabel="View All Resouces"
                 quicklinkURL="/lexusdrivers/resources"
                 quicknavLabel="Quick Links"
                 quickvalue="&lt;link linktype=\\&quot;external\\&quot; url=\\&quot;/lexusdrivers/resources\\&quot; anchor=\\&quot;\\&quot; target=\\&quot;\\&quot; />"
+                searchUrlPath="/lexusdrivers/search?searchKey="
                 selectcarouselTitle="CREATE YOUR LEXUS DRIVERS ACCOUNT"
                 subTitle="clear"
-                textIsRich="[true]"
+                textIsRich="[true,true]"
                 titleaccoutnt="CREATE YOUR ACCOUNT TODAY FOR ACCESS TO THESE SERVICES AND MORE"
                 titleSelection="Make a selection for a more customized experience."
                 vehicleSelectorDefaultText="SELECT A MODEL"
@@ -406,19 +409,14 @@
                                     <item3
                                         jcr:primaryType="nt:unstructured"
                                         linktype="external"
-                                        navLabel="VEHICLE SPECIFICATIONS"
-                                        url="/lexusdrivers/resources/vehicle-specs"/>
-                                    <item4
-                                        jcr:primaryType="nt:unstructured"
-                                        linktype="external"
                                         navLabel="Warning Lights"
                                         url="/lexusdrivers/warning-lights"/>
-                                    <item5
+                                    <item4
                                         jcr:primaryType="nt:unstructured"
                                         linktype="external"
                                         navLabel="Personalized Settings"
                                         url="/lexusdrivers/resources/manuals-warranty#lexuspersonalizedsettings"/>
-                                    <item6
+                                    <item5
                                         jcr:primaryType="nt:unstructured"
                                         linktype="external"
                                         mediaid="EF9765BC-5510-45EC-AA9A-A795BB89F902"
@@ -431,7 +429,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 linkType="external"
                                 name="Videos"
-                                navlabel="VIEW ALL VIDEOS"
+                                navlabel="VIDEOS"
                                 url="/lexusdrivers/videos">
                                 <children jcr:primaryType="nt:unstructured">
                                     <item0
