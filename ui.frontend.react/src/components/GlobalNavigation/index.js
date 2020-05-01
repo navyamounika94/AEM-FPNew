@@ -367,6 +367,8 @@ class GlobalNavigation extends Component {
                     <Collapse className="search-bar" isOpen={this.state.isSearchOpen}>
                         <div>
                             <LdNavSearch
+                                placeholdertext={this.props.placeholdertext}
+                                searchUrlPath={this.props.searchUrlPath}
                                 isDesktop={true}
                                 ref={this.searchElem}
                                 inputRef={this.searchInput}
@@ -530,6 +532,8 @@ class GlobalNavigation extends Component {
                         isOpen={this.state.isOpen}
                     >
                         <LdNavSearch
+                            placeholdertext={this.props.placeholdertext}
+                            searchUrlPath={this.props.searchUrlPath}
                             isDesktop={false}
                             ref={this.searchElem}
                             inputRef={this.searchInput}
@@ -638,6 +642,8 @@ class GlobalNavigation extends Component {
 
                     <Collapse className="search-bar" isOpen={isCollapseOpen}>
                         <LdNavSearch
+                            placeholdertext={this.props.placeholdertext}
+                            searchUrlPath={this.props.searchUrlPath}
                             isDesktop={false}
                             ref={this.searchElem}
                             inputRef={this.searchInput}
