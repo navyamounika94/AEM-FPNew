@@ -29,6 +29,19 @@ public class ConstantsUtil {
 
     public static final String GNAV_MESSAGE_RESOURCE = "lexusdrivers/components/content/globalNav";
 
+    /* HeaderConfiguration */
+
+    public static final String URL_SERVICE_PID = "com.toyota.tmna.lexusdrivers.core.factory.HeaderFactoryEndPoints";
+    public static final String EOSPUBLIC = "eospublic";
+
+    public static final String X_EOS_API_KEY = "x-eos-api-key";
+
+    public static final String DCS3 = "dcs3";
+
+    public static final String X_DCS_API_KEY = "x-dcs-api-key";
+
+
+    public static final String CONFIG_PATH= "lexusdrivers/components/content/config";
 
     public static final String COMPO_PATH = "/jcr:content/root/responsivegrid";
 

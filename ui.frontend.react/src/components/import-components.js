@@ -19,3 +19,4 @@ import './DisplayMessage/index';
 import  './ForgotPassword/index';
 import './GlobalNavigation/index';
 import './GlobalFooter/GlobalFooter';
+import './Config/index';
