@@ -22,7 +22,6 @@ import { FormWithConstraints } from 'react-form-with-constraints-bootstrap4';
 import { MapTo } from '@adobe/cq-react-editable-components';
 import DisplayMessage from '../DisplayMessage';
 import { getViewport } from '../GlobalNavigation/components/Viewport/index';
-import { endPointConfig } from '../Config/index';
 require('./forgotPassword.css');
 
 const ForgotPasswordEditConfig = {
