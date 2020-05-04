@@ -3,5 +3,5 @@
     jcr:primaryType="sling:OsgiConfig"
     dcs3="https://api.siint.deops.toyota.com"
     eospublic="https://region1.test.eos.toyota.com"
-    x-dcs-api-key="kkveIpcTwE57HNHQl4oiBX2UcI7smBM7lQm1YtZd"
-    x-eos-api-key="CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1"/>
+    dcsApiKey="kkveIpcTwE57HNHQl4oiBX2UcI7smBM7lQm1YtZd"
+    eosApiKey="CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1"/>
