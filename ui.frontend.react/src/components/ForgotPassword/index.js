@@ -70,7 +70,7 @@ class ForgotPassword extends Component {
         });
         if (isValid) {
             document.getElementById('userEmail').classList.remove('is-invalid');
-            document.getElementById('userEmail').classList.toggle('is-valid');
+            document.getElementById('userEmail').classList.add('is-valid');
         }
         else {
             document.getElementById('userEmail').classList.remove('is-valid');
