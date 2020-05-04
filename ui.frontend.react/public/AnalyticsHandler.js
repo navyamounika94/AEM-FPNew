@@ -24,7 +24,7 @@ var tagCall = function (tagKey, tagContentTemplate) {
 }
 var fireTagCall = function (tagKey, errorMsg) {
     var tagContentTemplate = jQuery.extend(true, {}, '');
-    if (fireTagParam.length != 0) {
+    if (fireTagParam != null && fireTagParam.length != 0) {
         $.extend(true, tagContentTemplate, fireTagParam);
         $.extend(true, tagContentTemplate, digitalData.page);
     }
