@@ -64,13 +64,15 @@ class LdVehicleSelector extends Component {
         };
     }
     getModelYearDataAPI = () => {
+        let eosEndpoint = window.endPointsConfig.eosModelYearEndpoint + "/v1/vehicle/model-year-list?format=model-year";
+        let apiKey = window.endPointsConfig.eosApiKey;
         var myHeaders = new Headers();
         myHeaders.append("Access-Control-Request-Method", "GET");
-        myHeaders.append("x-api-key", "CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1");
+        myHeaders.append("x-api-key", apiKey);
         myHeaders.append("X-BRAND", "L");
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Accept', 'application/json');
-        fetch("https://region1.test.eos.toyota.com/v1/vehicle/model-year-list?format=model-year", {
+        fetch(eosEndpoint, {
             headers: myHeaders
         }).then((response) => {
             return response.json();
@@ -194,7 +196,7 @@ class LdVehicleSelector extends Component {
                 moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel,
                 isModelSelected: true
             });
-            this.selectedGarageVehicle  = {
+            this.selectedGarageVehicle = {
                 description: '',
                 isSelected: true,
                 make: 'Lexus',
@@ -290,7 +292,7 @@ class LdVehicleSelector extends Component {
             <div className={`col-12 col-sm-6 col-md-4 col-panel defaultView`}>
                 <h4> <Text field={richTextValueFormat(props.title)} /></h4>
                 <div className="d-flex flex-row flex-wrap">
-                    <RichText field={richTextValueFormat(props.body)} sitecoreContext='normal'/>
+                    <RichText field={richTextValueFormat(props.body)} sitecoreContext='normal' />
                 </div>
             </div>
         );

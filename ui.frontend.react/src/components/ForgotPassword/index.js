@@ -69,7 +69,7 @@ class ForgotPassword extends Component {
         });
         if (isValid) {
             document.getElementById('userEmail').classList.remove('is-invalid');
-            document.getElementById('userEmail').classList.toggle('is-valid');
+            document.getElementById('userEmail').classList.add('is-valid');
         }
         else {
             document.getElementById('userEmail').classList.remove('is-valid');
@@ -82,14 +82,16 @@ class ForgotPassword extends Component {
 
         await this.form.validateForm();
         let _isValidEmail = this.validateEmail(this.state.userEmail);
+        let endpoint = window.endPointsConfig.dcs3Endpoint + "/admin/customer/password/" + this.state.userEmail;
+        let apiKey = window.endPointsConfig.dcsApiKey;
         if (this.form.isValid() && _isValidEmail) {
             var myHeaders = new Headers();
             myHeaders.append("Access-Control-Request-Method", "POST");
-            myHeaders.append("x-api-key", "kkveIpcTwE57HNHQl4oiBX2UcI7smBM7lQm1YtZd");
+            myHeaders.append("x-api-key", apiKey);
             myHeaders.append("X-BRAND", "L");
             myHeaders.append("x-client", "LDNG");
             myHeaders.append("x-version", "1.0");
-            fetch("https://api.siint.deops.toyota.com/admin/customer/password/" + this.state.userEmail, {
+            fetch(endpoint, {
                 method: 'POST', headers: myHeaders
             }).then((response) => {
                 return response.json();
