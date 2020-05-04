@@ -19,6 +19,15 @@ digitalData = {
 
 }
 
+var endPointsConfig = endPointsConfig || {};
+endPointsConfig = {
+    eosModelYearEndpoint ="",
+    dcs3Endpoint="",
+    dcsApiKey ="",
+    eosApiKey =""
+
+};
+
 var tagCall = function (tagKey, tagContentTemplate) {
     fireTag(tagKey, tagContentTemplate);
 }
