@@ -174,12 +174,61 @@
                                 fieldLabel="SuccessPage    "
                                 name="./successPage"/>
                             <needMoreHelp
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="NeedMoreHelp   "
-                                name="./needMoreHelp"
-                                required="{Boolean}true"/>
-                            
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="NeedMoreHelp "
+                                                required="{Boolean}true"
+                                                fieldDescription ="content to show CONTACT link" 
+                                                name="./needMoreHelp"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                     <rtePlugins jcr:primaryType="nt:unstructured">
+                                                    <links jcr:primaryType="nt:unstructured">
+                                                        <linkDialogConfig
+                                                            jcr:primaryType="nt:unstructured"
+                                                            height="{Long}316">
+                                                            <linkAttributes jcr:primaryType="cq:WidgetCollection"/>
+                                                        </linkDialogConfig>
+                                                    </links>
+                                                   
+                                                    <subsuperscript
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <edit
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    
+                                                    <spellcheck
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <undo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <styles
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*">
+                                                        <styles jcr:primaryType="cq:WidgetCollection">
+                                                            <employee
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="employee"
+                                                                text="Employee Style"/>
+                                                            <partner
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="partner"
+                                                                text="Partner Style"/>
+                                                            <customer
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="customer"
+                                                                text="Customer Style"/>
+                                                        </styles>
+                                                    </styles>
+                                                    <color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <highlight-color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                            </rtePlugins>
+                                </needMoreHelp>
                             <emailValidations
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -198,7 +247,7 @@
                                 fieldDescription ="Error message to show invalid email" 
                                 value ="Please enter valid email address" />
                              
-                                <accountactivationError
+                            <accountactivationError
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                                 fieldLabel="AccountactivationError"
@@ -253,7 +302,7 @@
                                                         jcr:primaryType="nt:unstructured"
                                                         features="*"/>
                                                 </rtePlugins>
-                                            </accountactivationError>
+                                </accountactivationError>
                         </items>
                     </column>
                 </items>

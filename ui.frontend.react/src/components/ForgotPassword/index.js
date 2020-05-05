@@ -236,7 +236,9 @@ class ForgotPassword extends Component {
                                                 data-firetag-param={`{"<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                             "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
                                             >
-                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" target="_blank" href="https://www.lexus.com/contact">Contact Us</a></h3>
+                                                <h3 className="caption-link">
+                                                    <div className="need-help-richtext" dangerouslySetInnerHTML={{ __html: this.props.needMoreHelp }}></div>
+                                                </h3>
                                             </span>
                                         </div>
                                     </div>
