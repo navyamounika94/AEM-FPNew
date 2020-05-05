@@ -101,4 +101,4 @@ class DisplayMessage extends Component {
 
     }
 }
-export default MapTo('lexusdrivers/components/content/forgotPassword')(DisplayMessage, displayMessageEditConfig);
+export default MapTo('lexusdrivers/components/content/fp')(DisplayMessage, displayMessageEditConfig);

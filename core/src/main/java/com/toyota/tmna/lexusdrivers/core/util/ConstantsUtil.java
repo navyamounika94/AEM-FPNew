@@ -23,7 +23,7 @@ public class ConstantsUtil {
 
     /* Forgot Password Message*/
 
-    public static final String FORGOTPWD_RESOURCE_FOLDER = "lexusdrivers/components/content/"; //HF SA:03/05/2020 Security issue
+    public static final String FP_RESOURCE_FOLDER = "lexusdrivers/components/content/"; //HF SA:03/05/2020 Security issue
 
     /* Global Navigation Message*/
 
