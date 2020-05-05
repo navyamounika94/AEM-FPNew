@@ -157,7 +157,6 @@ class ForgotPassword extends Component {
                     this.state.loginStatus == true ? <DisplayMessage
                         diplaytitle={this.props.diplaytitle}
                         displaydescription={this.props.displaydescription}
-                        displaydescription2={this.props.displaydescription2}
                         displayprimaryButtonLink={this.props.displayprimaryButtonLink}
                         displayprimaryButtonText={this.props.displayprimaryButtonText}
                         displaysupportContent={this.props.displaysupportContent}

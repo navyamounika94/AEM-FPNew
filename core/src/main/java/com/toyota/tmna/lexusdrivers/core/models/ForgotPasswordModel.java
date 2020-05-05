@@ -54,9 +54,7 @@ public class ForgotPasswordModel implements ComponentExporter {
     @ValueMapValue(name = "displaydescription")
     private String displaydescription;
 
-    @ValueMapValue(name = "displaydescription2")
-    private String displaydescription2;
-
+    
     @ValueMapValue(name = "displayprimaryButtonLink")
     private String displayprimaryButtonLink;
 
@@ -74,10 +72,7 @@ public class ForgotPasswordModel implements ComponentExporter {
         return displaydescription;
     }
 
-    public String getDisplaydescription2() {
-        return displaydescription2;
-    }
-
+   
     public String getDisplayprimaryButtonLink() {
         return displayprimaryButtonLink;
     }

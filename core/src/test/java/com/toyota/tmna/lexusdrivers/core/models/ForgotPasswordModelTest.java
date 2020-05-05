@@ -38,13 +38,7 @@ class ForgotPasswordModelTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    void getDisplaydescription2() {
-         String expected = "If you didn't receive the email, please check your spam folder";
-        String actual = forgotPasswordModel.getDisplaydescription2();
-        assertEquals(expected, actual);
-    }
-
+    
     @Test
     void getDisplayprimaryButtonLink() {
          String expected = "/lexusdrivers/account/login";
