@@ -30,6 +30,12 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
+                        <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title              "
+                                fieldDescription ="Forgot password page title"
+                                name="./title"/>
                             <description
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
@@ -144,22 +150,24 @@
                                     </cui>
                                 </uiSettings>
                             </description>
+                               <sendEmailLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="SendEmailLabel "
+                                name="./sendEmailLabel"/>
+                                 <emailField
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="EmailField     "
+                                name="./emailField"/>
                             <emailRequiredMessage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldLabel="PrimaryButtonLink    "
                                 name="./emailRequiredMessage"
                                 required="{Boolean}true"/>
-                            <emailField
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="EmailField     "
-                                name="./emailField"/>
-                            <sendEmailLabel
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="SendEmailLabel "
-                                name="./sendEmailLabel"/>
+                           
+                         
                             <successPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -171,11 +179,7 @@
                                 fieldLabel="NeedMoreHelp   "
                                 name="./needMoreHelp"
                                 required="{Boolean}true"/>
-                            <title
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="Title              "
-                                name="./title"/>
+                            
                             <emailValidations
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -198,6 +202,11 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
+                        <displaytitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title              "
+                                name="./diplaytitle"/>
                             <description
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
@@ -210,33 +219,30 @@
                                 fieldLabel="Description"
                                 name="./displaydescription2"
                                 useFixedInlineToolbar="{Boolean}true"/>
+                            <primaryButtonText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="PrimaryButtonText   "
+                                name="./displayprimaryButtonText"/>
                             <primaryButtonLink
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldLabel="PrimaryButtonLink    "
                                 name="./displayprimaryButtonLink"
                                 required="{Boolean}true"/>
-                            <primaryButtonText
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="PrimaryButtonText   "
-                                name="./displayprimaryButtonText"/>
+                            
                             <supportContent
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="SupportContent "
                                 name="./displaysupportContent"/>
-                            <displaytitle
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="Title              "
-                                name="./diplaytitle"/>
+                            
                             <verticalCenterAlign
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                 checked="${not empty cqDesign.hideCurrent ? cqDesign.hideCurrent : false}"
                                 name="./displayverticalCenterAlign"
-                                text="verticalCenterAlign ?"
+                                text="VerticalCenterAlign ?"
                                 uncheckedValue="false"
                                 value="true"/>
                         </items>
