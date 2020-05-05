@@ -20,11 +20,13 @@ digitalData = {
 }
 
 var endPointsConfig = endPointsConfig || {};
+
 endPointsConfig = {
-    eosModelYearEndpoint ="",
-    dcs3Endpoint="",
-    dcsApiKey ="",
-    eosApiKey =""
+
+    eosModelYearEndpoint: "",
+    dcs3Endpoint: "",
+    dcsApiKey: "",
+    eosApiKey: ""
 
 };
 
