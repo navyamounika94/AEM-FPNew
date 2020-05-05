@@ -19,7 +19,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class ForgotPasswordModel implements ComponentExporter {
 
-    protected static final String RESOURCE_TYPE = ConstantsUtil.FORGOT_PASSWORD_RESOURCE;
+    protected static final String RESOURCE_TYPE = ConstantsUtil.FP_RESOURCE_FOLDER + "fp";
 
     @ValueMapValue(name = "emailValidations")
     private String emailValidations;
