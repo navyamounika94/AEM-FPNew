@@ -27,6 +27,9 @@ public class ForgotPasswordModel implements ComponentExporter {
     @ValueMapValue(name = "emailValidationError")
     private String emailValidationError;
 
+   @ValueMapValue(name = "accountactivationError")
+    private String accountactivationError;
+
     @ValueMapValue(name = "emailRequiredMessage")
     private String emailRequiredMessage;
 
@@ -93,6 +96,9 @@ public class ForgotPasswordModel implements ComponentExporter {
 
     public String getemailValidationError() {
         return emailValidationError;
+    }
+    public String getaccountactivationError() {
+        return accountactivationError;
     }
     public String getEmailValidations() {
         return emailValidations;

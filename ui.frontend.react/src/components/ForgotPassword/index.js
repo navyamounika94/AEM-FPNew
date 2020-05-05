@@ -56,13 +56,11 @@ class ForgotPassword extends Component {
     }
 
     validateEmail(email) {
-        //  console.log(this.props.emailValidations);
-        const emailRegex = this.props.emailValidations; // /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
+        const emailRegex = this.props.emailValidations;
         let msg = '';
-        //console.log(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test('arulgetsolute@gmail.com'))
-        let isValid = new RegExp(emailRegex, 'g').test(email) //emailRegex.test(email);
+        let isValid = new RegExp(emailRegex, 'g').test(email);
         if (!isValid) {
-            msg = this.props.emailValidationError;// "Please enter valid email address";
+            msg = this.props.emailValidationError;
         }
         this.setState({
             userEmail: email,
@@ -103,7 +101,7 @@ class ForgotPassword extends Component {
                     this.setState({ loginStatus: true });
                 }
                 else {
-                    this.setState({ errorDtl: `<div>Your account hasn't been activated yet, would you like us to&nbsp;<a class="rich-text-anchor" aria-label="&quot;/lexusdrivers/account/resend-activation-email&quot;" href="/lexusdrivers/account/resend-activation-email">resend your activation email</a>? Please note that activation emails may take several minutes to send.</div>` });
+                    this.setState({ errorDtl: this.props.accountactivationError });
                 }
                 console.log(json);
 
