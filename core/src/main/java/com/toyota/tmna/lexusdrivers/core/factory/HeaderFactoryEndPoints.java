@@ -39,6 +39,13 @@ public class HeaderFactoryEndPoints implements IFactory{
 	@Reference
 	ConfigurationAdmin configAdmin;
 
+	public ConfigurationAdmin getConfigAdmin() {
+		return configAdmin;
+	}
+
+	public void setConfigAdmin(ConfigurationAdmin configAdmin) {
+		this.configAdmin = configAdmin;
+	}
 
 	@Activate
 	public void activate(Map<String, Object> properties) {
@@ -49,6 +56,7 @@ public class HeaderFactoryEndPoints implements IFactory{
 	protected void readProperties(Map<String, Object> properties) {
 		endPointsMap = new HashMap<String, String>();
 		if (configAdmin == null) {
+			Class  c=this.getClass();
 			BundleContext btx = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 			ServiceReference<?> sf = btx.getServiceReference(ConfigurationAdmin.class.getName());
 			configAdmin = (ConfigurationAdmin) btx.getService(sf);
