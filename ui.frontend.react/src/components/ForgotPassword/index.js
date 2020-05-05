@@ -252,4 +252,4 @@ class ForgotPassword extends Component {
 }
 
 
-export default MapTo('lexusdrivers/components/content/forgotPassword')(ForgotPassword, ForgotPasswordEditConfig);
+export default MapTo('lexusdrivers/components/content/fp')(ForgotPassword, ForgotPasswordEditConfig);
