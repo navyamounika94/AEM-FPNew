@@ -56,11 +56,13 @@ class ForgotPassword extends Component {
     }
 
     validateEmail(email) {
-        const re = /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
+        //  console.log(this.props.emailValidations);
+        const emailRegex = this.props.emailValidations; // /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
         let msg = '';
-        let isValid = re.test(email);
+        //console.log(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test('arulgetsolute@gmail.com'))
+        let isValid = new RegExp(emailRegex, 'g').test(email) //emailRegex.test(email);
         if (!isValid) {
-            msg = "Please enter valid email address";
+            msg = this.props.emailValidationError;// "Please enter valid email address";
         }
         this.setState({
             userEmail: email,

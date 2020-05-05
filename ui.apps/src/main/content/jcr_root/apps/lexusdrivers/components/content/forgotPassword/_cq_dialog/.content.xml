@@ -184,7 +184,20 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="EmailValidations "
-                                name="./emailValidations"/>
+                                name="./emailValidations"
+                                required="{Boolean}true"
+                                fieldDescription ="Add Email regex rule to validate user email"
+                                value="^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$" />
+
+                            <emailValidationError 
+                               jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="EmailValidationError "
+                                name="./emailValidationError"
+                                required="{Boolean}true"
+                                fieldDescription ="Error message to show invalid email" 
+                                value ="Please enter valid email address" />
+                             
                         </items>
                     </column>
                 </items>

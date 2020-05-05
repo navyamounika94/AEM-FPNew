@@ -24,6 +24,9 @@ public class ForgotPasswordModel implements ComponentExporter {
     @ValueMapValue(name = "emailValidations")
     private String emailValidations;
 
+    @ValueMapValue(name = "emailValidationError")
+    private String emailValidationError;
+
     @ValueMapValue(name = "emailRequiredMessage")
     private String emailRequiredMessage;
 
@@ -63,7 +66,7 @@ public class ForgotPasswordModel implements ComponentExporter {
     @ValueMapValue(name = "displayverticalCenterAlign")
     private String displayverticalCenterAlign;
 
-
+    
     public String getDisplaydescription() {
         return displaydescription;
     }
@@ -88,10 +91,12 @@ public class ForgotPasswordModel implements ComponentExporter {
         return displayverticalCenterAlign;
     }
 
+    public String getemailValidationError() {
+        return emailValidationError;
+    }
     public String getEmailValidations() {
         return emailValidations;
     }
-
 
     public String getEmailRequiredMessage() {
         return emailRequiredMessage;
