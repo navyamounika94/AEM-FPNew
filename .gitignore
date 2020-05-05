@@ -84,3 +84,6 @@ node_modules/
 build/
 
 **/clientlibs/clientlib-react/**
+
+package-lock.json
+

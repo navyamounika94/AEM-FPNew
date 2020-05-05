@@ -24,7 +24,7 @@ class ConstantsUtilTest {
   assertNotNull(ConstantsUtil.GF_LINKS_URLS);
   assertNotNull(ConstantsUtil.GF_LINKS_TITLE);
   assertNotNull(ConstantsUtil.DISPLAY_MESSAGE_RESOURCE);
-  assertNotNull(ConstantsUtil.FORGOT_PASSWORD_RESOURCE);
+  assertNotNull(ConstantsUtil.FP_RESOURCE_FOLDER);
   assertNotNull(ConstantsUtil.GNAV_MESSAGE_RESOURCE);
   assertNotNull(ConstantsUtil.URL_SERVICE_PID);
   assertNotNull(ConstantsUtil.EOSPUBLIC);
