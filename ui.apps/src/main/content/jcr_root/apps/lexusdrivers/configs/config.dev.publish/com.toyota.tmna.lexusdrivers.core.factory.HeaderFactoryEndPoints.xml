@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    dcs3="https://api.siint.deops.toyota.com"
+    eospublic="https://region1.test.eos.toyota.com"
+    dcsApiKey="kkveIpcTwE57HNHQl4oiBX2UcI7smBM7lQm1YtZd"
+    eosApiKey="CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1"/>
