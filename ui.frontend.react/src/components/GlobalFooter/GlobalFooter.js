@@ -21,13 +21,24 @@ export default class GlobalFooter extends Component {
 		super(props)
 		this.state = {
 			condition: false,
+			indexClicked: -1
 		}
-		this.handleClick = this.handleClick.bind(this)
+		//this.handleClick = this.handleClick.bind(this)
 	}
-	handleClick() {
-		this.setState({
-			condition: !this.state.condition
-		})
+	handleClick(index) {
+		//	console.log("index is " + index);
+		if (!(this.state.condition && this.state.indexClicked === index)) {
+			this.setState({
+				condition: !this.state.condition,
+				indexClicked: index
+			})
+		}
+		else {
+			this.setState({
+				condition: !this.state.condition,
+				indexClicked: -1
+			})
+		}
 
 	}
 
@@ -101,8 +112,8 @@ export default class GlobalFooter extends Component {
 		const fcolobj1 = JSON.parse(this.props.footercolumnsOne)
 		const fcolobj2 = JSON.parse(this.props.footercolumnsSecond)
 
-		console.log(fcolobj1);
-		console.log(fcolobj2);
+		//console.log(fcolobj1);
+		//console.log(fcolobj2);
 
 		return (
 
@@ -124,14 +135,14 @@ export default class GlobalFooter extends Component {
 															{
 																key2.footerlinks.map((key3, k) => {
 																	return (
-																		<div className={this.state.condition ? "footer-link-wrapper footer-section-expanded" : "footer-link-wrapper"} key={key3}>
-																			<h4 onClick={this.handleClick}>
+																		<div className={this.state.indexClicked === j ? "footer-link-wrapper footer-section-expanded" : "footer-link-wrapper"} key={key3}>
+																			<h4 onClick={() => this.handleClick(j)}>
 																				<span dangerouslySetInnerHTML={{ __html: key3.footerColumnHeadline }} data-firetag="72.3"></span>
 																			</h4>																			{
 																				key3.linklist.map((key4, k) => {
 
 																					return (
-																						<ul className={this.state.condition ? "footer-accordion show" : "footer-accordion"} key={k} >
+																						<ul className={this.state.indexClicked === j ? "footer-accordion show" : "footer-accordion"} key={k} >
 																							<li>
 
 																								<a data-firetag="72.3" data-model={key4.linktitle} data-category={key3.footerColumnHeadline}
