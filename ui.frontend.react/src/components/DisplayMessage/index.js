@@ -62,12 +62,16 @@ class DisplayMessage extends Component {
             console.log(err, 'FireTag failed')
         }
     }
+
+
     render() {
+
         let boxClass = 'pg-box';
         if (this.props.displayverticalCenterAlign === false) {
             boxClass = '';
         }
         return (
+
             <div className={`row dispMsgWrapper ${boxClass}`} >
                 <div className="col">
                     <Card className="text-center">
@@ -77,7 +81,7 @@ class DisplayMessage extends Component {
                             </CardTitle>}
                             {this.props.displaydescription && <CardText className="col-8 m-auto" tag="div">
 
-                                {this.props.displaydescription.replace('{email}', this.props.email)}
+                                <div dangerouslySetInnerHTML={{ __html: this.props.displaydescription.replace('{email}', this.props.email) }}></div>
 
                             </CardText>}
                             {this.props.displayprimaryButtonLink && this.props.displayprimaryButtonText &&

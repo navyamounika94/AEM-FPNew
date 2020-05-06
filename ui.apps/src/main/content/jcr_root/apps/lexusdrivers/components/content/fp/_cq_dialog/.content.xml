@@ -333,13 +333,61 @@
                                 name="./diplaytitle"
                                 value="Success" />
                             <description
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                fieldLabel="Description"
-                                fieldDescription = "To add descripion for success page"
-                                name="./displaydescription"
-                                value ="We sent password reset instructions to {email}. If you didn't receive the email, please check your spam folder, try an alternate email address or contact us."
-                                useFixedInlineToolbar="{Boolean}true"/>
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Description"
+                                                required="{Boolean}true"
+                                                fieldDescription ="To add description for success page" 
+                                                name="./displaydescription"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                                    <links jcr:primaryType="nt:unstructured">
+                                                        <linkDialogConfig
+                                                            jcr:primaryType="nt:unstructured"
+                                                            height="{Long}316">
+                                                            <linkAttributes jcr:primaryType="cq:WidgetCollection"/>
+                                                        </linkDialogConfig>
+                                                    </links>
+                                                   
+                                                    <subsuperscript
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <edit
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    
+                                                    <spellcheck
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <undo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <styles
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*">
+                                                        <styles jcr:primaryType="cq:WidgetCollection">
+                                                            <employee
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="employee"
+                                                                text="Employee Style"/>
+                                                            <partner
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="partner"
+                                                                text="Partner Style"/>
+                                                            <customer
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="customer"
+                                                                text="Customer Style"/>
+                                                        </styles>
+                                                    </styles>
+                                                    <color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <highlight-color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                </rtePlugins>
+                                </description>
                             <primaryButtonText
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
