@@ -138,20 +138,24 @@ export default class GlobalFooter extends Component {
 																		<div className={this.state.indexClicked === j ? "footer-link-wrapper footer-section-expanded" : "footer-link-wrapper"} key={key3}>
 																			<h4 onClick={() => this.handleClick(j)}>
 																				<span dangerouslySetInnerHTML={{ __html: key3.footerColumnHeadline }} data-firetag="72.3"></span>
-																			</h4>																			{
-																				key3.linklist.map((key4, k) => {
+																			</h4>
+																			<ul className={this.state.indexClicked === j ? "footer-accordion show" : "footer-accordion"} key={k} >
+																				{
+																					key3.linklist.map((key4, k) => {
 
-																					return (
-																						<ul className={this.state.indexClicked === j ? "footer-accordion show" : "footer-accordion"} key={k} >
+																						return (
+
 																							<li>
 
 																								<a data-firetag="72.3" data-model={key4.linktitle} data-category={key3.footerColumnHeadline}
 																									data-firetag-param={`{"<container>": "Global Footer","<app>": "LD-AEM","<nav_category>":"${key3.footerColumnHeadline}","<nav_subcategory>":"${key4.linktitle}" }`}
 																									href={key4.linktargeturl} target={key4.openinnew == 'yes' ? "_blank" : "_self"}>{key4.linktitle}</a>
 																							</li>
-																						</ul>
-																					)
-																				})
+																						)
+																					})
+																				}
+																			</ul>																	{
+
 																			}
 																		</div>
 																	)
