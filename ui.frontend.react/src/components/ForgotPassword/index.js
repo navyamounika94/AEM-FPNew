@@ -56,11 +56,11 @@ class ForgotPassword extends Component {
     }
 
     validateEmail(email) {
-        const re = /^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/
+        const emailRegex = this.props.emailValidations;
         let msg = '';
-        let isValid = re.test(email);
+        let isValid = new RegExp(emailRegex, 'g').test(email);
         if (!isValid) {
-            msg = "Please enter valid email address";
+            msg = this.props.emailValidationError;
         }
         this.setState({
             userEmail: email,
@@ -101,7 +101,7 @@ class ForgotPassword extends Component {
                     this.setState({ loginStatus: true });
                 }
                 else {
-                    this.setState({ errorDtl: `<div>Your account hasn't been activated yet, would you like us to&nbsp;<a class="rich-text-anchor" aria-label="&quot;/lexusdrivers/account/resend-activation-email&quot;" href="/lexusdrivers/account/resend-activation-email">resend your activation email</a>? Please note that activation emails may take several minutes to send.</div>` });
+                    this.setState({ errorDtl: this.props.accountactivationError });
                 }
                 console.log(json);
 
@@ -157,7 +157,6 @@ class ForgotPassword extends Component {
                     this.state.loginStatus == true ? <DisplayMessage
                         diplaytitle={this.props.diplaytitle}
                         displaydescription={this.props.displaydescription}
-                        displaydescription2={this.props.displaydescription2}
                         displayprimaryButtonLink={this.props.displayprimaryButtonLink}
                         displayprimaryButtonText={this.props.displayprimaryButtonText}
                         displaysupportContent={this.props.displaysupportContent}
@@ -236,7 +235,9 @@ class ForgotPassword extends Component {
                                                 data-firetag-param={`{"<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
                                             "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
                                             >
-                                                <h3 className="caption-link"> {this.props.needMoreHelp} <a className="rich-text-anchor" target="_blank" href="https://www.lexus.com/contact">Contact Us</a></h3>
+                                                <h3 className="caption-link">
+                                                    <div className="need-help-richtext" dangerouslySetInnerHTML={{ __html: this.props.needMoreHelp }}></div>
+                                                </h3>
                                             </span>
                                         </div>
                                     </div>

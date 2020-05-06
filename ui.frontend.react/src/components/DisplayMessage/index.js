@@ -76,8 +76,9 @@ class DisplayMessage extends Component {
                                 {this.props.diplaytitle}
                             </CardTitle>}
                             {this.props.displaydescription && <CardText className="col-8 m-auto" tag="div">
-                                {/*this.props.description*/}
-                                {this.props.displaydescription} <strong>{this.props.email}</strong>. {this.props.displaydescription2}
+
+                                {this.props.displaydescription.replace('{email}', this.props.email)}
+
                             </CardText>}
                             {this.props.displayprimaryButtonLink && this.props.displayprimaryButtonText &&
                                 <CardText tag="h5">

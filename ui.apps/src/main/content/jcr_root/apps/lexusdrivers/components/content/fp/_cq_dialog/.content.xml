@@ -30,10 +30,18 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
+                        <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title              "
+                                fieldDescription ="Forgot password page title"
+                                value="Forgot Password ?"
+                                name="./title"/>
                             <description
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
                                 fieldLabel="Description"
+                                fieldDescription ="To add forgot password page description"
                                 name="./description"
                                 useFixedInlineToolbar="{Boolean}true">
                                 <rtePlugins jcr:primaryType="nt:unstructured">
@@ -144,43 +152,162 @@
                                     </cui>
                                 </uiSettings>
                             </description>
+                               <sendEmailLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="SendEmailLabel "
+                                value ="Send Email"
+                                name="./sendEmailLabel"/>
+                            <emailField
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="EmailField     "
+                                fieldDescription ="Placeholder value for email textbox"
+                                value ="Email"
+                                name="./emailField"/>
                             <emailRequiredMessage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldLabel="PrimaryButtonLink    "
                                 name="./emailRequiredMessage"
                                 required="{Boolean}true"/>
-                            <emailField
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="EmailField     "
-                                name="./emailField"/>
-                            <sendEmailLabel
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="SendEmailLabel "
-                                name="./sendEmailLabel"/>
+                                                   
                             <successPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="SuccessPage    "
+                                value="NA"
                                 name="./successPage"/>
                             <needMoreHelp
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="NeedMoreHelp   "
-                                name="./needMoreHelp"
-                                required="{Boolean}true"/>
-                            <title
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="Title              "
-                                name="./title"/>
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="NeedMoreHelp "
+                                                required="{Boolean}true"
+                                                fieldDescription ="Content to show 'ContactUs' link"
+                                                name="./needMoreHelp"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                     <rtePlugins jcr:primaryType="nt:unstructured">
+                                                    <links jcr:primaryType="nt:unstructured">
+                                                        <linkDialogConfig
+                                                            jcr:primaryType="nt:unstructured"
+                                                            height="{Long}316">
+                                                            <linkAttributes jcr:primaryType="cq:WidgetCollection"/>
+                                                        </linkDialogConfig>
+                                                    </links>
+                                                   
+                                                    <subsuperscript
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <edit
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    
+                                                    <spellcheck
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <undo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <styles
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*">
+                                                        <styles jcr:primaryType="cq:WidgetCollection">
+                                                            <employee
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="employee"
+                                                                text="Employee Style"/>
+                                                            <partner
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="partner"
+                                                                text="Partner Style"/>
+                                                            <customer
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="customer"
+                                                                text="Customer Style"/>
+                                                        </styles>
+                                                    </styles>
+                                                    <color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <highlight-color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                            </rtePlugins>
+                                </needMoreHelp>
                             <emailValidations
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="EmailValidations "
-                                name="./emailValidations"/>
+                                name="./emailValidations"
+                                required="{Boolean}true"
+                                fieldDescription ="Add email regex rule to validate user email"
+                                value="^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$" />
+
+                            <emailValidationError 
+                               jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="EmailValidationError "
+                                name="./emailValidationError"
+                                required="{Boolean}true"
+                                fieldDescription ="Error message to show invalid email" 
+                                value ="Please enter valid email address" />
+                             
+                            <accountactivationError
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="AccountactivationError"
+                                                required="{Boolean}true"
+                                                fieldDescription ="Error message to show when account inactive" 
+                                                name="./accountactivationError"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                                    <links jcr:primaryType="nt:unstructured">
+                                                        <linkDialogConfig
+                                                            jcr:primaryType="nt:unstructured"
+                                                            height="{Long}316">
+                                                            <linkAttributes jcr:primaryType="cq:WidgetCollection"/>
+                                                        </linkDialogConfig>
+                                                    </links>
+                                                   
+                                                    <subsuperscript
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <edit
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    
+                                                    <spellcheck
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <undo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <styles
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*">
+                                                        <styles jcr:primaryType="cq:WidgetCollection">
+                                                            <employee
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="employee"
+                                                                text="Employee Style"/>
+                                                            <partner
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="partner"
+                                                                text="Partner Style"/>
+                                                            <customer
+                                                                jcr:primaryType="nt:unstructured"
+                                                                cssName="customer"
+                                                                text="Customer Style"/>
+                                                        </styles>
+                                                    </styles>
+                                                    <color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                    <highlight-color-picker
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
+                                                </rtePlugins>
+                                </accountactivationError>
                         </items>
                     </column>
                 </items>
@@ -198,45 +325,49 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
+                        <displaytitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title              "
+                                fieldDescription = "To add title for success page"
+                                name="./diplaytitle"
+                                value="Success" />
                             <description
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
                                 fieldLabel="Description"
+                                fieldDescription = "To add descripion for success page"
                                 name="./displaydescription"
+                                value ="We sent password reset instructions to {email}. If you didn't receive the email, please check your spam folder, try an alternate email address or contact us."
                                 useFixedInlineToolbar="{Boolean}true"/>
-                            <displaydescription2
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                fieldLabel="Description"
-                                name="./displaydescription2"
-                                useFixedInlineToolbar="{Boolean}true"/>
-                            <primaryButtonLink
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldLabel="PrimaryButtonLink    "
-                                name="./displayprimaryButtonLink"
-                                required="{Boolean}true"/>
                             <primaryButtonText
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="PrimaryButtonText   "
+                                value="OK"
                                 name="./displayprimaryButtonText"/>
+                            <primaryButtonLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldLabel="PrimaryButtonLink    "
+                                fieldDescription ="To add page link"
+                                name="./displayprimaryButtonLink"
+                                value="/lexusdrivers/account/login"
+                                required="{Boolean}true"/>
+                            
                             <supportContent
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldLabel="SupportContent "
                                 name="./displaysupportContent"/>
-                            <displaytitle
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="Title              "
-                                name="./diplaytitle"/>
+                            
                             <verticalCenterAlign
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                 checked="${not empty cqDesign.hideCurrent ? cqDesign.hideCurrent : false}"
                                 name="./displayverticalCenterAlign"
-                                text="verticalCenterAlign ?"
+                                text="VerticalCenterAlign ?"
+                                fieldDescription ="Should content be vertically center aligned on UI?"
                                 uncheckedValue="false"
                                 value="true"/>
                         </items>
