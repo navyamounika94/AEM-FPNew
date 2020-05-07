@@ -82,8 +82,7 @@ buildNumber.properties
 node/
 node_modules/
 build/
-
-### **/clientlibs/clientlib-react/**
+**/clientlibs/clientlib-react/**
 
 package-lock.json
 
