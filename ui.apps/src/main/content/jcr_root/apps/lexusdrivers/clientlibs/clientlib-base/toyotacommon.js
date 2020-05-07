@@ -34,6 +34,64 @@ document.head.appendChild(imported3);
 var imported4 = document.createElement('script');
 imported4.src = 'https://nexus.toyota.com/toyotanational/drivers_prod/Bootstrap.js';
 document.head.appendChild(imported4);
+var digitalData = digitalData || {};
+digitalData = {
+    page: {
+        pageName: window.document.location.pathname,
+        siteSection: "",
+        '<page>': "",
+        '<subsection>': "",
+        '<section>': "",
+        '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
+        '<app>': "LD-AEM",
+        '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
+        '<login_status>': "Logged Out",
+        '<tag_id>': "",
+        '<zip_code>': "",
+        "<registration_type>": "",
+        "<role>": ""
+    }
 
+}
+
+var tagCall = function (tagKey, tagContentTemplate) {
+    window.fireTag(tagKey, tagContentTemplate);
+}
+var fireTagCall = function (tagKey, errorMsg) {
+    var tagContentTemplate = jQuery.extend(true, {}, '');
+    if (fireTagParam.length != 0) {
+        $.extend(true, tagContentTemplate, fireTagParam);
+        $.extend(true, tagContentTemplate, digitalData.page);
+    }
+    //console.log("||LD Analytics||" + tagKey + " TAG Content >> " + JSON.stringify(tagContentTemplate));
+    if (typeof tagContentTemplate == typeof undefined) {
+        console.log("||LD Analytics|| Unable to find tag entry " + tagKey);
+    } else {
+        //Generic elements
+        tagCall(tagKey, tagContentTemplate);
+        fireTagParam = {};
+    }
+
+};
+var TOAnalytics = (function () {
+    var module = {};
+    module.fire = function (tagKey, errorMsg) {
+        fireTagCall(tagKey, errorMsg);
+    };
+    return module;
+}());
+$(document).on("click", "[data-firetag]", function () {
+    if ("" != $(this).attr("data-firetag")) {
+        console.log('fp');
+        var tagId = "" + $(this).attr("data-firetag");
+        digitalData.page["<tag_id>"] = tagId;
+        void 0 !== $(this).attr("data-firetag-param") && (fireTagParam = jQuery.parseJSON($(this).attr("data-firetag-param")));
+        var multipleTagIdIndex = tagId.indexOf(",");
+        if (multipleTagIdIndex > -1) {
+            var firstTagId = tagId.substring(0, multipleTagIdIndex), secondTagId = tagId.substring(multipleTagIdIndex + 1);
+            TOAnalytics.fire(firstTagId), TOAnalytics.fire(secondTagId, "");
+        } else TOAnalytics.fire(tagId);
+    }
+})
 
 console.log('from clientlib');
