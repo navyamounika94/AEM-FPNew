@@ -18,6 +18,11 @@
 if (self !== top && "Granite" in window.parent) {
     window.parent.Granite.author.layerManager.activateLayer("Preview")
 }
+
+var imported0 = document.createElement('script');
+imported0.src = 'https://code.jquery.com/jquery-3.5.0.js';
+document.head.appendChild(imported0);
+
 var imported1 = document.createElement('script');
 imported1.src = 'https://drivers.lexus.com/lexus-share/js/tracking_omn/JSON/LDomni4.json';
 document.head.appendChild(imported1);
@@ -25,7 +30,6 @@ document.head.appendChild(imported1);
 var imported2 = document.createElement('script');
 imported2.src = 'https://drivers.lexus.com/lexus-share/js/tracking_omn/s_code_ld.js';
 document.head.appendChild(imported2);
-
 
 var imported3 = document.createElement('script');
 imported3.src = 'https://drivers.lexus.com/lexus-share/js/tracking_omn/LD_cod.js';
