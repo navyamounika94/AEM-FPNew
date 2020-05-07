@@ -19,9 +19,9 @@ if (self !== top && "Granite" in window.parent) {
     window.parent.Granite.author.layerManager.activateLayer("Preview")
 }
 
-var imported0 = document.createElement('script');
-imported0.src = 'https://code.jquery.com/jquery-3.5.0.js';
-document.head.appendChild(imported0);
+// var imported0 = document.createElement('script');
+// imported0.src = 'https://code.jquery.com/jquery-3.5.0.js';
+// document.head.appendChild(imported0);
 
 var imported1 = document.createElement('script');
 imported1.src = 'https://drivers.lexus.com/lexus-share/js/tracking_omn/JSON/LDomni4.json';
@@ -86,7 +86,7 @@ var TOAnalytics = (function () {
 }());
 $(document).on("click", "[data-firetag]", function () {
     if ("" != $(this).attr("data-firetag")) {
-        console.log('fp');
+        console.log('ld calling analytics onClick....');
         var tagId = "" + $(this).attr("data-firetag");
         digitalData.page["<tag_id>"] = tagId;
         void 0 !== $(this).attr("data-firetag-param") && (fireTagParam = jQuery.parseJSON($(this).attr("data-firetag-param")));
