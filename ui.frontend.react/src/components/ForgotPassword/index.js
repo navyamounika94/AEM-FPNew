@@ -85,20 +85,30 @@ class ForgotPassword extends Component {
         let endpoint = window.endPointsConfig.dcs3Endpoint + "/admin/customer/password/" + this.state.userEmail;
         let apiKey = window.endPointsConfig.dcsApiKey;
         if (this.form.isValid() && _isValidEmail) {
+
             var myHeaders = new Headers();
             myHeaders.append("Access-Control-Request-Method", "POST");
             myHeaders.append("x-api-key", apiKey);
             myHeaders.append("X-BRAND", "L");
             myHeaders.append("x-client", "LDNG");
             myHeaders.append("x-version", "1.0");
+            document.body.classList.add('loading-overlay-transparent')
+            this.setState({
+                isLoading: true
+            })
             fetch(endpoint, {
                 method: 'POST', headers: myHeaders
             }).then((response) => {
                 return response.json();
             }).then((json) => {
                 const success = (!!json && json.status.code === '200' && !!json.status.messages && json.status.messages[0].code === 'M00000');
+                this.setState({
+                    isLoading: false
+                })
+                document.body.classList.remove('loading-overlay-transparent')
                 if (success) {
                     this.setState({ loginStatus: true });
+
                 }
                 else {
                     this.setState({ errorDtl: this.props.accountactivationError });
