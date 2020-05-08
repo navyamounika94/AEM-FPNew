@@ -241,7 +241,7 @@
                                 name="./emailValidations"
                                 required="{Boolean}true"
                                 fieldDescription ="Add email regex rule to validate user email"
-                                value="^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$" />
+                                value="/^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_\-\.]*@[a-zA-Z0-9\-\.]+(\.[a-zA-Z]{2,4})+$/" />
 
                             <emailValidationError 
                                jcr:primaryType="nt:unstructured"

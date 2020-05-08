@@ -168,7 +168,7 @@ class LdNavProfile extends Component {
                                     <React.Fragment key={i}>
                                         {unauthProfile[i].navLabel &&
                                             <span
-                                                data-firetag="72.3"
+                                                data-firetag="73.2"
                                                 data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"Profile","<nav_subcategory>":"Profile","<module>":"Account Module","<action>":"${unauthProfile[i].navLabel}" }`}
                                             >
                                                 <RouterLink
