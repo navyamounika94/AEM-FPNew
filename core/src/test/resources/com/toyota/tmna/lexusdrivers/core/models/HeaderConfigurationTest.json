@@ -1,6 +1,6 @@
 {
-  "eospublic":"https://region1.test.eos.toyota.com",
-  "x-eos-api-key":"CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1",
+  "eospublic":"https://int.eos.toyota.com",
+  "x-eos-api-key":"IRV0K7zzBp4cfqC4I6cdX89k6QIAKzkG4gdZ5oMX",
   "dcs3":"https://api.siint.deops.toyota.com",
   "x-dcs-api-key":"kkveIpcTwE57HNHQl4oiBX2UcI7smBM7lQm1YtZd"
 }

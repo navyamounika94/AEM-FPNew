@@ -28,8 +28,8 @@ class HeaderFactoryEndPointsTest {
     @BeforeEach
     void setUp() {
          configAdmin = context.getService(ConfigurationAdmin.class);
-        endPointsMap.put("eospublic","https://region1.test.eos.toyota.com");
-        endPointsMap.put("x-eos-api-key","CIzm7ytLco5j7FINAtTGm1xAqDODwrVd8zHhtXZ1");
+        endPointsMap.put("eospublic","https://int.eos.toyota.com");
+        endPointsMap.put("x-eos-api-key","IRV0K7zzBp4cfqC4I6cdX89k6QIAKzkG4gdZ5oMX");
         endPointsMap.put("dcs3","https://api.siint.deops.toyota.com");
         endPointsMap.put("x-dcs-api-key","kkveIpcTwE57HNHQl4oiBX2UcI7smBM7lQm1YtZd");
 
@@ -39,7 +39,7 @@ class HeaderFactoryEndPointsTest {
 
     @Test
     void readProperties() {
-        assertEquals(endPointsMap.get("eospublic"),"https://region1.test.eos.toyota.com");
+        assertEquals(endPointsMap.get("eospublic"),"https://int.eos.toyota.com");
     }
 
     @Test
