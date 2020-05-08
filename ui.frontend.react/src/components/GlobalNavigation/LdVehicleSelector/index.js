@@ -320,7 +320,7 @@ class LdVehicleSelector extends Component {
                                         <ListGroupItem key={index}>
                                             <div
                                                 data-firetag="72.3"
-                                                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Vehicle Module","<nav_subcategory>":"${child.name}" }`}
+                                                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"Vehicle Module","<nav_subcategory>":"${child.name}" }`}
                                             >
                                                 <RouterLink
                                                     field={routerLinkFormat(child)}
@@ -414,7 +414,7 @@ class LdVehicleSelector extends Component {
                         })}
                         id="nav-bar-selectVehicle-tab"
                         data-firetag="72.3"
-                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"My Vehicle","<nav_subcategory>":"My Vehicle" }`}
+                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"My Vehicle","<nav_subcategory>":"My Vehicle" }`}
                         onClick={(e) => { e.preventDefault(); }}
                     >
                         {this.props.viewport === Viewport.MOBILE ?
@@ -499,12 +499,12 @@ class LdVehicleSelector extends Component {
                                                         onClick={this.handleVehicleSelection}
                                                         value={this.props.SelectVehicle.buttonLabel}
                                                         data-firetag="73.2"
-                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<action>":"submit","<module>":"Vehicle Module" }`}
+                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<action>":"submit","<module>":"Vehicle Module" }`}
                                                     />
                                                 </FormGroup>
                                                 <div
                                                     data-firetag="73.2"
-                                                    data-firetag-param={`{"<container>": "Global Nav",,"<app>": "LD-AEM","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
+                                                    data-firetag-param={`{"<container>": "Global Nav",,"<app>": "LD","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText

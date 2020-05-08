@@ -359,7 +359,7 @@ class GlobalNavigation extends Component {
                         <NavLink id="ld-navSearch">
                             <i
                                 data-firetag="72.3"
-                                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
+                                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
                             />
                         </NavLink>
                     </NavItem>
@@ -459,7 +459,7 @@ class GlobalNavigation extends Component {
                         <NavItem className="ld-navright show-welExp ml-auto welexp">
                             <NavLink
                                 data-firetag="73.6"
-                                data-firetag-param={`{"<container>": "Global Footer""<app>": "LD-AEM","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
+                                data-firetag-param={`{"<container>": "Global Footer""<app>": "LD","<nav_category>":"Home","<nav_subcategory>":"Welcome Tool Tip Steps" }`}
                                 href=""
                                 className="text-hide show-welExp"
                                 onClick={(e) => {
@@ -518,7 +518,7 @@ class GlobalNavigation extends Component {
                             <NavLink id="ld-navSearch">
                                 <i
                                     data-firetag="72.3"
-                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
+                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
                                 />
                             </NavLink>
                         </NavItem>
@@ -606,7 +606,7 @@ class GlobalNavigation extends Component {
                         aria-label="Lexus Drivers"
                         onClick={this.toggleNavbar}
                         data-firetag="72.3"
-                        data-firetag-param={`{"<container>": "Global Footer","<app>": "LD-AEM","<action>":"Expand","<module>":"Hamburger Menu","<nav_category>":"Hamburger Menu","<nav_subcategory>":"Expand" }`}
+                        data-firetag-param={`{"<container>": "Global Footer","<app>": "LD","<action>":"Expand","<module>":"Hamburger Menu","<nav_category>":"Hamburger Menu","<nav_subcategory>":"Expand" }`}
                     />
 
                     <Collapse isOpen={isCollapseOpen} navbar={true} className="hideElemView" >
@@ -634,7 +634,7 @@ class GlobalNavigation extends Component {
                             <NavLink id="ld-navSearch">
                                 <i
                                     data-firetag="72.3"
-                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
+                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"Search","<nav_subcategory>":"Search" }`}
                                 />
                             </NavLink>
                         </NavItem>

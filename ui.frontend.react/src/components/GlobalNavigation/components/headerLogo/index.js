@@ -9,7 +9,7 @@ class HeaderLogo extends Component {
         return (
             <div
                 data-firetag="72.3"
-                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"Lexus Drivers","<nav_subcategory>":"Lexus Drivers Logo", "<break_point>":"${getViewport()}" }`}
+                data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"Lexus Drivers","<nav_subcategory>":"Lexus Drivers Logo", "<break_point>":"${getViewport()}" }`}
             >
                 <RouterLink
                     className="navbar-brand"
