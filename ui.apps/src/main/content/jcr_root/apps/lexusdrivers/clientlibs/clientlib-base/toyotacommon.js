@@ -56,7 +56,8 @@ digitalData = {
         '<tag_id>': "",
         '<zip_code>': "",
         "<registration_type>": "",
-        "<role>": ""
+        "<role>": "",
+        "<owner_model_name>": getOwnerModelName()
     }
 
 }
@@ -102,5 +103,15 @@ $(document).on("click", "[data-firetag]", function () {
         } else TOAnalytics.fire(tagId);
     }
 })
+
+function getOwnerModelName() {
+    var fireTagOwnerModelName = "";
+    fireTagOwnerModelName = $('#nav-bar-selectVehicle-tab').text();
+    if (fireTagOwnerModelName === 'Select a Vehicle') {
+        fireTagOwnerModelName = "";
+    }
+    return fireTagOwnerModelName;
+
+}
 
 console.log('from clientlib');
