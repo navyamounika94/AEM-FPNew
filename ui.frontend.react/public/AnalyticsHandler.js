@@ -8,7 +8,7 @@ digitalData = {
         '<subsection>': "",
         '<section>': "",
         '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
-        '<app>': "LD-AEM",
+        '<app>': "LD",
         '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
         '<login_status>': "Logged Out",
         '<tag_id>': "",

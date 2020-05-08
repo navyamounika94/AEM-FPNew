@@ -85,20 +85,30 @@ class ForgotPassword extends Component {
         let endpoint = window.endPointsConfig.dcs3Endpoint + "/admin/customer/password/" + this.state.userEmail;
         let apiKey = window.endPointsConfig.dcsApiKey;
         if (this.form.isValid() && _isValidEmail) {
+
             var myHeaders = new Headers();
             myHeaders.append("Access-Control-Request-Method", "POST");
             myHeaders.append("x-api-key", apiKey);
             myHeaders.append("X-BRAND", "L");
             myHeaders.append("x-client", "LDNG");
             myHeaders.append("x-version", "1.0");
+            document.body.classList.add('loading-overlay-transparent')
+            this.setState({
+                isLoading: true
+            })
             fetch(endpoint, {
                 method: 'POST', headers: myHeaders
             }).then((response) => {
                 return response.json();
             }).then((json) => {
                 const success = (!!json && json.status.code === '200' && !!json.status.messages && json.status.messages[0].code === 'M00000');
+                this.setState({
+                    isLoading: false
+                })
+                document.body.classList.remove('loading-overlay-transparent')
                 if (success) {
                     this.setState({ loginStatus: true });
+
                 }
                 else {
                     this.setState({ errorDtl: this.props.accountactivationError });
@@ -233,7 +243,7 @@ class ForgotPassword extends Component {
                                             <span
                                                 data-firetag="73.6"
                                                 data-firetag-param={`{"<subsection>": "Home","<tag_id>":"73.6","<page>": "", "<module>": "${!this.state.isValidEmail ? "Forgot Password Error" : "Forgot Password"}",
-                                            "<action>": "${this.props.needMoreHelp}","<break_point>":"${getViewport()}"}`}
+                                            "<action>": "need more help? contact us","<destination_url>":"https://www.lexus.com/contact","<break_point>":"${getViewport()}"}`}
                                             >
                                                 <h3 className="caption-link">
                                                     <div className="need-help-richtext" dangerouslySetInnerHTML={{ __html: this.props.needMoreHelp }}></div>
