@@ -46,7 +46,6 @@ digitalData = {
     page: {
         pageName: window.document.location.pathname,
         siteSection: "",
-
         '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
         '<app>': "LD",
         '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
@@ -55,7 +54,7 @@ digitalData = {
         '<zip_code>': "",
         "<registration_type>": "",
         "<role>": "",
-        "<owner_model_name>": getOwnerModelName()
+        "<owner_model_name>": eval(getOwnerModelName())
     }
 
 }
@@ -65,6 +64,7 @@ var tagCall = function (tagKey, tagContentTemplate) {
 }
 var fireTagCall = function (tagKey, errorMsg) {
     var tagContentTemplate = jQuery.extend(true, {}, '');
+    digitalData.page["<owner_model_name>"] = getOwnerModelName();
     if (fireTagParam.length != 0) {
         $.extend(true, tagContentTemplate, fireTagParam);
         $.extend(true, tagContentTemplate, digitalData.page);
