@@ -54,7 +54,9 @@ digitalData = {
         '<zip_code>': "",
         "<registration_type>": "",
         "<role>": "",
-        '<owner_model_name>': ""
+        '<owner_model_name>': "",
+        '<model_name>': "",
+        '<model_year>': ""
     }
 
 }
@@ -65,6 +67,9 @@ var tagCall = function (tagKey, tagContentTemplate) {
 var fireTagCall = function (tagKey, errorMsg) {
     var tagContentTemplate = jQuery.extend(true, {}, '');
     digitalData.page['<owner_model_name>'] = getOwnerModelName();
+    digitalData.page['<model_name>'] = getModelName();
+    digitalData.page['<model_year>'] = getOwnerModelYear();
+
     if (fireTagParam.length != 0) {
         $.extend(true, tagContentTemplate, fireTagParam);
         $.extend(true, tagContentTemplate, digitalData.page);
@@ -112,4 +117,24 @@ function getOwnerModelName() {
 
 }
 
+function getOwnerModelYear() {
+    var modelYear = '';
+    var fireTagSelectedVehicle = $('#nav-bar-selectVehicle-tab').text();
+    if ($('#nav-bar-selectVehicle-tab').text() === "Select a Vehicle")
+        return modelYear;
+    if (fireTagSelectedVehicle.trim().length > 1) {
+        modelYear = fireTagSelectedVehicle.split(" ")[0];
+    }
+    return modelYear;
+}
+function getModelName() {
+    var modelName = '';
+    var fireTagSelectedVehicle = $('#nav-bar-selectVehicle-tab').text();
+    if ($('#nav-bar-selectVehicle-tab').text() === "Select a Vehicle")
+        return modelName;
+    if (fireTagSelectedVehicle.trim().length > 1) {
+        modelName = fireTagSelectedVehicle.split(" ")[1];
+    }
+    return modelName;
+}
 console.log('from clientlib');

@@ -169,7 +169,7 @@ class LdNavProfile extends Component {
                                         {unauthProfile[i].navLabel &&
                                             <span
                                                 data-firetag="73.2"
-                                                data-firetag-param={`{"<container>": "Global Nav","<subsection>": "Home","<app>": "LD","<nav_category>":"Profile","<nav_subcategory>":"Profile","<module>":"Account Module","<action>":"${unauthProfile[i].navLabel}" }`}
+                                                data-firetag-param={`{"<container>": "Global Nav","<subsection>": "Home","<app>": "LD","<nav_category>":"Profile","<nav_subcategory>":"Profile","<module>":"Account Module","<button_text>":"${unauthProfile[i].navLabel}","<action>":"${unauthProfile[i].navLabel}" }`}
                                             >
                                                 <RouterLink
                                                     // THESE NEED TO BE RECONFIGURED FOR MOBILE VS DESKTOP
