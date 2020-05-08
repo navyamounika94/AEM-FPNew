@@ -19,6 +19,7 @@ digitalData = {
 
 }
 
+
 var endPointsConfig = endPointsConfig || {};
 
 endPointsConfig = {
@@ -28,7 +29,7 @@ endPointsConfig = {
     dcsApiKey: "",
     eosApiKey: ""
 
-};
+}
 
 var tagCall = function (tagKey, tagContentTemplate) {
     fireTag(tagKey, tagContentTemplate);
