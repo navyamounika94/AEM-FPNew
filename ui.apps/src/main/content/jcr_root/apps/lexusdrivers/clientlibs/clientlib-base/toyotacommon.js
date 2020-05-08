@@ -46,9 +46,7 @@ digitalData = {
     page: {
         pageName: window.document.location.pathname,
         siteSection: "",
-        '<page>': "",
-        '<subsection>': "",
-        '<section>': "",
+
         '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
         '<app>': "LD",
         '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
