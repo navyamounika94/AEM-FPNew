@@ -54,7 +54,7 @@ digitalData = {
         '<zip_code>': "",
         "<registration_type>": "",
         "<role>": "",
-        "<owner_model_name>": eval(getOwnerModelName())
+        '<owner_model_name>': ""
     }
 
 }
@@ -64,7 +64,7 @@ var tagCall = function (tagKey, tagContentTemplate) {
 }
 var fireTagCall = function (tagKey, errorMsg) {
     var tagContentTemplate = jQuery.extend(true, {}, '');
-    digitalData.page["<owner_model_name>"] = getOwnerModelName();
+    digitalData.page['<owner_model_name>'] = getOwnerModelName();
     if (fireTagParam.length != 0) {
         $.extend(true, tagContentTemplate, fireTagParam);
         $.extend(true, tagContentTemplate, digitalData.page);
@@ -103,10 +103,10 @@ $(document).on("click", "[data-firetag]", function () {
 })
 
 function getOwnerModelName() {
-    var fireTagOwnerModelName = "";
+    var fireTagOwnerModelName = '';
     fireTagOwnerModelName = $('#nav-bar-selectVehicle-tab').text();
     if (fireTagOwnerModelName === 'Select a Vehicle') {
-        fireTagOwnerModelName = "";
+        fireTagOwnerModelName = '';
     }
     return fireTagOwnerModelName;
 
