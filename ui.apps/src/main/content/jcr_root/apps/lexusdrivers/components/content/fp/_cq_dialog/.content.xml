@@ -238,8 +238,7 @@
                                 fieldDescription="Add email regex rule to validate user email"
                                 fieldLabel="EmailValidations "
                                 name="./emailValidations"
-                                required="{Boolean}true"
-                                value="^(?=.{1,50}$)(?=.{1,50}$)[a-zA-Z0-9][a-zA-Z0-9_-.]*@[a-zA-Z0-9-.]+(.[a-zA-Z]{2,4})+$"/>
+                                required="{Boolean}true" />
                             <emailValidationError
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
