@@ -85,20 +85,30 @@ class ForgotPassword extends Component {
         let endpoint = window.endPointsConfig.dcs3Endpoint + "/admin/customer/password/" + this.state.userEmail;
         let apiKey = window.endPointsConfig.dcsApiKey;
         if (this.form.isValid() && _isValidEmail) {
+
             var myHeaders = new Headers();
             myHeaders.append("Access-Control-Request-Method", "POST");
             myHeaders.append("x-api-key", apiKey);
             myHeaders.append("X-BRAND", "L");
             myHeaders.append("x-client", "LDNG");
             myHeaders.append("x-version", "1.0");
+            document.body.classList.add('loading-overlay-transparent')
+            this.setState({
+                isLoading: true
+            })
             fetch(endpoint, {
                 method: 'POST', headers: myHeaders
             }).then((response) => {
                 return response.json();
             }).then((json) => {
                 const success = (!!json && json.status.code === '200' && !!json.status.messages && json.status.messages[0].code === 'M00000');
+                this.setState({
+                    isLoading: false
+                })
+                document.body.classList.remove('loading-overlay-transparent')
                 if (success) {
                     this.setState({ loginStatus: true });
+
                 }
                 else {
                     this.setState({ errorDtl: `<div>Your account hasn't been activated yet, would you like us to&nbsp;<a class="rich-text-anchor" aria-label="&quot;/lexusdrivers/account/resend-activation-email&quot;" href="/lexusdrivers/account/resend-activation-email">resend your activation email</a>? Please note that activation emails may take several minutes to send.</div>` });

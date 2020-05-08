@@ -1,5 +1,6 @@
 import { Page, withModel } from '@adobe/cq-react-editable-components';
 import React from 'react';
+import SiteLoader from '../src/components/siteLoader'
 
 // This component is the application entry point
 class App extends Page {
@@ -8,6 +9,7 @@ class App extends Page {
       <div className="container-fluid">
         {this.childComponents}
         {this.childPages}
+        <SiteLoader />
       </div>
     );
   }
