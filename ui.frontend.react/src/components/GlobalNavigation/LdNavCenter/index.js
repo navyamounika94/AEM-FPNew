@@ -135,7 +135,7 @@ class LdNavCenter extends Component {
                                             className="ld-caret nav-centerItem"
                                             id={`nav-bar-tab-${index + 1}`}
                                             data-firetag="72.3"
-                                            data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"${navlist[index].label}","<nav_subcategory>":"Home" }`}
+                                            data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"${navlist[index].label}","<nav_subcategory>":"Home" }`}
                                             onClick={() => {
                                                 // For mobile and tablet, we only toggle on clicks
                                                 if (this.props.toggle && (this.viewport === Viewport.MOBILE || this.viewport === Viewport.TABLET)) {
@@ -190,7 +190,7 @@ class LdNavCenter extends Component {
                                                                                                 <ListGroupItem key={k}>
                                                                                                     <span
                                                                                                         data-firetag="72.3"
-                                                                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"${menu.label}","<nav_subcategory>":"${subMenu.navlabel + ':' + subMenuChildren[k].navLabel}" }`}
+                                                                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"${menu.label}","<nav_subcategory>":"${subMenu.navlabel + ':' + subMenuChildren[k].navLabel}" }`}
                                                                                                     >
                                                                                                         <RouterLink
                                                                                                             field={routerLinkFormat(subMenuChildren[k])}
@@ -216,7 +216,7 @@ class LdNavCenter extends Component {
 
                                                                         <div className="d-flex flex-row flex-wrap link-btm"
                                                                             data-firetag="72.3"
-                                                                            data-firetag-param={`{"<container>": "Global Nav","<app>": "LD-AEM","<nav_category>":"${subMenu.navlabel}","<nav_subcategory>":"${subMenu.navlabel + ':' + subMenu.navlabel}" }`}
+                                                                            data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<nav_category>":"${subMenu.navlabel}","<nav_subcategory>":"${subMenu.navlabel + ':' + subMenu.navlabel}" }`}
                                                                         >
                                                                             <RouterLink
                                                                                 field={routerLinkFormat(subMenu)}
