@@ -202,7 +202,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="lexusdrivers/components/content/globalNav"
                 body="&lt;ul>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/VehicleHealthReportLandingPage&quot; target=&quot;_self&quot;>Vehicle Health Reports&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/history&quot; target=&quot;_self&quot;>Service History&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/service/maintenance-schedules&quot; target=&quot;_self&quot;>Maintenance Schedule&lt;/a>&lt;/li>&#xd;&#xa;&lt;li>&lt;a class=&quot;rich-text-anchor&quot; href=&quot;/lexusdrivers/resources&quot; target=&quot;_self&quot;>Vehicle Specs, Maintenance and Warranty Information&lt;/a>&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p> &lt;/p>&#xd;&#xa;"
-                bottomText="Add this vehicle to your account by &lt;a href=\\&quot;/lexusdrivers/account/login\\&quot; target=\\&quot;_self\\&quot;>SIGNING IN&lt;/a> or &lt;a href=\\&quot;/lexusdrivers/account/register\\&quot;>CREATING AN ACCOUNT&lt;/a>."
+                bottomText="Add this vehicle to your account by &lt;a href=&quot;/lexusdrivers/account/login&quot; target=\\&quot;_self\\&quot;>SIGNING IN&lt;/a> or &lt;a href=&quot;/lexusdrivers/account/register&quot;>CREATING AN ACCOUNT&lt;/a>."
                 buttonLabel="SUBMIT"
                 carousellinkoutUrl="/lexusdrivers/account/register"
                 carousellinktype="external"
