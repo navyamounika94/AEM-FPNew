@@ -6,9 +6,10 @@ body.loading-overlay-transparent .site-loader-new {
   }
   
   body.loading-overlay, body.loading-overlay-transparent {
+    display:block;
     overflow: hidden;
     height: 100%;
-    opacity: 0.6;
+    opacity: 0.8;
   }
   body.loader-active .site-loader-container, body.loading-overlay-transparent .site-loader-container {
     position: fixed;

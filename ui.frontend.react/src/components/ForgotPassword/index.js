@@ -22,6 +22,8 @@ import { FormWithConstraints } from 'react-form-with-constraints-bootstrap4';
 import { MapTo } from '@adobe/cq-react-editable-components';
 import DisplayMessage from '../DisplayMessage';
 import { getViewport } from '../GlobalNavigation/components/Viewport/index';
+import SiteLoader from '../siteLoader'
+
 require('./forgotPassword.css');
 
 const ForgotPasswordEditConfig = {
@@ -116,10 +118,13 @@ class ForgotPassword extends Component {
                 console.log(json);
 
             }).catch((error) => {
+                //setTimeout
                 console.log('error', error);
                 this.setState({ loginStatus: false });
             });
-
+            setTimeout(() => {
+                document.body.classList.remove('loading-overlay-transparent')
+              }, 5000);
         }
     }
     pageLoadMetrics() {
@@ -172,7 +177,7 @@ class ForgotPassword extends Component {
                         displaysupportContent={this.props.displaysupportContent}
                         displayverticalCenterAlign={this.props.displayverticalCenterAlign}
                         email={this.state.userEmail}>
-                    </DisplayMessage> :
+                     </DisplayMessage> :
                         <div className="container-fluid acc-bg" id="forgot-password">
                             <div className="row justify-content-center " id="titlePanel">
                                 <div className="col-12 col-md-11">
@@ -255,7 +260,7 @@ class ForgotPassword extends Component {
                             </div>
                         </div>
                 }
-
+                <SiteLoader/>
             </>
 
         );
