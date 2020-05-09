@@ -146,10 +146,9 @@ export default class GlobalFooter extends Component {
 																						return (
 
 																							<li>
-
 																								<a data-firetag="72.3" data-model={key4.linktitle} data-category={key3.footerColumnHeadline}
 																									data-firetag-param={`{"<container>": "Global Footer","<app>": "LD","<nav_category>":"${key3.footerColumnHeadline}","<nav_subcategory>":"${key4.linktitle}" }`}
-																									href={key4.linktargeturl} target={key4.openinnew == 'yes' ? "_blank" : "_self"}>{key4.linktitle}</a>
+																									href={key4.linktargeturl} target={key4.openinnew == 'yes' ? "_blank" : "_self"} rel={key4.openinnew == 'yes' ? "noreferrer" : ""}>{key4.linktitle}</a>
 																							</li>
 																						)
 																					})
