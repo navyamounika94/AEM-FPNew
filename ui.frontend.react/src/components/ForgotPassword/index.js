@@ -43,7 +43,7 @@ class ForgotPassword extends Component {
             formErrMsg: '',
             userEmail: '',
             isValidEmail: true,
-            isLoading: false,
+            //isLoading: false,
             loginStatus: false
         }
     }
@@ -95,18 +95,18 @@ class ForgotPassword extends Component {
             myHeaders.append("x-client", "LDNG");
             myHeaders.append("x-version", "1.0");
             document.body.classList.add('loading-overlay-transparent')
-            this.setState({
-                isLoading: true
-            })
+            // this.setState({
+            //     isLoading: true
+            // })
             fetch(endpoint, {
                 method: 'POST', headers: myHeaders
             }).then((response) => {
                 return response.json();
             }).then((json) => {
                 const success = (!!json && json.status.code === '200' && !!json.status.messages && json.status.messages[0].code === 'M00000');
-                this.setState({
-                    isLoading: false
-                })
+                // this.setState({
+                //     isLoading: false
+                // })
                 document.body.classList.remove('loading-overlay-transparent')
                 if (success) {
                     this.setState({ loginStatus: true });
@@ -118,7 +118,9 @@ class ForgotPassword extends Component {
                 console.log(json);
 
             }).catch((error) => {
-                //setTimeout
+                setTimeout(() => {
+                    document.body.classList.remove('loading-overlay-transparent')
+                  }, 5000);
                 console.log('error', error);
                 this.setState({ loginStatus: false });
             });
