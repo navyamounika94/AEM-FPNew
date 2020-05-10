@@ -42,6 +42,7 @@
                 copyRightText="Safety Recalls &amp; Service Campaigns"
                 headline="DO NOT SELL MY PERSONAL INFORMATION"
                 headlinePath="https://privacy.toyota.com/"
+                headPathOpennewwindow="true"
                 messagecheckbox="true"
                 textIsRich="true">
                 <footercolumns jcr:primaryType="nt:unstructured">
