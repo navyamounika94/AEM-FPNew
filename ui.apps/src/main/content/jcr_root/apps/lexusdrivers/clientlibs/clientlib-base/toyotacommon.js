@@ -21,16 +21,14 @@ if (self !== top && "Granite" in window.parent) {
     window.parent.Granite.author.layerManager.activateLayer("Preview")
 }
 
-// var imported0 = document.createElement('script');
-// imported0.src = 'https://code.jquery.com/jquery-3.5.0.js';
-// document.head.appendChild(imported0);
+
 jQuery.noConflict();
 
-var imported0 = document.createElement('script');
-imported0.async = true;
-imported0.type = 'text/javascript';
-imported0.src = 'https://code.jquery.com/jquery-3.5.0.js';
-document.head.appendChild(imported0);
+// var imported0 = document.createElement('script');
+// imported0.async = true;
+// imported0.type = 'text/javascript';
+// imported0.src = 'https://code.jquery.com/jquery-3.5.0.js';
+// document.head.appendChild(imported0);
 
 var imported1 = document.createElement('script');
 imported1.async = true;
