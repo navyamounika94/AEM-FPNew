@@ -37,7 +37,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="lexusdrivers/components/content/globalfooter"
                 copyopennewwindow="true"
-                copyRightDesc="&lt;p>© 2006-2019 Lexus, a Division of Toyota Motor Sales, U.S.A., Inc. All information contained herein applies to U.S. vehicles only.&lt;/p>&#xd;&#xa;"
+                copyRightDesc="&lt;p>© 2006-2020 Lexus, a Division of Toyota Motor Sales, U.S.A., Inc. All information contained herein applies to U.S. vehicles only.&lt;/p>&#xd;&#xa;"
                 copyRightLink="http://www.toyota.com/recall"
                 copyRightText="Safety Recalls &amp; Service Campaigns"
                 headline="DO NOT SELL MY PERSONAL INFORMATION"
