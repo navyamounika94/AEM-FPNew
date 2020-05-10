@@ -120,13 +120,13 @@ class ForgotPassword extends Component {
             }).catch((error) => {
                 setTimeout(() => {
                     document.body.classList.remove('loading-overlay-transparent')
-                  }, 5000);
+                  }, 0);
                 console.log('error', error);
                 this.setState({ loginStatus: false });
             });
             setTimeout(() => {
                 document.body.classList.remove('loading-overlay-transparent')
-              }, 5000);
+              }, 10000);
         }
     }
     pageLoadMetrics() {
