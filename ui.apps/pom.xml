@@ -58,37 +58,11 @@
                     </properties>
                     <embeddeds>
                         <embedded>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.core</artifactId>
-                            <target>/apps/lexusdrivers/install</target>
-                        </embedded>
-                        <embedded>
                             <groupId>com.tmna.adobe</groupId>
                             <artifactId>lexusdrivers.core</artifactId>
                             <target>/apps/lexusdrivers/install</target>
                         </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/lexusdrivers/install</target>
-                        </embedded>
                     </embeddeds>
-                    <subPackages>
-                        <subPackage>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.all</artifactId>
-                        </subPackage>
-                    </subPackages>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.content</artifactId>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.config</artifactId>
-                        </dependency>
-                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
@@ -117,13 +91,6 @@
             <artifactId>lexusdrivers.core</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-      <!--  <dependency>
-            <groupId>com.tmna.adobe</groupId>
-            <artifactId>lexusdrivers.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>-->
 
         <dependency>
             <groupId>com.tmna.adobe</groupId>

@@ -23,9 +23,7 @@
     <description>lexusdrivers</description>
 
     <modules>
-        <module>all</module>
         <module>core</module>
-   <!--  <module>ui.frontend</module>-->
         <module>ui.frontend.react</module>
         <module>ui.apps</module>
         <module>ui.content</module>
