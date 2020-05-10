@@ -19,9 +19,9 @@ class HeaderLogo extends Component {
                         }
                     }}
                     onClick={() => {
-                        if (window.location.href.endsWith('/lexusdrivers')) {
-                            zenScroll.toY(0, 500);
-                        }
+                        setTimeout(() => {
+                            window.location.reload(false);
+                        }, 0);
                     }}
                 >
                     <Image

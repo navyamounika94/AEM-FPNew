@@ -22,6 +22,8 @@ import { FormWithConstraints } from 'react-form-with-constraints-bootstrap4';
 import { MapTo } from '@adobe/cq-react-editable-components';
 import DisplayMessage from '../DisplayMessage';
 import { getViewport } from '../GlobalNavigation/components/Viewport/index';
+import SiteLoader from '../siteLoader'
+
 require('./forgotPassword.css');
 
 const ForgotPasswordEditConfig = {
@@ -41,7 +43,7 @@ class ForgotPassword extends Component {
             formErrMsg: '',
             userEmail: '',
             isValidEmail: true,
-            isLoading: false,
+            //isLoading: false,
             loginStatus: false
         }
     }
@@ -93,18 +95,18 @@ class ForgotPassword extends Component {
             myHeaders.append("x-client", "LDNG");
             myHeaders.append("x-version", "1.0");
             document.body.classList.add('loading-overlay-transparent')
-            this.setState({
-                isLoading: true
-            })
+            // this.setState({
+            //     isLoading: true
+            // })
             fetch(endpoint, {
                 method: 'POST', headers: myHeaders
             }).then((response) => {
                 return response.json();
             }).then((json) => {
                 const success = (!!json && json.status.code === '200' && !!json.status.messages && json.status.messages[0].code === 'M00000');
-                this.setState({
-                    isLoading: false
-                })
+                // this.setState({
+                //     isLoading: false
+                // })
                 document.body.classList.remove('loading-overlay-transparent')
                 if (success) {
                     this.setState({ loginStatus: true });
@@ -116,10 +118,15 @@ class ForgotPassword extends Component {
                 console.log(json);
 
             }).catch((error) => {
+                setTimeout(() => {
+                    document.body.classList.remove('loading-overlay-transparent')
+                  }, 5000);
                 console.log('error', error);
                 this.setState({ loginStatus: false });
             });
-
+            setTimeout(() => {
+                document.body.classList.remove('loading-overlay-transparent')
+              }, 5000);
         }
     }
     pageLoadMetrics() {
@@ -172,7 +179,7 @@ class ForgotPassword extends Component {
                         displaysupportContent={this.props.displaysupportContent}
                         displayverticalCenterAlign={this.props.displayverticalCenterAlign}
                         email={this.state.userEmail}>
-                    </DisplayMessage> :
+                     </DisplayMessage> :
                         <div className="container-fluid acc-bg" id="forgot-password">
                             <div className="row justify-content-center " id="titlePanel">
                                 <div className="col-12 col-md-11">
@@ -255,7 +262,7 @@ class ForgotPassword extends Component {
                             </div>
                         </div>
                 }
-
+                <SiteLoader/>
             </>
 
         );

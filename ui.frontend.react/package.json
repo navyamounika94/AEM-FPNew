@@ -26,6 +26,7 @@
     "lodash.isempty": "^4.4.0",
     "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
+    "lottie-web": "^5.6.8",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.5",
