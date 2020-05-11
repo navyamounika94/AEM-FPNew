@@ -34,13 +34,7 @@
     <name>lexusdrivers - Integration Tests Bundles</name>
     <description>Bundles for Integration Tests for lexusdrivers</description>
 
-    <!-- <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
-        <tag>HEAD</tag>
-    </scm-->
-
+  
     <properties>
         <junit.version>4.8.2</junit.version>
     </properties>
@@ -77,21 +71,6 @@ Sling-Test-Regexp: .*Test
                     </archive>
                 </configuration>
             </plugin>
-            <!--<plugin>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>bnd-baseline-maven-plugin</artifactId>
-                <configuration>
-                    <failOnMissing>false</failOnMissing>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>baseline</id>
-                        <goals>
-                            <goal>baseline</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
         </plugins>
     </build>
 
