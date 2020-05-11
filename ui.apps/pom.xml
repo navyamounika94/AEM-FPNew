@@ -53,9 +53,6 @@
                     <name>lexusdrivers.ui.apps</name>
                     <packageType>application</packageType>
                     <accessControlHandling>merge</accessControlHandling>
-                    <properties>
-                        <cloudManagerTarget>none</cloudManagerTarget>>
-                    </properties>
                     <embeddeds>
                         <embedded>
                             <groupId>com.tmna.adobe</groupId>
