@@ -31,7 +31,7 @@ public class HeaderFactoryEndPoints implements IFactory{
 	}
 	private static final Logger log = LoggerFactory.getLogger(HeaderFactoryEndPoints.class);
 	final String UrlService_PID = ConstantsUtil.URL_SERVICE_PID;
-	private static Map<String, String> endPointsMap;
+	private  Map<String, String> endPointsMap;
 
 	@Inject
 	ComponentContext componentContext;
