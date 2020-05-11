@@ -19,13 +19,11 @@
     <groupId>com.tmna.adobe</groupId>
     <artifactId>lexusdrivers</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <description>lexusdrivers</description>
 
     <modules>
-        <module>all</module>
         <module>core</module>
-   <!--  <module>ui.frontend</module>-->
         <module>ui.frontend.react</module>
         <module>ui.apps</module>
         <module>ui.content</module>
