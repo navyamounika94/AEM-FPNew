@@ -26,9 +26,7 @@ export const modelTrim = (model) => {
  * Converts model strings into the proper Lexus formats
  */
 export const modelFormat = (model) => {
-    const tmp = model
-        .toUpperCase()
-        ;
+    const tmp = model.toUpperCase();
 
     return tmp
         .replace(/\ ?(\d)/, ' $1') // Add a space before all numbers
@@ -69,32 +67,32 @@ export const sameModelYear = (v1, v2) => {
 export const routerLabelFormat = (label) => {
     return {
         "jss": {
-           "value": label
+            "value": label
         },
         "value": label
-     };
+    };
 };
 export const routerLinkFormat = (profile) => {
     let url = '';
-    if(profile.url){
+    if (profile.url) {
         url = profile.url;
-    }else if(profile.linkoutUrl){
+    } else if (profile.linkoutUrl) {
         url = profile.linkoutUrl;
-    }else{
+    } else {
         url = profile.navLink;
     }
     return {
-        "value": "<link linktype="+profile.linktype+" url="+url+" anchor=\"\" target=\"\" />",
+        "value": "<link linktype=" + profile.linktype + " url=" + url + " anchor=\"\" target=\"\" />",
         "jss": {
-           "value": {
-              "href": url,
-              "linktype": profile.linktype,
-              "url": url,
-              "anchor": "",
-              "target": ""
-           }
+            "value": {
+                "href": url,
+                "linktype": profile.linktype,
+                "url": url,
+                "anchor": "",
+                "target": ""
+            }
         }
-     }
+    }
 };
 export const richTextValueFormat = (value) => {
     return {
@@ -103,9 +101,9 @@ export const richTextValueFormat = (value) => {
 }
 export const imageJSSFormat = (value) => {
     return {
-        "value":{
-            "src" : value
-        } 
+        "value": {
+            "src": value
+        }
     }
 }
 export const imageSliderFormat = (props) => {

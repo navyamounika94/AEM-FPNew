@@ -152,7 +152,7 @@ class LdVehicleSelector extends Component {
             clearCookie('last-viewed-cars');
             clearCookie('ldng-logged-out-selected-vehicle');
         } else {
-            clearCookie('ldng-logged-out-selected-vehicle');
+            clearCookie('lexus-drivers-viewed-cars');
         }
 
         this.setState({
@@ -193,7 +193,7 @@ class LdVehicleSelector extends Component {
 
         if (this.state.selectedModel.toLowerCase() !== defaultModelLabel.toLowerCase() && this.state.selectedYear.toLowerCase() !== defaultYearLabel.toLowerCase()) {
             this.setState({
-                moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel,
+                moduleLabel: this.state.selectedYear + ' ' + modelFormat(this.state.selectedModel),
                 isModelSelected: true
             });
             this.selectedGarageVehicle = {

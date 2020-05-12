@@ -56,14 +56,14 @@ digitalData = {
     page: {
         pageName: window.document.location.pathname,
         siteSection: "",
-        '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
+        '<orientation>': (window.innerHeight < window.innerWidth) ? "landscape" : "portrait",
         '<app>': "LD",
-        '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
-        '<login_status>': "Logged Out",
+        '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
+        '<login_status>': " logged_out",
         '<tag_id>': "",
         '<zip_code>': "",
-        "<registration_type>": "",
-        "<role>": "",
+        '<registration_type>': "",
+        '<role>': "",
         '<owner_model_name>': "",
         '<model_name>': "",
         '<model_year>': ""
@@ -121,7 +121,11 @@ function getOwnerModelName() {
     var fireTagOwnerModelName = '';
     fireTagOwnerModelName = $('#nav-bar-selectVehicle-tab').text();
     if (fireTagOwnerModelName === 'Select a Vehicle') {
-        fireTagOwnerModelName = '';
+        return fireTagOwnerModelName;
+    }
+    if (fireTagOwnerModelName.trim().length > 1) {
+        var arrSelectedVehicle = fireTagOwnerModelName.split(" ");
+        fireTagOwnerModelName = arrSelectedVehicle[0] + " lexus " + arrSelectedVehicle[1] + arrSelectedVehicle[2];
     }
     return fireTagOwnerModelName;
 
@@ -143,7 +147,8 @@ function getModelName() {
     if ($('#nav-bar-selectVehicle-tab').text() === "Select a Vehicle")
         return modelName;
     if (fireTagSelectedVehicle.trim().length > 1) {
-        modelName = fireTagSelectedVehicle.split(" ")[1];
+        var arrSelectedVehicle = fireTagSelectedVehicle.split(" ");
+        modelName = arrSelectedVehicle[1] + arrSelectedVehicle[2];
     }
     return modelName;
 }
