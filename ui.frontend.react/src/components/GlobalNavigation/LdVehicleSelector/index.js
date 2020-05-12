@@ -499,12 +499,12 @@ class LdVehicleSelector extends Component {
                                                         onClick={this.handleVehicleSelection}
                                                         value={this.props.SelectVehicle.buttonLabel}
                                                         data-firetag="73.2"
-                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<action>":"submit","<module>":"Vehicle Module" }`}
+                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<action>":"submit","<subsection>":"Global Nav","<module>":"Vehicle Module" }`}
                                                     />
                                                 </FormGroup>
                                                 <div
                                                     data-firetag="73.2"
-                                                    data-firetag-param={`{"<container>": "Global Nav",,"<app>": "LD","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
+                                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<subsection>":"Global Nav","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
