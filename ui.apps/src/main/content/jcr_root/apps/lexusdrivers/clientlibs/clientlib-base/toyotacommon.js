@@ -56,14 +56,14 @@ digitalData = {
     page: {
         pageName: window.document.location.pathname,
         siteSection: "",
-        '<orientation>': (window.innerHeight < window.innerWidth) ? "Landscape" : "Portrait",
-        '<app>': "LD",
-        '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "MOBILE" : "DESKTOP",
-        '<login_status>': "Logged Out",
+        '<orientation>': (window.innerHeight < window.innerWidth) ? "landscape" : "portrait",
+        '<app>': "ld",
+        '<break_point>': window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
+        '<login_status>': "logged_out",
         '<tag_id>': "",
         '<zip_code>': "",
-        "<registration_type>": "",
-        "<role>": "",
+        '<registration_type>': "",
+        '<role>': "",
         '<owner_model_name>': "",
         '<model_name>': "",
         '<model_year>': ""
@@ -77,8 +77,8 @@ var tagCall = function (tagKey, tagContentTemplate) {
 var fireTagCall = function (tagKey, errorMsg) {
     var tagContentTemplate = jQuery.extend(true, {}, '');
     digitalData.page['<owner_model_name>'] = getOwnerModelName();
-    digitalData.page['<model_name>'] = getModelName();
-    digitalData.page['<model_year>'] = getOwnerModelYear();
+    digitalData.page['<model_name>'] = getDrodownSelectedModel();
+    digitalData.page['<model_year>'] = getDrodownSelectedModelYear();
 
     if (fireTagParam.length != 0) {
         $.extend(true, tagContentTemplate, fireTagParam);
@@ -107,7 +107,7 @@ $(document).on("click", "[data-firetag]", function () {
         console.log('ld calling analytics onClick....');
         var tagId = "" + $(this).attr("data-firetag");
         digitalData.page["<tag_id>"] = tagId;
-        void 0 !== $(this).attr("data-firetag-param") && (fireTagParam = jQuery.parseJSON($(this).attr("data-firetag-param")));
+        void 0 !== $(this).attr("data-firetag-param") && (fireTagParam = jQuery.parseJSON($(this).attr("data-firetag-param").toLowerCase()));
         var multipleTagIdIndex = tagId.indexOf(",");
         if (multipleTagIdIndex > -1) {
             var firstTagId = tagId.substring(0, multipleTagIdIndex), secondTagId = tagId.substring(multipleTagIdIndex + 1);
@@ -117,34 +117,42 @@ $(document).on("click", "[data-firetag]", function () {
     }
 })
 
+
 function getOwnerModelName() {
-    var fireTagOwnerModelName = '';
-    fireTagOwnerModelName = $('#nav-bar-selectVehicle-tab').text();
-    if (fireTagOwnerModelName === 'Select a Vehicle') {
-        fireTagOwnerModelName = '';
+
+    if ($("#m-selector option:selected").text() === "SELECT A VEHICLE") {
+        return '';
     }
-    return fireTagOwnerModelName;
+
+    if ($("#m-selector option:selected").length > 0 && $("#yr-selector option:selected").length > 0) {
+        return $("#yr-selector option:selected").text() + " lexus " + $("#m-selector option:selected").text().replace(/\s/g, '').toLowerCase();
+    }
 
 }
 
-function getOwnerModelYear() {
-    var modelYear = '';
-    var fireTagSelectedVehicle = $('#nav-bar-selectVehicle-tab').text();
-    if ($('#nav-bar-selectVehicle-tab').text() === "Select a Vehicle")
-        return modelYear;
-    if (fireTagSelectedVehicle.trim().length > 1) {
-        modelYear = fireTagSelectedVehicle.split(" ")[0];
+function getDrodownSelectedModel() {
+    if ($("#m-selector option:selected").text() === "SELECT A VEHICLE") {
+        return '';
     }
-    return modelYear;
-}
-function getModelName() {
-    var modelName = '';
-    var fireTagSelectedVehicle = $('#nav-bar-selectVehicle-tab').text();
-    if ($('#nav-bar-selectVehicle-tab').text() === "Select a Vehicle")
-        return modelName;
-    if (fireTagSelectedVehicle.trim().length > 1) {
-        modelName = fireTagSelectedVehicle.split(" ")[1];
+    if ($("#m-selector option:selected").length > 0) {
+        return $("#m-selector option:selected").text().replace(/\s/g, '').toLowerCase();
     }
-    return modelName;
+    else {
+        return '';
+    }
 }
+
+function getDrodownSelectedModelYear() {
+    if ($("#yr-selector option:selected").text() === "SELECT A YEAR") {
+        return '';
+    }
+    if ($("#yr-selector option:selected").length > 0) {
+        return $("#yr-selector option:selected").text()
+    }
+    else {
+        return '';
+    }
+}
+
+
 console.log('from clientlib');

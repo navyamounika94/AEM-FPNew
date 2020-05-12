@@ -152,7 +152,7 @@ class LdVehicleSelector extends Component {
             clearCookie('last-viewed-cars');
             clearCookie('ldng-logged-out-selected-vehicle');
         } else {
-            clearCookie('ldng-logged-out-selected-vehicle');
+            clearCookie('lexus-drivers-viewed-cars');
         }
 
         this.setState({
@@ -193,7 +193,7 @@ class LdVehicleSelector extends Component {
 
         if (this.state.selectedModel.toLowerCase() !== defaultModelLabel.toLowerCase() && this.state.selectedYear.toLowerCase() !== defaultYearLabel.toLowerCase()) {
             this.setState({
-                moduleLabel: this.state.selectedYear + ' ' + this.state.selectedModel,
+                moduleLabel: this.state.selectedYear + ' ' + modelFormat(this.state.selectedModel),
                 isModelSelected: true
             });
             this.selectedGarageVehicle = {
@@ -499,12 +499,12 @@ class LdVehicleSelector extends Component {
                                                         onClick={this.handleVehicleSelection}
                                                         value={this.props.SelectVehicle.buttonLabel}
                                                         data-firetag="73.2"
-                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<action>":"submit","<module>":"Vehicle Module" }`}
+                                                        data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<action>":"submit","<subsection>":"Global Nav","<module>":"Vehicle Module" }`}
                                                     />
                                                 </FormGroup>
                                                 <div
                                                     data-firetag="73.2"
-                                                    data-firetag-param={`{"<container>": "Global Nav",,"<app>": "LD","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
+                                                    data-firetag-param={`{"<container>": "Global Nav","<app>": "LD","<subsection>":"Global Nav","<action>":"${this.props.SelectVehicle.bottomText}","<module>":"Vehicle Module" }`}
                                                 >
                                                     {(!isLoggedIn && this.state.isModelSelected) &&
                                                         <RichText
